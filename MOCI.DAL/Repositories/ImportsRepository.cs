@@ -52,20 +52,23 @@ namespace MOCI.DAL.Repositories
             var query = _context.ImportedData.AsQueryable();
 
 
-            query = searchParams.TransactionDateFrom == null ? query : query.Where(c =>
-                 searchParams.TransactionDateFrom != null &&
-                 c.Trxn_DateValue >= searchParams.TransactionDateFrom
+            query = searchParams.TransactionDate == null ? query : query.Where(c =>
+                 searchParams.TransactionDate != null &&
+                 c.Trxn_DateValue == searchParams.TransactionDate
                    );
 
-            query = searchParams.TransactionDateTo == null ? query : 
-                query.Where(c => searchParams.TransactionDateTo != null && c.Trxn_DateValue <= searchParams.TransactionDateTo);
+            query = searchParams.ApprovedCode == null ? query : 
+                query.Where(c => searchParams.ApprovedCode != null &&
+                c.Approved_Code == searchParams.ApprovedCode.Trim());
 
-            query = searchParams.PostingDate == null ? query : 
-                query.Where(c => c.Posting_DateValue == searchParams.PostingDate);
+            query = searchParams.CardNumber == null ? query : 
+                query.Where(c => c.Card_Number == searchParams.CardNumber.Trim());
 
 
-            query = searchParams.AccountNumber == null ? query :
-                query.Where(c => c.ACCOUNT_NUMBER == searchParams.AccountNumber);
+            query = searchParams.InvoiceNo == null ? query :
+                query.Where(c => c.Invoice_No == searchParams.InvoiceNo.Trim());
+
+
 
             return query.ToList();
 
