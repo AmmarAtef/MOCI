@@ -1,0 +1,70 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <CopyRefAssembliesToPublishDirectory>false</CopyRefAssembliesToPublishDirectory>
+    <AssemblyName>MOCI.Web</AssemblyName>
+    <RootNamespace>MOCI.Web</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\Admin\Activites.cshtml" />
+    <Content Remove="Views\Admin\AddCustomer.cshtml" />
+    <Content Remove="Views\Admin\AddDepartment.cshtml" />
+    <Content Remove="Views\Admin\AddGeneralActivity.cshtml" />
+    <Content Remove="Views\Admin\AddGrade.cshtml" />
+    <Content Remove="Views\Admin\AddPosition.cshtml" />
+    <Content Remove="Views\Admin\AddProject.cshtml" />
+    <Content Remove="Views\Admin\AddProjectActivity.cshtml" />
+    <Content Remove="Views\Admin\Customers.cshtml" />
+    <Content Remove="Views\Admin\Departments.cshtml" />
+    <Content Remove="Views\Admin\EditCustomer.cshtml" />
+    <Content Remove="Views\Admin\EditDepartment.cshtml" />
+    <Content Remove="Views\Admin\EditGeneralActivity.cshtml" />
+    <Content Remove="Views\Admin\EditGrade.cshtml" />
+    <Content Remove="Views\Admin\EditPosition.cshtml" />
+    <Content Remove="Views\Admin\EditProject.cshtml" />
+    <Content Remove="Views\Admin\EditProjectActivity.cshtml" />
+    <Content Remove="Views\Admin\GeneralActivities.cshtml" />
+    <Content Remove="Views\Admin\Grades.cshtml" />
+    <Content Remove="Views\Admin\Positions.cshtml" />
+    <Content Remove="Views\Admin\ProjectActivities.cshtml" />
+    <Content Remove="Views\Admin\Projects.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AspNetCoreHero.ToastNotification" Version="1.1.0" />
+    <PackageReference Include="Bootstrap.v3.Datetimepicker" Version="4.17.49" />
+    <PackageReference Include="Bootstrap.v3.Datetimepicker.CSS" Version="4.17.49" />
+    <PackageReference Include="Coravel" Version="4.0.2" />
+    <PackageReference Include="ExcelDataReader" Version="3.6.0" />
+    <PackageReference Include="ExcelDataReader.DataSet" Version="3.6.0" />
+    <PackageReference Include="MailKit" Version="2.13.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.12" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.12">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Logging.Configuration" Version="5.0.0" />
+    <PackageReference Include="Microsoft.jQuery.Unobtrusive.Ajax" Version="3.2.6" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
+    <PackageReference Include="NLog.Web.AspNetCore" Version="4.13.0-readme-preview" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
+    <PackageReference Include="System.DirectoryServices" Version="6.0.0" />
+    <PackageReference Include="System.DirectoryServices.AccountManagement" Version="6.0.0" />
+    <PackageReference Include="System.Text.Encoding.CodePages" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MOCI.Core\MOCI.Core.csproj" />
+    <ProjectReference Include="..\MOCI.DAL\MOCI.DAL.csproj" />
+    <ProjectReference Include="..\MOCI.Services\MOCI.Services.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Services\" />
+  </ItemGroup>
+
+</Project>

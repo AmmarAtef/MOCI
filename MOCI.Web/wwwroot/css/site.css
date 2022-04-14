@@ -1,0 +1,284 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+.validation-summary-errors {
+    color: red;
+}
+
+.mannai-logo{
+    width :280px;
+    height:80px;
+    margin-bottom:40px;
+}
+
+
+.timesheet-row-item {
+    background-color: #f6f6f6;
+    padding: 15px 10px;
+    border-radius: 5px;
+}
+
+    .timesheet-row-item .pl-0 {
+        padding-left: 0;
+    }
+
+    .timesheet-row-item .pr-0 {
+        padding-right: 0;
+    }
+
+    .timesheet-row-item label.form-label {
+        font-weight: 300;
+        font-size: 14px;
+        margin-bottom: 3px;
+        color: #343a40;
+    }
+
+    .timesheet-row-item .time-cell {
+        width: auto !important;
+        margin: 0 !important;
+    }
+
+    .timesheet-row-item .remove-row-icon {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        font-size: 18px;
+        color: #cacaca;
+        cursor: pointer;
+    }
+
+        .timesheet-row-item .remove-row-icon:hover {
+            color: #333;
+        }
+
+@media all and (max-width: 992px) {
+    .timesheet-row-item .remove-row-icon {
+        color: #333;
+    }
+}
+
+.timesheet-footer label.form-label {
+    font-weight: 300;
+    font-size: 14px;
+    margin-bottom: 3px;
+    color: #343a40;
+}
+
+.timesheet-footer .time-cell-total {
+    width: auto !important;
+    margin: 0 !important;
+}
+
+.timesheet-footer .form-control[readonly] {
+    box-shadow: none !important;
+    border-color: #597ea2 !important;
+    font-weight: bold !important;
+    text-align: center !important;
+    color: #597ea2 !important;
+}
+
+.timesheet-footer .total-label-cell {
+    margin-top: 30px;
+    font-weight: bold;
+    text-align: right;
+}
+
+.timesheet-footer .actions-container button {
+    margin-top: 15px;
+    margin-right: 10px;
+    min-width: 75px;
+}
+
+.total-all-cell .form-control[readonly] {
+    display: inline-block;
+    width: 120px;
+    margin-left: 10px;
+    box-shadow: 0 1px 2px silver !important;
+    border-color: #597ea2 !important;
+    font-weight: bold !important;
+    text-align: center !important;
+    color: #597ea2 !important;
+}
+
+.total-all-cell .content {
+    margin-top: 20px;
+    text-align: center;
+}
+
+
+.parsley-errors-list {
+    color: red;
+    padding-left: 14px;
+}
+
+aside.main-sidebar {
+    overflow-y: initial;
+}
+
+    aside.main-sidebar .sidebar .user-panel {
+        display: flex;
+        align-items: center;
+    }
+
+        aside.main-sidebar .sidebar .user-panel img {
+            height: 2.1rem;
+        }
+
+        aside.main-sidebar .sidebar .user-panel .info {
+            color: white;
+        }
+
+            aside.main-sidebar .sidebar .user-panel .info span:first-of-type {
+                font-weight: bold;
+                font-size: 16px;
+            }
+
+            aside.main-sidebar .sidebar .user-panel .info span:last-of-type {
+                font-size: 14px;
+            }
+
+    aside.main-sidebar .collapse-responsive-menu {
+        position: absolute;
+        left: 100%;
+        top: 0;
+        background: #343a40;
+        color: white;
+        padding: 15px;
+        border-radius: 0 3px 3px 0;
+    }
+
+        aside.main-sidebar .collapse-responsive-menu.hidden {
+            display: none;
+        }
+
+#tablePanel > .row {
+    justify-content: space-between;
+    align-items: center;
+}
+
+    #tablePanel > .row > div:last-of-type {
+        float: none !important;
+        margin-left: 0 !important;
+    }
+
+.total-label-cell {
+    display: none;
+}
+
+.parsley-errors-list li {
+    list-style: none;
+    margin-left: -10px;
+}
+
+.hidden-element {
+    display: none;
+}
+.modal-header-success {
+    color: #fff;
+    padding: 9px 15px;
+    border-bottom: 1px solid #eee;
+    background-color: #5cb85c;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.modal-header-danger {
+    color: #fff;
+    padding: 9px 15px;
+    border-bottom: 1px solid #eee;
+    background-color: #d9534f;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.card.card-outline.card-primary {
+    border-top: 3px solid #007bff00 !important;
+}
+
+.table-header {
+    font-weight: bold;
+    background-color: #ececec;
+    font-size: 16px;
+    border: none;
+    border-bottom: 1px solid gray;
+}
+.sidebar .user-panel .info > span {
+    font-size: 16px !important;
+}
+
+
+.table-dummy .form-control {
+    display: none;
+}
+
+div#tableUnmatched_wrapper {
+    overflow-x: auto;
+}
+
+div#tableMatched_wrapper {
+    overflow-x: auto;
+}

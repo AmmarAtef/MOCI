@@ -1,0 +1,211 @@
+﻿@{ ViewData["Title"] = "Home Page"; }
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<section class="content">
+    <div class="container-fluid">
+
+        <div class="card-body">
+
+            <input type="button" id="btnSave" class="hidden-element" value="Save" />
+
+            <div id="divUpload" class="d-flex">
+
+                <select data-parsley-required id="drbAccounts" class=" d-block  form-control pb-0 w-50" style="height:45px">
+                    <option value="">Select</option>
+                    @foreach (var item in ViewBag.Accounts)
+                    {
+                        <option value="@item">@item</option>
+                    }
+                </select>
+                <input type="file" id="exclefile" data-parsley-required class="d-block form-control pb-0 w-50  ml-3" style="box-sizing: content-box;">
+                <input type="button" id="btnUpload" value="Upload" class="btn btn-info ml-3">
+            </div>
+
+
+
+        </div>
+
+
+
+
+        <div class="card-body" id="divCardBody">
+
+
+        </div>
+
+
+    </div>
+</section>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+
+<link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/flick/jquery-ui.css">
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+
+
+
+
+
+<script type="text/javascript" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/select/1.3.3/js/dataTables.select.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.datatables.net/select/1.3.3/css/select.dataTables.min.css">
+
+<!-- Select2 -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.4.1/flatly/bootstrap.min.css">
+<link rel="stylesheet" href="~/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+<link rel="stylesheet" href="~/plugins/select2/css/select2.min.css">
+<script src="~/plugins/select2/js/select2.full.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/xxjapp/xdialog@3/xdialog.min.css">
+<script src="https://cdn.jsdelivr.net/gh/xxjapp/xdialog@3/xdialog.min.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.2/parsley.min.js" integrity="sha512-eyHL1atYNycXNXZMDndxrDhNAegH2BDWt1TmkXJPoGf1WLlNYt08CSjkqF5lnCRmdm3IrkHid8s2jOUY4NIZVQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.1.0/css/buttons.dataTables.min.css">
+
+<script src="https://cdn.datatables.net/buttons/2.1.0/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.1.0/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.1.0/js/buttons.print.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.1.0/js/buttons.colVis.min.js"></script>
+
+ 
+<link type="text/css" href="//gyrocode.github.io/jquery-datatables-checkboxes/1.2.12/css/dataTables.checkboxes.css" rel="stylesheet" />
+<script type="text/javascript" src="//gyrocode.github.io/jquery-datatables-checkboxes/1.2.12/js/dataTables.checkboxes.min.js"></script>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        var objArr;
+        $('#btnUpload').click(function () {
+
+            var validate = true;
+            var allFields = $('#divUpload .form-control ')
+            allFields.each(function (index, obj) {
+                !$(this).parsley().validate()
+                if (!$(this).parsley().isValid())
+                    validate = false;
+            });
+            if (!validate) return;
+
+            xdialog.startSpin();
+            $.ajax({
+                type: "POST",
+                url: "/home/ViewSummary",
+                data: JSON.stringify(objArr),
+
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (data) {
+
+                    // $('#divCardBody').html(data);
+                    //  xdialog.stopSpin();
+                },
+                failure: function (response) {
+                    console.log(response);
+                    xdialog.stopSpin();
+                }
+            });
+
+        })
+        $('#btnSave').on('click', function (e, data) {
+
+
+            var saveEntity =
+            {
+                Data: data, File: objArr, Account: $('#drbAccounts').val()
+            }
+            xdialog.startSpin();
+            $.ajax({
+                type: "POST",
+                url: "/home/Save",
+                data: JSON.stringify(saveEntity),
+
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (data) {
+                    xdialog.stopSpin();
+
+                },
+                failure: function (response) {
+                    console.log(response);
+                    xdialog.stopSpin();
+                }
+            });
+
+        })
+
+        $(document).ajaxComplete(function (event, request, settings) {
+            if (settings.url == '/home/ViewSummary') {
+                xdialog.stopSpin();
+                if (request.responseText != "") {
+                    $('#divUpload').parents('.card-body').addClass('hidden-element');
+
+                    $('#divCardBody').html(request.responseText);
+                }
+                else {
+                    xdialog.open({
+                        title: 'Please note',
+                        body: 'something wrong happen',
+                        buttons: ['ok'],
+                        style: 'min-width:38em;',
+                        oncancel: function (param) {
+                            console.info('oncancel', param);
+                        }
+                    });
+                }
+
+            }
+
+        });
+
+        $('#exclefile').change(function () {
+
+
+            var fileUpload = $($(this));
+            var files = fileUpload[0].files;
+            var fileName = fileUpload[0].files[0].name
+
+
+            setupReader(files[0], fileName);
+
+
+
+
+        })
+        function setupReader(file, fileName) {
+            var reader = new FileReader();
+            var name = file.name;
+            if (fileName != null && fileName != "") {
+                var extension = name.substring(name.lastIndexOf('.'));
+                name = fileName + extension;
+            }
+            reader.onload = function (e) {
+                objArr = { "File": e.target.result, "FileName": name };
+            }
+            reader.readAsDataURL(file);
+        }
+
+
+
+
+    });
+
+</script>

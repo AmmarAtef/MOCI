@@ -1,0 +1,130 @@
+﻿@model MOCI.Core.DTOs.UserDto
+
+@{ ViewData["Title"] = "Edit Employee"; }
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Admin</a></li>
+                    <li class="breadcrumb-item"> <a href="/admin/employees">Employees</a></li>
+                    <li class="breadcrumb-item active">Edit</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Edit Employee</h3>
+            </div>
+            <form method="post">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Username</label>
+                                <div class="input-group">
+                                    <input type="text" asp-for="UserName" class="form-control" data-mask>
+                                </div>
+                                <div class="row" style="margin-left: 3px;">
+                                    <span asp-validation-for="UserName" style="color:red;"></span>
+                                </div>
+                            </div>
+                            <!-- /.form-group -->
+                            <!-- /.form-group -->
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>First Name</label>
+                                <div class="input-group">
+                                    <input type="text" asp-for="FirstName" class="form-control" data-mask>
+                                </div>
+                                <div class="row" style="margin-left: 3px;">
+                                    <span asp-validation-for="FirstName" style="color:red;"></span>
+                                </div>
+                            </div>
+                            <!-- /.form-group -->
+                            <!-- /.form-group -->
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-md-6">
+                            <!-- /.form-group -->
+                            <div class="form-group">
+                                <label>Last Name</label>
+                                <div class="input-group">
+                                    <input type="text" asp-for="LastName" class="form-control" data-mask>
+                                </div>
+                                <div class="row" style="margin-left: 3px;">
+                                    <span asp-validation-for="LastName" style="color:red;"></span>
+                                </div>
+                            </div>
+
+
+                            <!-- /.form-group -->
+                        </div>
+                        <div class="col-md-6">
+                            <!-- /.form-group -->
+                            <div class="form-group">
+                                <label>Email</label>
+                                <div class="input-group">
+                                    <input type="text" asp-for="Email" class="form-control" data-mask>
+                                </div>
+                                <div class="row" style="margin-left: 3px;">
+                                    <span asp-validation-for="Email" style="color:red;"></span>
+                                </div>
+                            </div>
+                            <!-- /.form-group -->
+                            <!-- /.form-group -->
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Permissions</label>
+                                <br /> <br />
+                                <div class="input-group">
+                                    <label>Is Admin</label>@Html.CheckBoxFor(x => x.IsAdmin, new { @class = "checkboxPer" })
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <!-- /.row -->
+                    <div class="row">
+                        <div class="col-4">
+                            <button type="submit" class="btn btn-primary btn-block" style="width:80px;margin-top:20px;">Save</button>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+
+                    <!-- /.row -->
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+
+<!-- Select2 -->
+<link rel="stylesheet" href="~/plugins/select2/css/select2.min.css">
+<link rel="stylesheet" href="~/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+<!-- Bootstrap4 Duallistbox -->
+
+<script src="~/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="~/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<style>
+    .checkboxPer {
+        width: 20px;
+        height: 20px;
+        padding-left: 10px;
+        margin-left: 20px;
+        margin-top: 4px;
+    }
+</style>

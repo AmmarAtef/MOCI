@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AssemblyName>MOCI.Services</AssemblyName>
+    <RootNamespace>MOCI.Services</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Interfaces\IProjectService.cs~RF202f7aa.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MOCI.Core\MOCI.Core.csproj" />
+    <ProjectReference Include="..\MOCI.DAL\MOCI.DAL.csproj" />
+  </ItemGroup>
+
+</Project>

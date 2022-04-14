@@ -1,0 +1,43 @@
+﻿@model LoginModel
+
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+<div class="card card-outline card-primary">
+    <div class="card-header text-center">
+        <img src="~/img/site_branding_en.jpg" alt="mannai" class="mannai-logo"/>
+        <span href="#" class="h1"> MOCI</span>
+    </div>
+    <div class="card-body">
+        <p class="login-box-msg">Sign in to start your session</p>
+        <form method="post">
+            <div class="input-group mb-3">
+                <input type="text" asp-for="UserName" class="form-control" placeholder="User Name">
+                <div class="input-group-append">
+                    <div class="input-group-text">
+                        <span class="fas fa-user"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="input-group mb-3">
+                <input type="password" asp-for="Password" class="form-control" placeholder="Password">
+                <div class="input-group-append">
+                    <div class="input-group-text">
+                        <span class="fas fa-lock"></span>
+                    </div>
+                </div>
+            </div>
+            <p class="text-danger">@Html.ValidationSummary(false)</p>
+            <div class="row">
+                <div class="col-4">
+                    <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                </div>
+                <!-- /.col -->
+            </div>
+        </form>
+    </div>
+    <!-- /.card-body -->
+</div>
+

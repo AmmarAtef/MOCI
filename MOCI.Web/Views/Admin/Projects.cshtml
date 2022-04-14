@@ -1,0 +1,117 @@
+﻿
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Admin</a></li>
+                    <li class="breadcrumb-item active">Projects</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="">
+            <div class="row">
+                <div>
+                    <button type="button" onclick="newProject();" class="btn btn-primary btn-block" style="margin-right:20px;margin-top:20px; margin-bottom:20px; width: 140px;">New Project</button>
+                </div>
+                <!-- /.col -->
+            </div>
+            <div class="row" style="background-color:white;">
+                <table id="myDataTable" class="display" style="width:98%;margin: 10px 10px 10px 10px;">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Opportunity Id</th>
+                            <th>Customer</th>
+                            <th>Manager</th>
+                            <th>Completed</th>
+                            <th>Edit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
+
+<script src="/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#myDataTable').dataTable({
+            ajax: {
+                url: '/admin/getprojects',
+                dataSrc: ''
+            },
+            columns: [
+                { data: 'id' },
+                { data: 'name' },
+                { data: 'code' },
+                { data: 'customer.name' },
+                {
+                    data: null,
+                    render: function (data, type, row) {
+                        return row.manager.firstName + ' ' + row.manager.lastName;
+                    }
+                },
+                { data: 'isCompleted' },
+                {
+                    data: null,
+                    className: "dt-center editor-edit",
+                    defaultContent: '<i class="fas fa-edit" style="color:#0062cc;cursor: pointer;"></i>',
+                    orderable: false
+                },
+            ],
+            "columnDefs": [
+                {
+                    "targets": [0],
+                    "visible": false,
+                    "searchable": false
+                }
+            ]
+        });
+
+        $('body').on('click', '.fa-edit', function () {
+            var currentRow = $(this).closest("tr");
+
+            var data = $('#myDataTable').DataTable().row(currentRow).data();
+            window.location = '/admin/editproject/' + data['id'];
+        });
+    });
+
+    function newProject() {
+        window.location = '/admin/addproject/'
+    };
+
+</script>
+<style>
+    .dataTables_wrapper {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    .dataTables_length {
+        margin-top: 20px;
+        margin-left: 10px;
+    }
+
+    .dataTables_filter {
+        margin-top: 20px;
+        margin-right: 20px;
+    }
+
+    .dataTables_info {
+        margin-left: 10px;
+    }
+</style>

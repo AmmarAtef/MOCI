@@ -1,0 +1,214 @@
+﻿@model MOCI.Core.DTOs.ProjectDto
+
+@{
+    ViewData["Title"] = "Edit Project";
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Admin</a></li>
+                    <li class="breadcrumb-item"> <a href="/admin/projects">Projects</a></li>
+                    <li class="breadcrumb-item active">Edit</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Edit Project</h3>
+            </div>
+            <form method="post">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Name<span style="color:red;">*</span></label>
+                                <div class="input-group">
+                                    <input type="text" asp-for="Name" class="form-control" data-mask>
+                                </div>
+                                <div class="row" style="margin-left: 3px;">
+                                    <span asp-validation-for="Name" style="color:red;"></span>
+                                </div>
+                            </div>
+                            <!-- /.form-group -->
+                            <div class="form-group">
+                                <label>Opportunity Id<span style="color:red;">*</span></label>
+                                <div class="input-group">
+                                    <input id="txtCode" type="text" asp-for="Code" class="form-control" data-mask>
+                                </div>
+                                <div class="row" style="margin-left: 3px;">
+                                    <span asp-validation-for="Code" style="color:red;"></span>
+                                </div>
+                            </div>
+                            <!-- /.form-group -->
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-md-6">
+                            @*<div class="form-group">
+                                <label>Customer<span style="color:red;">*</span></label>
+                                <div class="input-group">
+                                    @Html.DropDownListFor(m => m.CustomerId, new SelectList(ViewBag.Customers, "Id", "Name"), new { @class = "form-control select2bs4" })
+                                </div>
+                                <div class="row" style="margin-left: 3px;">
+                                    <span asp-validation-for="CustomerId" style="color:red;"></span>
+                                </div>
+                            </div>*@
+                            <!-- /.form-group -->
+                            <div class="form-group">
+                                <label>Project Manager<span style="color:red;">*</span></label>
+                                <div class="input-group">
+                                    @Html.DropDownListFor(m => m.ManagerId, new SelectList(ViewBag.Managers, "Id", "FirstName"), new { @id = "ddlManagers", @class = "form-control select2bs4" })
+                                </div>
+                                <div class="row" style="margin-left: 3px;">
+                                    <span asp-validation-for="ManagerId" style="color:red;"></span>
+                                </div>
+                            </div>
+                            <!-- /.form-group -->
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <label>Is Completed</label>
+                                    @Html.CheckBoxFor(m => m.IsCompleted, new { @style = "width:40px;height:15px;margin-top:3px;" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.row -->
+                    <div class="row">
+                        <div class="col-4">
+                            <button type="submit" class="btn btn-primary btn-block" style="width:80px;margin-top:20px;">Save</button>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <br/>
+                    <br/>
+                    <div class="row" style="width:100%;">
+                        <div id="tabs" class="card card-primary card-tabs" style="width:100%;margin-left:20px;">
+                            <div class="card-header p-0 pt-1">
+                                <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="custom-tabs-one-home-tab" data-toggle="pill" href="#custom-tabs-one-home" role="tab" aria-controls="custom-tabs-one-home" aria-selected="true">PL Data</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="card-body">
+                                <div class="tab-content" id="custom-tabs-one-tabContent">
+                                    <div class="tab-pane fade show active" id="custom-tabs-one-home" role="tabpanel" aria-labelledby="custom-tabs-one-home-tab">
+                                        <div class="row" style="background-color:white;width:100%">
+                                            <table id="myDataTable" class="display" style="width:100%;margin: 10px 10px 10px 10px;">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Account Name</th>
+                                                        <th>Grad</th>
+                                                        <th>Percantage</th>
+                                                        <th>Total Amount</th>
+                                                        <th>Start Date</th>
+                                                        <th>End Date</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.row -->
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- Select2 -->
+<link rel="stylesheet" href="~/plugins/select2/css/select2.min.css">
+<link rel="stylesheet" href="~/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+<!-- Bootstrap4 Duallistbox -->
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
+
+<script src="~/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="~/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<script src="~/plugins/select2/js/select2.full.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#ddlManagers").select2({
+            allowClear: true
+        });
+    });
+
+    $(document).ready(function () {
+        $('#myDataTable').dataTable({
+            ajax: {
+                url: '/admin/GetPLData?opportunityId=' + $('#txtCode').val(),
+                dataSrc: ''
+            },
+            columns: [
+                { data: 'accountName' },
+                { data: 'grad' },
+                { data: 'percentage' },
+                { data: 'totalAmount' },
+                {
+                    data: 'startDate',
+                    render: function (data, type) {
+                        return moment(data, "YYYY-MM-DD").format("MM/DD/YYYY")
+                    }
+                },
+                {
+                    data: 'endDate',
+                    render: function (data, type) {
+                        return moment(data, "YYYY-MM-DD").format("MM/DD/YYYY")
+                    }
+                },
+            ]
+        });
+    });
+
+    Date.prototype.formatMMDDYYYY = function () {
+        return this.getDate() +
+            "-" + (this.getMonth() + 1) +
+            "-" + this.getFullYear();
+    }
+
+</script>
+
+<style>
+    .select2-selection.select2-selection--single {
+        height: 38px !important;
+    }
+</style>
+<style>
+    .dataTables_wrapper {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    .dataTables_length {
+        margin-top: 20px;
+        margin-left: 10px;
+    }
+
+    .dataTables_filter {
+        margin-top: 20px;
+        margin-right: 20px;
+    }
+
+    .dataTables_info {
+        margin-left: 10px;
+    }
+</style>

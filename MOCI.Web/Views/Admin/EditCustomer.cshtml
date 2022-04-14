@@ -1,0 +1,87 @@
+﻿@model MOCI.Core.DTOs.CustomerDto
+
+@{
+    ViewData["Title"] = "Edit Customer";
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Admin</a></li>
+                    <li class="breadcrumb-item"> <a href="/admin/customers">Customers</a></li>
+                    <li class="breadcrumb-item active">Edit</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Edit Customer</h3>
+            </div>
+            <form method="post">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Name<span style="color:red;">*</span></label>
+                                <div class="input-group">
+                                    <input type="text" asp-for="Name" class="form-control" data-mask>
+                                </div>
+                                <div class="row" style="margin-left: 3px;">
+                                    <span asp-validation-for="Name"  style="color:red;"></span>
+                                </div>
+                            </div>
+                            <!-- /.form-group -->
+                            <div class="form-group">
+                                <label>Phone</label>
+                                <div class="input-group">
+                                    <input type="text" asp-for="Phone" class="form-control" data-mask>
+                                </div>
+                                <div class="row" style="margin-left: 3px;">
+                                    <span asp-validation-for="Phone"  style="color:red;"></span>
+                                </div>
+                            </div>
+                            <!-- /.form-group -->
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Contact Person</label>
+                                <div class="input-group">
+                                    <input type="text" asp-for="ContactName" class="form-control" data-mask>
+                                </div>
+                            </div>
+                            <!-- /.form-group -->
+                            <div class="form-group">
+                                <label>Email</label>
+                                <div class="input-group">
+                                    <input type="text" asp-for="Email" class="form-control" data-mask>
+                                </div>
+                                <div class="row" style="margin-left: 3px;">
+                                    <span asp-validation-for="Email"  style="color:red;"></span>
+                                </div>
+                            </div>
+                            <!-- /.form-group -->
+                        </div>
+                       
+                    </div>
+                    <!-- /.row -->
+                    <div class="row">
+                        <div class="col-4">
+                            <button type="submit" class="btn btn-primary btn-block" style="width:80px;margin-top:20px;">Save</button>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+
+                    <!-- /.row -->
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

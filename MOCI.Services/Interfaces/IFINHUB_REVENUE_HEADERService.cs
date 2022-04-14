@@ -1,0 +1,23 @@
+﻿using MOCI.Core.DTOs;
+using MOCI.Core.Entities;
+using MOCI.DAL.Repositories;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace MOCI.Services.Interfaces
+{
+    public interface IFINHUB_REVENUE_HEADERService
+    {
+        string Connection { get; set; }
+        public List<FINHUB_REVENUE_HEADER> GetAll();
+
+        public bool Update(FINHUB_REVENUE_HEADER item);
+        List<FINHUB_REVENUE_HEADER> GetAllbyDate(DateTime from, DateTime to);
+        List<FINHUB_REVENUE_DETAIL> GetAllDetails(DateTime from, DateTime to);
+        List<string> GetAllAcounts();
+        bool Insert(FINHUB_REVENUE_HEADER item);
+        List<string> GetAllUnique(Cols col);
+         
+    }
+}
