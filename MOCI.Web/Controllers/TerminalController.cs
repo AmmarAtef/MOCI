@@ -35,7 +35,7 @@ namespace MOCI.Web.Controllers
 
 
         [HttpGet]
-        public  IActionResult GetAll()
+        public IActionResult GetAll()
         {
             return Json(_context.Terminals.ToList());
         }
@@ -76,9 +76,9 @@ namespace MOCI.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,TerminalId,MerchantId,Location,Department,Account")] TerminalDto terminalDto)
         {
-           var terminal= _context.Terminals.Where(r => r.TerminalId == terminalDto.TerminalId).FirstOrDefault();
+            var terminal = _context.Terminals.Where(r => r.TerminalId == terminalDto.TerminalId).FirstOrDefault();
 
-            if (ModelState.IsValid&&terminal==null)
+            if (ModelState.IsValid && (terminal == null || terminal.TerminalId == "Online"))
             {
                 _context.Add(terminalDto);
                 await _context.SaveChangesAsync();
