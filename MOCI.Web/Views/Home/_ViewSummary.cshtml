@@ -660,6 +660,13 @@
             success: function (data) {
                 terminals = data;
                 console.log(data);
+                if (window.location.href.indexOf('Search') > -1) {
+                    $('#custom-tabs-one-Report-tab').hide();
+                    $('.sorting_1').hide();
+                    $("span:contains('Auto match')").closest('button').hide();
+                    $("span:contains('Edit')").closest('button').hide();
+                }
+                
             },
             failure: function (response) {
               
@@ -814,7 +821,6 @@
                         //}
 
                        
-                        debugger;
 
                     }
                 }
@@ -1048,6 +1054,10 @@
             var valTotal = $("#tableReport th:contains('المجموع')").next('td').text();
             valTotal = parseFloat(valTotal.replace(/[,]/g, "")) + parseFloat(combine.MOCI.Details[0].FEES_AMOUNT) - parseFloat(combine.ExcleRow.Commission);
             $("#tableReport th:contains('المجموع')").next('td').text(valTotal.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','));
+
+
+            
+
             return true;
         }
 
@@ -1089,9 +1099,12 @@
                     $($('#' + date[18] + " select.drb-details")[1]).val(currentData[0].MOCI.Details[0].LEDGER_ACCOUNT);
                     $($('#' + date[18] + " select.drb-details")[2]).val(currentData[0].MOCI.Details[0].SERVICE_NAME);
                 }
-
+                
             }
-
+            if (window.location.href.indexOf('Search') > -1) {
+                $('#' + date[18]).hide();
+                $("#btnSaveUnmatched").hide();
+            }
             $('#modalUnmatched').modal('show')
         });
 

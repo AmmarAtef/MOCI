@@ -15,7 +15,7 @@ namespace MOCI.Core.Mapping
 
             CreateMap<Terminal, TerminalDto>().ReverseMap();
             CreateMap<NLog, NLogDto>().ReverseMap();
-
+            CreateMap<MappedColumns, MappedColumnsDto>().ReverseMap();
         
         }
     }

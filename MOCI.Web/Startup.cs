@@ -16,6 +16,7 @@ using MOCI.DAL.Interfaces;
 using MOCI.DAL.Repositories;
 using MOCI.Services;
 using MOCI.Services.Interfaces;
+using MOCI.Services.Services;
 using MOCI.Web.Auth;
 using MTRS.Web.Utilities;
 using System;
@@ -80,6 +81,8 @@ namespace MOCI.Web
             services.AddScoped<IImportsRepository, ImportsRepository>();
 
             services.AddScoped<ILogRepository, LogRepository>();
+
+            services.AddScoped<IMappedColumnsRepository, MappedColumnsRepository>();
             #endregion
 
             #region Services
@@ -87,7 +90,7 @@ namespace MOCI.Web
            
             services.AddScoped<IImportsService, ImportsService>();
             services.AddScoped<IFINHUB_REVENUE_HEADERService, FINHUB_REVENUE_HEADERDService>();
-          
+            services.AddScoped<IMappedColumnsService, MappedColumnsService>();
 
             #endregion
 

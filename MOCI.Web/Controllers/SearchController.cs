@@ -11,10 +11,11 @@ using MOCI.Core.DTOs;
 using MOCI.Core.Entities;
 using System;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MOCI.Web.Controllers
 {
-
+    [Authorize]
     public class SearchController : BaseController
     {
 

@@ -22,6 +22,8 @@ namespace MOCI.DAL.DbContexts
 
         public DbSet<TerminalDto> Terminals { get; set; }
 
+        public DbSet<MappedColumns> MappedColumns { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             foreach (var relationship in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
