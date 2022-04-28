@@ -7,6 +7,7 @@ using MOCI.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace MOCI.Services.Services
 {
@@ -21,12 +22,26 @@ namespace MOCI.Services.Services
             _mappedColumnsRepository = mappedColumnsRepository;
         }
 
-        
 
-        public List<string> GetColumnsNames()
+
+        public async Task<List<string>> GetColumnsNames()
         {
-            return _mappedColumnsRepository.GetColumnsNames();
+            return await _mappedColumnsRepository.GetColumnsNames();
         }
 
+        public async Task<bool> AddColumns(List<MappedColumns> mappedColumns)
+        {
+            return await _mappedColumnsRepository.AddColumns(mappedColumns);
+        }
+
+        public IEnumerable<MappedColumns> GetAll(IEnumerable<MappedColumns> mappedColumns)
+        {
+            return _mappedColumnsRepository.GetAll();
+        }
+
+        public IEnumerable<MappedColumns> GetAllMappedColumns()
+        {
+            return _mappedColumnsRepository.GetAll();
+        }
     }
 }

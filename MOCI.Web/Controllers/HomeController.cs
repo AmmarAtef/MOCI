@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
- 
+
 using System;
 using System.Diagnostics;
 using System.Linq;
@@ -24,6 +24,7 @@ using System.Reflection;
 using Microsoft.Extensions.Configuration;
 using MOCI.Web.Models;
 using AspNetCoreHero.ToastNotification.Abstractions;
+using Newtonsoft.Json.Linq;
 
 namespace MOCI.Web.Controllers
 {
@@ -37,8 +38,10 @@ namespace MOCI.Web.Controllers
         private readonly IFINHUB_REVENUE_HEADERService _IFINHUB_REVENUE_DETAILService;
         private readonly IConfiguration _configuration;
         private readonly IImportsService _importsService;
+        private readonly IMappedColumnsService _mappedColumnsService;
         public HomeController(ILogger<HomeController> logger,
                INotyfService notyf,
+               IMappedColumnsService mappedColumnsService,
             IUserService userService, IImportsService importsService, IWebHostEnvironment environment, IFINHUB_REVENUE_HEADERService ifINHUB_REVENUE_DETAILService, IConfiguration configuration)
         {
             _configuration = configuration;
@@ -48,6 +51,7 @@ namespace MOCI.Web.Controllers
             _IFINHUB_REVENUE_DETAILService = ifINHUB_REVENUE_DETAILService;
             _logger = logger;
             _importsService = importsService;
+            _mappedColumnsService = mappedColumnsService;
         }
 
         public IActionResult Index()
@@ -59,7 +63,7 @@ namespace MOCI.Web.Controllers
         [HttpGet]
         public IActionResult GetDashboard()
         {
-            return null ;
+            return null;
         }
 
 
@@ -75,7 +79,7 @@ namespace MOCI.Web.Controllers
             return View(new ErrorViewModel { RequestId = System.Diagnostics.Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        
+
         public IActionResult Upload()
         {
             ViewData["PageTitle"] = "Upload";
@@ -85,7 +89,7 @@ namespace MOCI.Web.Controllers
 
             return View();
         }
-        
+
 
         [HttpPost]
         public IActionResult ViewSummary([FromBody] FileDto fileDto)
@@ -145,11 +149,56 @@ namespace MOCI.Web.Controllers
                     dt.Rows.Remove(lastRow);
                 }
 
+                //remove empty rows
+                for (int i = dt.Rows.Count - 1; i >= 0; i--)
+                {
+                    if (dt.Rows[i][1] == DBNull.Value)
+                    {
+                        dt.Rows[i].Delete();
+                    }
+                }
+                dt.AcceptChanges();
+
+
 
                 //convert dt to list of objects
                 string JSONresult;
                 JSONresult = JsonConvert.SerializeObject(dt);
-                List<ExcleRowDtp> excleSheetData = JsonConvert.DeserializeObject<List<ExcleRowDtp>>(JSONresult);
+                List<ExcleRowDtp> excleSheetData = null;
+
+
+                dynamic dynamic = JArray.Parse(JSONresult);
+                dynamic dynamic_note = JObject.Parse(dynamic[0].ToString());
+                var childs = ((Newtonsoft.Json.Linq.JObject)dynamic_note);
+                var objects = ((Newtonsoft.Json.Linq.JObject)dynamic_note).Children().ToList();
+                IEnumerable<MappedColumns> mappedColumns = _mappedColumnsService.GetAllMappedColumns();
+
+                excleSheetData = JsonConvert.DeserializeObject<List<ExcleRowDtp>>(JSONresult);
+
+
+                if((int)excleSheetData[0].Amount == 0 )
+                {
+                    excleSheetData = new List<ExcleRowDtp>();
+                    for (int i = 0; i < dynamic.Count; i++)
+                    {
+                        ExcleRowDtp excleRowDtp = new ExcleRowDtp();
+                        for (int len = 1; len < objects.Capacity - 1; len++)
+                        {
+                            string name = ((Newtonsoft.Json.Linq.JProperty)objects[len]).Name;
+                            string mappedFrom = mappedColumns.FirstOrDefault(c => c.MappedTo == name).MappedFrom;
+                            PropertyInfo propertyInfo = excleRowDtp.GetType().GetProperty(mappedFrom);
+                            propertyInfo.SetValue(excleRowDtp, Convert.ChangeType(dynamic[i][name], propertyInfo.PropertyType), null);
+
+                        }
+                        excleSheetData.Add(excleRowDtp);
+                    }
+                }
+               
+
+
+
+
+
 
 
 
@@ -168,7 +217,7 @@ namespace MOCI.Web.Controllers
                 var mociData = _IFINHUB_REVENUE_DETAILService.GetAllbyDate(minRow.Value, maxRow.Value);
 
 
-               
+
 
                 //get for ummatch form/manual match popup
                 ViewBag.Services = _IFINHUB_REVENUE_DETAILService.GetAllUnique(DAL.Repositories.Cols.SERVICE_NAME);
@@ -200,19 +249,19 @@ namespace MOCI.Web.Controllers
                 //loop on every item on excel sheet
                 foreach (var excleSheetRow in excleSheetData)
                 {
-                    
+
 
                     //get matched iten from header
-                    var mociItem = mociData.Where(e => excleSheetRow.Amount==e.TRANSACTION_AMOUNT&&   excleSheetRow.Amount > 0&&(sources.Contains(e.SOURCE) &&e.APPROVED_CODE == excleSheetRow.Approved_Code && excleSheetRow.Terminal_Id.ToLower()!="online"&&"000"+e.INVOICE_NO==excleSheetRow.Invoice_No)
+                    var mociItem = mociData.Where(e => excleSheetRow.Amount == e.TRANSACTION_AMOUNT && excleSheetRow.Amount > 0 && (sources.Contains(e.SOURCE) && e.APPROVED_CODE == excleSheetRow.Approved_Code && excleSheetRow.Terminal_Id.ToLower() != "online" && "000" + e.INVOICE_NO == excleSheetRow.Invoice_No)
                      ||
-                     excleSheetRow.Amount == e.TRANSACTION_AMOUNT && excleSheetRow.Amount > 0 && (sources.Contains(e.SOURCE) && e.APPROVED_CODE == excleSheetRow.Approved_Code && e.INVOICE_NO == excleSheetRow.Invoice_No &&excleSheetRow.Terminal_Id.ToLower() == "online")
+                     excleSheetRow.Amount == e.TRANSACTION_AMOUNT && excleSheetRow.Amount > 0 && (sources.Contains(e.SOURCE) && e.APPROVED_CODE == excleSheetRow.Approved_Code && e.INVOICE_NO == excleSheetRow.Invoice_No && excleSheetRow.Terminal_Id.ToLower() == "online")
                      ||
-                     (excleSheetRow.Amount == e.TRANSACTION_AMOUNT && excleSheetRow.Amount > 0 && (e.SOURCE== "SW" )&& e.APPROVED_CODE == excleSheetRow.Approved_Code && e.CARD_NUMBER.Contains(excleSheetRow.Card_Number.Substring(12)))
-                       
+                     (excleSheetRow.Amount == e.TRANSACTION_AMOUNT && excleSheetRow.Amount > 0 && (e.SOURCE == "SW") && e.APPROVED_CODE == excleSheetRow.Approved_Code && e.CARD_NUMBER.Contains(excleSheetRow.Card_Number.Substring(12)))
+
                      ||
-                     (excleSheetRow.Amount == e.TRANSACTION_AMOUNT && e.SOURCE==""&& e.INVOICE_NO == excleSheetRow.Invoice_No&&e.APPROVED_CODE == excleSheetRow.Approved_Code && e.CARD_NUMBER.Contains(excleSheetRow.Card_Number.Substring(12)))
-                     
-                    
+                     (excleSheetRow.Amount == e.TRANSACTION_AMOUNT && e.SOURCE == "" && e.INVOICE_NO == excleSheetRow.Invoice_No && e.APPROVED_CODE == excleSheetRow.Approved_Code && e.CARD_NUMBER.Contains(excleSheetRow.Card_Number.Substring(12)))
+
+
                       ).FirstOrDefault();
 
                     //get matched iten from details if header is found
@@ -235,7 +284,7 @@ namespace MOCI.Web.Controllers
                     }
                     CombineItem c = new CombineItem()
                     {
-                     //   SumOfDetails = SumOfDetails,
+                        //   SumOfDetails = SumOfDetails,
                         ExcleRow = excleSheetRow,
                         MOCI = mociItem
                         //excleSheetRow =, mociItem
@@ -251,7 +300,7 @@ namespace MOCI.Web.Controllers
                 ViewBag.MatchedData = matchedData;
                 ViewBag.UnmatchedData = results.Where(d => d.MOCI == null).ToList();
                 ViewBag.Diff = dif;
-              var matchedDetails = matchedData.SelectMany(e => e.MOCI.Details).ToList();
+                var matchedDetails = matchedData.SelectMany(e => e.MOCI.Details).ToList();
 
                 var report = matchedDetails.
                GroupBy(m => m.LEDGER_ACCOUNT).
@@ -269,15 +318,15 @@ namespace MOCI.Web.Controllers
                 ViewBag.Total = total - commision + dif;
                 ViewBag.DiffTotal = total - commision + dif;
 
-              _notyf.Error("Succeeded");
+                _notyf.Error("Succeeded");
                 return PartialView("_ViewSummary");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 _notyf.Error("Something wrong happen");
                 _logger.LogError(ex.Message);
             }
-            return   BadRequest(); 
+            return BadRequest();
         }
 
         [HttpPost]
@@ -332,7 +381,7 @@ namespace MOCI.Web.Controllers
                     }
 
                 }
-               
+
                 //remove empty row
                 DataRow lastRow = dt.Rows[dt.Rows.Count - 1];
                 if (lastRow[0].ToString() == "" && lastRow[1].ToString() == "")
@@ -383,7 +432,7 @@ namespace MOCI.Web.Controllers
 
 
                 //get datat from MOCI system based on dates header table
-            
+
                 var mociData = _IFINHUB_REVENUE_DETAILService.GetAllbyDate(minRow.Value, maxRow.Value);
 
 
@@ -414,7 +463,7 @@ namespace MOCI.Web.Controllers
                        ).FirstOrDefault();
                     if (mociItem != null && mociItem != default(FINHUB_REVENUE_HEADER))
                     {
-                     
+
                         mociItem.ACCOUNT_NUMBER = saveEntity.Account;
                         mociItem.UserId = excleSheetRow.UserId;
                         mociItem.ImportedRowId = excleSheetRow.Id;
@@ -433,7 +482,7 @@ namespace MOCI.Web.Controllers
                 _notyf.Success("Saved");
                 return true;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 _notyf.Error("Something wrong happen");
                 _logger.LogError(ex.Message);
@@ -443,8 +492,24 @@ namespace MOCI.Web.Controllers
 
 
 
+        [HttpGet]
+        public IActionResult CreateFinHub()
+        {
+            var connection = _configuration.GetConnectionString("MOCIDataConnection");
+            _IFINHUB_REVENUE_DETAILService.Connection = connection;
+            
+            ViewBag.Services = _IFINHUB_REVENUE_DETAILService.GetAllUnique(DAL.Repositories.Cols.SERVICE_NAME);
+            ViewBag.Ledgers = _IFINHUB_REVENUE_DETAILService.GetAllUnique(DAL.Repositories.Cols.LEDGER_ACCOUNT);
+            ViewBag.Departments = _IFINHUB_REVENUE_DETAILService.GetAllUnique(DAL.Repositories.Cols.DEPARTMENT);
 
+            return View();
+        }
 
+        [HttpPost]
+        public IActionResult CreateFinHub(CreateFinHubModel finHub)
+        {
+            return View();
+        }
 
     }
 }

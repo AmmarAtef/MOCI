@@ -83,6 +83,7 @@ namespace MOCI.Web
             services.AddScoped<ILogRepository, LogRepository>();
 
             services.AddScoped<IMappedColumnsRepository, MappedColumnsRepository>();
+            
             #endregion
 
             #region Services

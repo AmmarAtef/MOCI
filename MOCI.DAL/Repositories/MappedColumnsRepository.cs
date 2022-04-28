@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata;
+using MOCI.Core.DTOs;
 using MOCI.Core.Entities;
 using MOCI.DAL.DbContexts;
 using MOCI.DAL.Interfaces;
@@ -7,6 +8,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq.Expressions;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace MOCI.DAL.Repositories
 {
@@ -19,19 +21,33 @@ namespace MOCI.DAL.Repositories
             _context = context;
         }
 
+        public async Task<bool> AddColumns(List<MappedColumns> mappedColumns)
+        {
+            try
+            {
+                AddRange(mappedColumns);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
 
-
-        public List<string> GetColumnsNames()
+        public async Task<List<string>> GetColumnsNames()
         {
             IEnumerable<IProperty> properties = _context.ImportedData.EntityType.GetProperties();
             List<string> columnsNames = new List<string>();
             foreach (IProperty property in properties)
             {
                 string name = property.Name;
-                columnsNames.Add(name);
+                if (name != "Id")
+                    columnsNames.Add(name);
             }
             return columnsNames;
         }
+
+        
 
 
     }
