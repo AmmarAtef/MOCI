@@ -4,6 +4,7 @@ using MOCI.Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using MOCI.Web.Models;
 
 namespace MOCI.Core.Mapping
 {
@@ -16,7 +17,7 @@ namespace MOCI.Core.Mapping
             CreateMap<Terminal, TerminalDto>().ReverseMap();
             CreateMap<NLog, NLogDto>().ReverseMap();
             CreateMap<MappedColumns, MappedColumnsDto>().ReverseMap();
-        
+            CreateMap<FINHUB_REVENUE_HEADERPostModel, FINHUB_REVENUE_HEADER>().ReverseMap();
         }
     }
 }

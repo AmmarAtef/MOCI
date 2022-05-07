@@ -1,7 +1,6 @@
-﻿@using MOCI.Core.Entities
-@model FINHUB_REVENUE_HEADER
-
-<form id="formMapped" style="margin:5px">
+﻿@model FINHUB_REVENUE_HEADERModel
+@inject IJsonHelper Json;
+<form id="formCreateHub" style="margin:5px">
     <h2>Please fill the text boxes</h2>
     @foreach (var item in ViewData.ModelMetadata.Properties)
     {
@@ -10,18 +9,37 @@
                 @Html.Label(item.PropertyName)
             </div>
             <div class="col-md-2">
-                @Html.Editor( item.PropertyName,
-            null,new { htmlAttributes = new { @class = "form-control", @required="required" } } )
+                @Html.Editor(item.PropertyName,
+            null, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
             </div>
         </div>
     }
 
+
     <div class="row mt-3">
         <div class="col-md-2">
-              @Html.Label("serviceName")
+            @Html.Label("terminal Id")
         </div>
         <div class="col-md-2">
-            <select class="form-control drb-details">
+            <select class="form-control drb-details" id="TERMINAL_ID" onchange="terminalChange()">
+                <option value="">Select</option>
+                @foreach (var terminal in ViewBag.Terminals)
+
+                {
+                    <option value="@terminal.TerminalId">@terminal.TerminalId-@terminal.MerchantId</option>
+                }
+
+            </select>
+        </div>
+    </div>
+
+
+    <div class="row mt-3">
+        <div class="col-md-2">
+            @Html.Label("Service Name")
+        </div>
+        <div class="col-md-2">
+            <select class="form-control drb-details" id="SERVICE_NAME">
                 <option value="">Select</option>
                 @foreach (var service in ViewBag.Services)
 
@@ -35,9 +53,11 @@
 
 
     <div class="row mt-3">
-        <div class="col-md-2"></div>
         <div class="col-md-2">
-            <select data-parsley-required class="form-control drb-details">
+            @Html.Label("Ledger Account")
+        </div>
+        <div class="col-md-2">
+            <select data-parsley-required class="form-control drb-details" id="LEDGER_ACCOUNT">
                 <option value="">Select</option>
                 @foreach (var ledger in ViewBag.Ledgers)
 
@@ -50,18 +70,37 @@
     </div>
 
     <div class="row mt-3">
-        <div class="col-md-2"></div>
         <div class="col-md-2">
-            <select data-parsley-required class="form-control drb-details">
+            @Html.Label("Department")
+        </div>
+        <div class="col-md-2">
+            <select data-parsley-required class="form-control drb-details" id="DEPARTMENT">
                 <option value="">Select</option>
                 @foreach (var service in ViewBag.Departments)
-
                 {
                     <option>@service</option>
                 }
             </select>
         </div>
     </div>
+
+    <div class="row mt-3">
+        <div class="col-md-2">
+            @Html.Label("account number")
+        </div>
+        <div class="col-md-2">
+            <select data-parsley-required class="form-control drb-details" id="ACCOUNT_NUMBER">
+                <option value="">Select</option>
+                @foreach (var account in ViewBag.Accounts)
+                {
+                    <option>@account</option>
+                }
+            </select>
+        </div>
+    </div>
+    
+
+
 
 
     <div class="row mt-3">
@@ -89,3 +128,50 @@
 
 <link rel="stylesheet" href="http://cdn.jsdelivr.net/gh/xxjapp/xdialog@3/xdialog.min.css">
 <script src="http://cdn.jsdelivr.net/gh/xxjapp/xdialog@3/xdialog.min.js"></script>
+
+
+<script>
+    function terminalChange(){
+        var array = @Html.Raw(Json.Serialize(@ViewBag.Terminals));
+
+       var item = array.filter(c => c.terminalId == $("#TERMINAL_ID").val())[0];
+
+        $('#DEPARTMENT option').filter(function(i, e) { return $(e).text() == item.department}).prop('selected', true);
+        $('#LEDGER_ACCOUNT option').filter(function(i, e) { return $(e).text() == item.account}).prop('selected', true);
+    }
+
+    //btnSubmit click
+    $('#btnSubmit').click(function () {
+        var isValid = $("#formCreateHub").valid();
+        if (isValid) {
+            var obj = {};
+            $('#formCreateHub input[type="text"]').each(function () {
+                var id = $(this).attr('id');
+                obj[id] = $("#" + id).val() ;
+            });
+            $('#formCreateHub input[type="datetime-local"]').each(function () {
+                var id = $(this).attr('id');
+                obj[id] = $("#" + id).val();
+            });
+            //select-
+            $('#formCreateHub select').each(function () {
+                var id = $(this).attr('id');
+                obj[id] = $("#" + id).val();
+            });
+
+            $.ajax({
+                url: '/Home/CreateFinHub',
+                type: 'POST',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                data: JSON.stringify(obj),
+                success: function (result) {
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+        }
+
+    })
+</script>

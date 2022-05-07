@@ -25,6 +25,8 @@ using Microsoft.Extensions.Configuration;
 using MOCI.Web.Models;
 using AspNetCoreHero.ToastNotification.Abstractions;
 using Newtonsoft.Json.Linq;
+using MOCI.DAL.DbContexts;
+using AutoMapper;
 
 namespace MOCI.Web.Controllers
 {
@@ -39,10 +41,13 @@ namespace MOCI.Web.Controllers
         private readonly IConfiguration _configuration;
         private readonly IImportsService _importsService;
         private readonly IMappedColumnsService _mappedColumnsService;
+        private readonly MTRSDBContext _context;
+        private readonly IMapper _mapper;
         public HomeController(ILogger<HomeController> logger,
                INotyfService notyf,
+               IMapper mapper,
                IMappedColumnsService mappedColumnsService,
-            IUserService userService, IImportsService importsService, IWebHostEnvironment environment, IFINHUB_REVENUE_HEADERService ifINHUB_REVENUE_DETAILService, IConfiguration configuration)
+            IUserService userService, MTRSDBContext context, IImportsService importsService, IWebHostEnvironment environment, IFINHUB_REVENUE_HEADERService ifINHUB_REVENUE_DETAILService, IConfiguration configuration)
         {
             _configuration = configuration;
             _hostingEnvironment = environment;
@@ -52,6 +57,8 @@ namespace MOCI.Web.Controllers
             _logger = logger;
             _importsService = importsService;
             _mappedColumnsService = mappedColumnsService;
+            _context = context;
+            _mapper = mapper;
         }
 
         public IActionResult Index()
@@ -176,7 +183,7 @@ namespace MOCI.Web.Controllers
                 excleSheetData = JsonConvert.DeserializeObject<List<ExcleRowDtp>>(JSONresult);
 
 
-                if((int)excleSheetData[0].Amount == 0 )
+                if ((int)excleSheetData[0].Amount == 0)
                 {
                     excleSheetData = new List<ExcleRowDtp>();
                     for (int i = 0; i < dynamic.Count; i++)
@@ -193,7 +200,7 @@ namespace MOCI.Web.Controllers
                         excleSheetData.Add(excleRowDtp);
                     }
                 }
-               
+
 
 
 
@@ -497,18 +504,42 @@ namespace MOCI.Web.Controllers
         {
             var connection = _configuration.GetConnectionString("MOCIDataConnection");
             _IFINHUB_REVENUE_DETAILService.Connection = connection;
-            
+
+            ViewBag.Terminals = _context.Terminals.ToList();
+            ViewBag.Users = _userService.GetList();
             ViewBag.Services = _IFINHUB_REVENUE_DETAILService.GetAllUnique(DAL.Repositories.Cols.SERVICE_NAME);
             ViewBag.Ledgers = _IFINHUB_REVENUE_DETAILService.GetAllUnique(DAL.Repositories.Cols.LEDGER_ACCOUNT);
             ViewBag.Departments = _IFINHUB_REVENUE_DETAILService.GetAllUnique(DAL.Repositories.Cols.DEPARTMENT);
-
+            ViewBag.Accounts = _IFINHUB_REVENUE_DETAILService.GetAllAcounts();
             return View();
         }
 
         [HttpPost]
-        public IActionResult CreateFinHub(CreateFinHubModel finHub)
+        public IActionResult CreateFinHub([FromBody] FINHUB_REVENUE_HEADERPostModel finHubModel)
         {
-            return View();
+            var connection = _configuration.GetConnectionString("MOCIDataConnection");
+            _IFINHUB_REVENUE_DETAILService.Connection = connection;
+            FINHUB_REVENUE_HEADER finHub = _mapper.Map<FINHUB_REVENUE_HEADERPostModel, FINHUB_REVENUE_HEADER>(finHubModel);
+            finHub.UserId = long.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            finHub.UserName = User.FindFirstValue(ClaimTypes.Name);
+            Guid g = Guid.NewGuid();
+            finHub.SERIAL_NUMBER = g.ToString();
+            finHub.TRANSACTION_TIME = finHubModel.TRANSACTION_DATE.ToLocalTime();
+            FINHUB_REVENUE_DETAIL fINHUB_REVENUE_DETAIL = new FINHUB_REVENUE_DETAIL
+            {
+                DEPARTMENT = finHubModel.DEPARTMENT,
+                LEDGER_ACCOUNT = finHubModel.LEDGER_ACCOUNT,
+                SERIAL_NUMBER = g.ToString(),
+                SERVICE_NAME = finHubModel.SERVICE_NAME,
+                ENTITY = "MOCI"
+            };
+
+            finHub.Details = new List<FINHUB_REVENUE_DETAIL>{
+                fINHUB_REVENUE_DETAIL
+            };
+
+            _IFINHUB_REVENUE_DETAILService.Insert(finHub);
+            return View("Index");
         }
 
     }
