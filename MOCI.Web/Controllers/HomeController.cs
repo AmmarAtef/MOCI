@@ -525,6 +525,8 @@ namespace MOCI.Web.Controllers
             Guid g = Guid.NewGuid();
             finHub.SERIAL_NUMBER = g.ToString();
             finHub.TRANSACTION_TIME = finHubModel.TRANSACTION_DATE.ToLocalTime();
+            finHub.IsManual = 2;
+
             FINHUB_REVENUE_DETAIL fINHUB_REVENUE_DETAIL = new FINHUB_REVENUE_DETAIL
             {
                 DEPARTMENT = finHubModel.DEPARTMENT,
@@ -538,7 +540,7 @@ namespace MOCI.Web.Controllers
                 fINHUB_REVENUE_DETAIL
             };
 
-            _IFINHUB_REVENUE_DETAILService.Insert(finHub);
+            _IFINHUB_REVENUE_DETAILService.InsertWithUser(finHub);
             return View("Index");
         }
 

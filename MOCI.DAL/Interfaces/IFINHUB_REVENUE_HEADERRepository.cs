@@ -15,7 +15,8 @@ namespace MOCI.DAL.Interfaces
         List<FINHUB_REVENUE_DETAIL> GetAllDetails(DateTime from, DateTime to);
         List<string> GetAllAcounts();
         List<string> GetAllUnique(Cols colName);
+        public bool InsertWithUser(FINHUB_REVENUE_HEADER item);
 
-       
+
     }
 }

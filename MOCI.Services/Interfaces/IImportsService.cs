@@ -16,5 +16,7 @@ namespace MOCI.Services.Interfaces
         List<CustomeList> GetFilesHistory();
         List<ImportedData> GetbyGuid(string guid);
         List<ImportedData> GetImportedBySearch(SearchParams searchParams);
+        List<ImportedData> GetReport(Report report);
+
     }
 }

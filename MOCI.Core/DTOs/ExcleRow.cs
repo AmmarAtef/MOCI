@@ -98,14 +98,15 @@ namespace MOCI.Core.DTOs
     }
 
 	//public class ReportRespons
- //   {
-		 
+	//   {
+
 	//	public List<CombineItem> Data;
- //       public int MatchedCount { get; set; }
+	//       public int MatchedCount { get; set; }
 	//	public decimal MatchedAmount { get; set; }
 	//	public int UnmtachedCount { get; set; }
 	//	public decimal UnmtachedAmount { get; set; }
 	//}
+	
 	public class ReportRespons
 	{
 

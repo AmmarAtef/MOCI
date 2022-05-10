@@ -32,6 +32,12 @@ namespace MOCI.Services
             _fINHUB_REVENUE_HEADERRepository = new FINHUB_REVENUE_HEADERRepository(this.Connection);
             return _fINHUB_REVENUE_HEADERRepository.Insert(item);
         }
+
+        public bool InsertWithUser(FINHUB_REVENUE_HEADER item)
+        {
+            _fINHUB_REVENUE_HEADERRepository = new FINHUB_REVENUE_HEADERRepository(this.Connection);
+            return _fINHUB_REVENUE_HEADERRepository.InsertWithUser(item);
+        }
         public List<FINHUB_REVENUE_HEADER> GetAll()
         {
             _fINHUB_REVENUE_HEADERRepository = new FINHUB_REVENUE_HEADERRepository(this.Connection);

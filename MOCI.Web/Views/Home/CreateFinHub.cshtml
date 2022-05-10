@@ -10,7 +10,7 @@
             </div>
             <div class="col-md-2">
                 @Html.Editor(item.PropertyName,
-            null, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+            null, new { htmlAttributes = new { @class = "form-control" } })
             </div>
         </div>
     }
@@ -57,7 +57,7 @@
             @Html.Label("Ledger Account")
         </div>
         <div class="col-md-2">
-            <select data-parsley-required class="form-control drb-details" id="LEDGER_ACCOUNT">
+            <select data-parsley-required class="form-control drb-details" id="LEDGER_ACCOUNT" required>
                 <option value="">Select</option>
                 @foreach (var ledger in ViewBag.Ledgers)
 
@@ -74,7 +74,7 @@
             @Html.Label("Department")
         </div>
         <div class="col-md-2">
-            <select data-parsley-required class="form-control drb-details" id="DEPARTMENT">
+            <select data-parsley-required class="form-control drb-details" id="DEPARTMENT" required>
                 <option value="">Select</option>
                 @foreach (var service in ViewBag.Departments)
                 {
@@ -89,7 +89,7 @@
             @Html.Label("account number")
         </div>
         <div class="col-md-2">
-            <select data-parsley-required class="form-control drb-details" id="ACCOUNT_NUMBER">
+            <select data-parsley-required class="form-control drb-details" id="ACCOUNT_NUMBER" required>
                 <option value="">Select</option>
                 @foreach (var account in ViewBag.Accounts)
                 {

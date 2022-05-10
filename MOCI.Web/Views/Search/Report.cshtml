@@ -1,52 +1,43 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@using MOCI.Core.DTOs;
+@model Report;
+
+@{
+    ViewData["Title"] = "Reports";
 }
-@using MOCI.Core.DTOs;
+<form id="formReport" style="margin:5px">
+    @foreach (var item in ViewData.ModelMetadata.Properties)
+    {
+        <div class="row mt-3 group">
+            <div class="col-md-2">
+                @Html.Label(item.PropertyName)
+            </div>
+            <div class="col-md-2">
+                @Html.Editor(item.PropertyName, new
+           {
+               htmlAttributes = new
+               {
+                   @class = "form-control datepicker",
+                   type = "month", 
+               required = "required"
+               }
+           })
 
-@model SearchParams;
+            </div>
+        </div>
+    }
 
+    <div class="row mt-3">
+        <div class="col-md-2"></div>
+        <div class="col-md-2">
+            <input type="submit" style="width:100%" value="Submit" class="btn btn-primary" id="btnSubmit" />
+        </div>
+    </div>
+</form>
 
-
-<div class="row mt-3">
-    <div class="col-md-1">
-        @Html.LabelFor(c => c.TransactionDate)
-    </div>
-    <div class="col-md-2">
-        @Html.EditorFor(c => c.TransactionDate, new { htmlAttributes = new { @class = "form-control" } })
-    </div>
-    <div class="col-md-1">
-        @Html.LabelFor(c => c.CardNumber)
-    </div>
-    <div class="col-md-2">
-        @Html.EditorFor(c => c.CardNumber, new { htmlAttributes = new { @class = "form-control" } })
-    </div>
-
-</div>
-<div class="row mt-3">
-    <div class="col-md-1">
-        @Html.LabelFor(c => c.ApprovedCode)
-    </div>
-    <div class="col-md-2">
-        @Html.EditorFor(c => c.ApprovedCode, new { htmlAttributes = new { @class = "form-control" } })
-    </div>
-    <div class="col-md-1">
-        @Html.LabelFor(c => c.InvoiceNo)
-    </div>
-    <div class="col-md-2">
-        @Html.EditorFor(c => c.InvoiceNo, new { htmlAttributes = new { @class = "form-control" } })
-    </div>
-</div>
-
-<div class="row mt-3">
-    <div class="col-md-2"></div>
-    <div class="col-md-2">
-        <input type="submit" style="width:100%" value="Submit" class="btn btn-primary" id="btGet" />
-    </div>
-</div>
-
-
+ 
 
 <div class="card-body" id="divCardBody">
+    
 </div>
 
 
@@ -57,6 +48,7 @@
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/flick/jquery-ui.css">
 
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+
 
 
 
@@ -91,22 +83,32 @@
 <script src="https://cdn.datatables.net/buttons/2.1.0/js/buttons.colVis.min.js"></script>
 <script>
 
-        $(document).ready(function () {
-            $('#btGet').click(function () {
-                xdialog.startSpin();
-            var jsonData =
-            { TransactionDate: $("#TransactionDate").val(),
-              InvoiceNo: $("#InvoiceNo").val(),
-              CardNumber: $("#CardNumber").val(),
-              ApprovedCode:$("#ApprovedCode").val()
-            };
+    $(document).ready(function () {
 
-            $.ajax({
-                url: '@Url.Action("Search","Search")',
+
+        $('#btnSubmit').click(function (e) {
+            e.preventDefault();
+
+            var isValid = $("#formReport").valid();
+            if (isValid) {
+                xdialog.startSpin();
+                var obj = {};
+                $('#formReport input[type="month"]').each(function () {
+                    var id = $(this).attr('id');
+                    obj[id] = $("#" + id).val();
+                });
+
+                @*$.get('@Url.Action("ReportResult", "Search", new { reportParams = obj })',
+                    function (data) {
+    $('#detailsDiv').html(data);
+});*@
+
+                $.ajax({
+                url: '@Url.Action("ReportResult", "Search")',
                 type: 'GET',
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
-                data: jsonData,
+                data: obj,
                 success: function (result) {
                    // $("#divCardBody").html(result);
                 },
@@ -114,33 +116,36 @@
                     console.log(error);
                 }
             });
+            }
+
         })
     });
 
 
-     $(document).ajaxComplete(function (event, request, settings) {
-            if (settings.url.indexOf('/Search/Search') >= 0) {
-                xdialog.stopSpin();
-                if (request.responseText != "") {
-                    $('#divUpload').addClass('hidden-element');
-                    $('#divCardBody').html(request.responseText);
+    $(document).ajaxComplete(function (event, request, settings) {
+        if (settings.url.indexOf('/Search/Report') >= 0) {
+            xdialog.stopSpin();
+            if (request.responseText != "") {
+                $('#divUpload').addClass('hidden-element');
+                //$('#divCardBody').html(request.responseText);
+                @*@Html.RenderPartial("../Home/_ViewSummary")*@
+                $('#divCardBody').html(request.responseText);
 
 
-
-                }
-                else {
-                    xdialog.open({
-                        title: 'Please note',
-                        body: 'something wrong happen',
-                        buttons: ['ok'],
-                        style: 'min-width:38em;',
-                        oncancel: function (param) {
-                            console.info('oncancel', param);
-                        }
-                    });
-                }
             }
-        });
+            else {
+                xdialog.open({
+                    title: 'Please note',
+                    body: 'something wrong happen',
+                    buttons: ['ok'],
+                    style: 'min-width:38em;',
+                    oncancel: function (param) {
+                        console.info('oncancel', param);
+                    }
+                });
+            }
+        }
+    });
 
 </script>
 

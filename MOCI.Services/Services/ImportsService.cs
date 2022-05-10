@@ -24,7 +24,7 @@ namespace MOCI.Services
         }
         public List<ImportedData> GetByFileName(string fileName)
         {
-           return _importsRepository.GetByFileName(fileName);
+            return _importsRepository.GetByFileName(fileName);
         }
         public List<CustomeList> GetFilesHistory()
         {
@@ -32,7 +32,7 @@ namespace MOCI.Services
         }
         public void Add(ImportedData data)
         {
-          
+
             _importsRepository.Add(data);
         }
 
@@ -46,6 +46,14 @@ namespace MOCI.Services
             return _importsRepository.GetImportedBySearch(searchParams);
         }
 
+        public List<ImportedData> GetReport(Report report)
+        {
+            report.TransactionDateFrom = report.TransactionDateFrom.Value.AddDays(-1 * (report.TransactionDateFrom.Value.Day - 1));
+            int days = System.DateTime.DaysInMonth(report.TransactionDateTo.Value.Year,
+                report.TransactionDateTo.Value.Month);
+            report.TransactionDateTo = report.TransactionDateTo.Value.AddDays(days-1);
+            return _importsRepository.GetReport(report);
+        }
 
     }
 }

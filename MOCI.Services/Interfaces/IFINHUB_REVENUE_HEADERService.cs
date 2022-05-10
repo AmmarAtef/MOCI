@@ -18,6 +18,6 @@ namespace MOCI.Services.Interfaces
         List<string> GetAllAcounts();
         bool Insert(FINHUB_REVENUE_HEADER item);
         List<string> GetAllUnique(Cols col);
-         
+        public bool InsertWithUser(FINHUB_REVENUE_HEADER item);
     }
 }

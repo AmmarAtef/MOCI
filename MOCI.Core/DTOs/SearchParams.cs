@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace MOCI.Web.Models
+namespace MOCI.Core.DTOs
 {
     public class SearchParams
     {

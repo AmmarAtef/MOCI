@@ -57,11 +57,11 @@ namespace MOCI.DAL.Repositories
                  c.Trxn_DateValue == searchParams.TransactionDate
                    );
 
-            query = searchParams.ApprovedCode == null ? query : 
+            query = searchParams.ApprovedCode == null ? query :
                 query.Where(c => searchParams.ApprovedCode != null &&
                 c.Approved_Code == searchParams.ApprovedCode.Trim());
 
-            query = searchParams.CardNumber == null ? query : 
+            query = searchParams.CardNumber == null ? query :
                 query.Where(c => c.Card_Number == searchParams.CardNumber.Trim());
 
 
@@ -73,6 +73,27 @@ namespace MOCI.DAL.Repositories
             return query.ToList();
 
         }
+
+        public List<ImportedData> GetReport(Report report)
+        {
+            var query = _context.ImportedData.AsQueryable();
+
+
+            query = report.TransactionDateFrom == null ? query : query.Where(c =>
+                 report.TransactionDateFrom != null &&
+                 c.Trxn_DateValue >= report.TransactionDateFrom
+                   );
+
+            query = report.TransactionDateTo == null ? query : query.Where(c =>
+                  report.TransactionDateTo != null &&
+                  c.Trxn_DateValue <= report.TransactionDateTo
+                    );
+
+
+            return query.ToList();
+
+        }
+
 
     }
 }

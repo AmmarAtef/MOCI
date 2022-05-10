@@ -27,7 +27,7 @@ namespace MOCI.Core.Entities
         public long? UserId{ get; set; }
         public string? UserName { get; set; }
         public long? ImportedRowId { get; set; }
-        public bool? IsManual { get; set; }
+        public int? IsManual { get; set; }
 
     }
     public class FINHUB_REVENUE_DETAIL
