@@ -234,7 +234,7 @@ namespace MOCI.Web.Controllers
                 ViewBag.Diff = dif;
                 var matchedDetails = matchedData.SelectMany(e => e.MOCI.Details).ToList();
               
-                var report = results.SelectMany(e => e.MOCI.Details).
+                var report = matchedData.SelectMany(e => e.MOCI.Details).
                GroupBy(m => m.LEDGER_ACCOUNT).
                Select(c =>
                    new ReportRespons
@@ -252,7 +252,7 @@ namespace MOCI.Web.Controllers
                 };
                 var reports = new Dictionary<string, List<ReportRespons>>();
                 List<decimal> totals = new List<decimal>();
-                var matchedDetail = results.GroupBy(c => c.MOCI.TRANSACTION_DATE.Month);
+                var matchedDetail = matchedData.GroupBy(c => c.MOCI.TRANSACTION_DATE.Month);
                 List<int> keys = new List<int>();
 
                 foreach (var group in matchedDetail)
