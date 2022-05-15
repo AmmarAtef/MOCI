@@ -53,6 +53,19 @@ namespace MOCI.Services
             _fINHUB_REVENUE_HEADERRepository = new FINHUB_REVENUE_HEADERRepository(this.Connection);
             return _fINHUB_REVENUE_HEADERRepository.GetAllDetails(from,to);
         }
+
+        public List<FINHUB_REVENUE_HEADER> GetFinHub(DateTime from, DateTime to)
+        {
+            _fINHUB_REVENUE_HEADERRepository = new FINHUB_REVENUE_HEADERRepository(this.Connection);
+            return _fINHUB_REVENUE_HEADERRepository.GetFinHub(from, to);
+        }
+
+        public List<FINHUB_REVENUE_DETAIL> GetFinHubDetails(DateTime from, DateTime to)
+        {
+            _fINHUB_REVENUE_HEADERRepository = new FINHUB_REVENUE_HEADERRepository(this.Connection);
+            return _fINHUB_REVENUE_HEADERRepository.GetFinHubDetails(from, to);
+        }
+
         public List<string> GetAllAcounts()
         {
             _fINHUB_REVENUE_HEADERRepository = new FINHUB_REVENUE_HEADERRepository(this.Connection);

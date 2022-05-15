@@ -48,11 +48,13 @@ namespace MOCI.Services
 
         public List<ImportedData> GetReport(Report report)
         {
-            report.TransactionDateFrom = report.TransactionDateFrom.Value.AddDays(-1 * (report.TransactionDateFrom.Value.Day - 1));
-            int days = System.DateTime.DaysInMonth(report.TransactionDateTo.Value.Year,
-                report.TransactionDateTo.Value.Month);
-            report.TransactionDateTo = report.TransactionDateTo.Value.AddDays(days-1);
+            
             return _importsRepository.GetReport(report);
+        }
+
+        public ImportedData GetbyId(long id)
+        {
+            return _importsRepository.GetById(id);
         }
 
     }

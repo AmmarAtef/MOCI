@@ -19,5 +19,7 @@ namespace MOCI.Services.Interfaces
         bool Insert(FINHUB_REVENUE_HEADER item);
         List<string> GetAllUnique(Cols col);
         public bool InsertWithUser(FINHUB_REVENUE_HEADER item);
+        public List<FINHUB_REVENUE_HEADER> GetFinHub(DateTime from, DateTime to);
+        public List<FINHUB_REVENUE_DETAIL> GetFinHubDetails(DateTime from, DateTime to);
     }
 }

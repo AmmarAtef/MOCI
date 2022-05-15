@@ -13,6 +13,7 @@ namespace MOCI.DAL.Interfaces
         public List<ImportedData> GetbyGuid(string guid);
         public List<ImportedData> GetImportedBySearch(SearchParams searchParams);
         List<ImportedData> GetReport(Report report);
+        
     }
 
 }

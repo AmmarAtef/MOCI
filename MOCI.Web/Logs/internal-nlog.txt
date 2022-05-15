@@ -13410,3 +13410,798 @@ Error Number:18456,State:1,Class:14
    at NLog.Targets.DatabaseTarget.OpenConnection(String connectionString, LogEventInfo logEventInfo)
    at NLog.Targets.DatabaseTarget.EnsureConnectionOpen(String connectionString, LogEventInfo logEventInfo)
    at NLog.Targets.DatabaseTarget.WriteLogEventToDatabase(LogEventInfo logEvent, String connectionString)
+2022-05-10 17:13:07.1488 Info Message Template Auto Format enabled
+2022-05-10 17:13:07.2077 Info Loading assembly: NLog.Web.AspNetCore
+2022-05-10 17:13:07.2658 Info Adding target DatabaseTarget(Name=db)
+2022-05-10 17:13:07.4567 Info Validating config: TargetNames=db, ConfigItems=33, FilePath=C:\Users\Administrator\Desktop\MOCI APP Project\MOCI APP\MOCI.Web\bin\Debug\net5.0\nlog.config
+2022-05-10 17:13:08.4049 Error DatabaseTarget(Name=db): Error when writing to database. Exception: System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at NLog.Targets.DatabaseTarget.OpenConnection(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.EnsureConnectionOpen(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.WriteLogEventToDatabase(LogEventInfo logEvent, String connectionString)
+2022-05-11 23:41:06.0508 Info Message Template Auto Format enabled
+2022-05-11 23:41:06.1070 Info Loading assembly: NLog.Web.AspNetCore
+2022-05-11 23:41:06.1793 Info Adding target DatabaseTarget(Name=db)
+2022-05-11 23:41:06.3616 Info Validating config: TargetNames=db, ConfigItems=33, FilePath=C:\Users\Administrator\Desktop\MOCI APP Project\MOCI APP\MOCI.Web\bin\Debug\net5.0\nlog.config
+2022-05-11 23:41:07.1032 Error DatabaseTarget(Name=db): Error when writing to database. Exception: System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at NLog.Targets.DatabaseTarget.OpenConnection(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.EnsureConnectionOpen(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.WriteLogEventToDatabase(LogEventInfo logEvent, String connectionString)
+2022-05-11 23:43:26.8500 Info Message Template Auto Format enabled
+2022-05-11 23:43:26.8667 Info Loading assembly: NLog.Web.AspNetCore
+2022-05-11 23:43:26.9125 Info Adding target DatabaseTarget(Name=db)
+2022-05-11 23:43:26.9781 Info Validating config: TargetNames=db, ConfigItems=33, FilePath=C:\Users\Administrator\Desktop\MOCI APP Project\MOCI APP\MOCI.Web\bin\Debug\net5.0\nlog.config
+2022-05-11 23:43:27.2094 Error DatabaseTarget(Name=db): Error when writing to database. Exception: System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at NLog.Targets.DatabaseTarget.OpenConnection(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.EnsureConnectionOpen(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.WriteLogEventToDatabase(LogEventInfo logEvent, String connectionString)
+2022-05-11 23:45:35.8093 Info Message Template Auto Format enabled
+2022-05-11 23:45:35.8327 Info Loading assembly: NLog.Web.AspNetCore
+2022-05-11 23:45:35.8737 Info Adding target DatabaseTarget(Name=db)
+2022-05-11 23:45:35.9434 Info Validating config: TargetNames=db, ConfigItems=33, FilePath=C:\Users\Administrator\Desktop\MOCI APP Project\MOCI APP\MOCI.Web\bin\Debug\net5.0\nlog.config
+2022-05-11 23:45:36.1880 Error DatabaseTarget(Name=db): Error when writing to database. Exception: System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at NLog.Targets.DatabaseTarget.OpenConnection(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.EnsureConnectionOpen(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.WriteLogEventToDatabase(LogEventInfo logEvent, String connectionString)
+2022-05-12 00:03:16.6422 Info Message Template Auto Format enabled
+2022-05-12 00:03:16.6699 Info Loading assembly: NLog.Web.AspNetCore
+2022-05-12 00:03:16.7183 Info Adding target DatabaseTarget(Name=db)
+2022-05-12 00:03:16.7942 Info Validating config: TargetNames=db, ConfigItems=33, FilePath=C:\Users\Administrator\Desktop\MOCI APP Project\MOCI APP\MOCI.Web\bin\Debug\net5.0\nlog.config
+2022-05-12 00:03:17.0787 Error DatabaseTarget(Name=db): Error when writing to database. Exception: System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at NLog.Targets.DatabaseTarget.OpenConnection(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.EnsureConnectionOpen(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.WriteLogEventToDatabase(LogEventInfo logEvent, String connectionString)
+2022-05-12 08:55:02.1752 Info Message Template Auto Format enabled
+2022-05-12 08:55:02.2223 Info Loading assembly: NLog.Web.AspNetCore
+2022-05-12 08:55:02.2749 Info Adding target DatabaseTarget(Name=db)
+2022-05-12 08:55:02.5041 Info Validating config: TargetNames=db, ConfigItems=33, FilePath=C:\Users\Administrator\Desktop\MOCI APP Project\MOCI APP\MOCI.Web\bin\Debug\net5.0\nlog.config
+2022-05-12 08:55:03.6442 Error DatabaseTarget(Name=db): Error when writing to database. Exception: System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at NLog.Targets.DatabaseTarget.OpenConnection(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.EnsureConnectionOpen(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.WriteLogEventToDatabase(LogEventInfo logEvent, String connectionString)
+2022-05-12 08:58:33.0549 Info Message Template Auto Format enabled
+2022-05-12 08:58:33.0919 Info Loading assembly: NLog.Web.AspNetCore
+2022-05-12 08:58:33.1430 Info Adding target DatabaseTarget(Name=db)
+2022-05-12 08:58:33.2194 Info Validating config: TargetNames=db, ConfigItems=33, FilePath=C:\Users\Administrator\Desktop\MOCI APP Project\MOCI APP\MOCI.Web\bin\Debug\net5.0\nlog.config
+2022-05-12 08:58:33.6897 Error DatabaseTarget(Name=db): Error when writing to database. Exception: System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at NLog.Targets.DatabaseTarget.OpenConnection(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.EnsureConnectionOpen(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.WriteLogEventToDatabase(LogEventInfo logEvent, String connectionString)
+2022-05-12 09:04:41.2178 Info Message Template Auto Format enabled
+2022-05-12 09:04:41.2591 Info Loading assembly: NLog.Web.AspNetCore
+2022-05-12 09:04:41.3105 Info Adding target DatabaseTarget(Name=db)
+2022-05-12 09:04:41.3813 Info Validating config: TargetNames=db, ConfigItems=33, FilePath=C:\Users\Administrator\Desktop\MOCI APP Project\MOCI APP\MOCI.Web\bin\Debug\net5.0\nlog.config
+2022-05-12 09:04:41.8640 Error DatabaseTarget(Name=db): Error when writing to database. Exception: System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at NLog.Targets.DatabaseTarget.OpenConnection(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.EnsureConnectionOpen(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.WriteLogEventToDatabase(LogEventInfo logEvent, String connectionString)
+2022-05-12 09:08:51.0582 Info Message Template Auto Format enabled
+2022-05-12 09:08:51.0809 Info Loading assembly: NLog.Web.AspNetCore
+2022-05-12 09:08:51.1356 Info Adding target DatabaseTarget(Name=db)
+2022-05-12 09:08:51.2143 Info Validating config: TargetNames=db, ConfigItems=33, FilePath=C:\Users\Administrator\Desktop\MOCI APP Project\MOCI APP\MOCI.Web\bin\Debug\net5.0\nlog.config
+2022-05-12 09:08:51.8178 Error DatabaseTarget(Name=db): Error when writing to database. Exception: System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at NLog.Targets.DatabaseTarget.OpenConnection(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.EnsureConnectionOpen(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.WriteLogEventToDatabase(LogEventInfo logEvent, String connectionString)
+2022-05-12 09:10:14.4391 Info Message Template Auto Format enabled
+2022-05-12 09:10:14.4575 Info Loading assembly: NLog.Web.AspNetCore
+2022-05-12 09:10:14.5082 Info Adding target DatabaseTarget(Name=db)
+2022-05-12 09:10:14.5908 Info Validating config: TargetNames=db, ConfigItems=33, FilePath=C:\Users\Administrator\Desktop\MOCI APP Project\MOCI APP\MOCI.Web\bin\Debug\net5.0\nlog.config
+2022-05-12 09:10:15.1262 Error DatabaseTarget(Name=db): Error when writing to database. Exception: System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at NLog.Targets.DatabaseTarget.OpenConnection(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.EnsureConnectionOpen(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.WriteLogEventToDatabase(LogEventInfo logEvent, String connectionString)
+2022-05-12 09:14:38.4272 Info Message Template Auto Format enabled
+2022-05-12 09:14:38.4478 Info Loading assembly: NLog.Web.AspNetCore
+2022-05-12 09:14:38.5034 Info Adding target DatabaseTarget(Name=db)
+2022-05-12 09:14:38.5680 Info Validating config: TargetNames=db, ConfigItems=33, FilePath=C:\Users\Administrator\Desktop\MOCI APP Project\MOCI APP\MOCI.Web\bin\Debug\net5.0\nlog.config
+2022-05-12 09:14:39.0811 Error DatabaseTarget(Name=db): Error when writing to database. Exception: System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at NLog.Targets.DatabaseTarget.OpenConnection(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.EnsureConnectionOpen(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.WriteLogEventToDatabase(LogEventInfo logEvent, String connectionString)
+2022-05-12 09:22:52.0971 Info Message Template Auto Format enabled
+2022-05-12 09:22:52.1170 Info Loading assembly: NLog.Web.AspNetCore
+2022-05-12 09:22:52.1777 Info Adding target DatabaseTarget(Name=db)
+2022-05-12 09:22:52.2637 Info Validating config: TargetNames=db, ConfigItems=33, FilePath=C:\Users\Administrator\Desktop\MOCI APP Project\MOCI APP\MOCI.Web\bin\Debug\net5.0\nlog.config
+2022-05-12 09:22:52.7823 Error DatabaseTarget(Name=db): Error when writing to database. Exception: System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at NLog.Targets.DatabaseTarget.OpenConnection(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.EnsureConnectionOpen(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.WriteLogEventToDatabase(LogEventInfo logEvent, String connectionString)
+2022-05-12 09:30:03.6597 Info Message Template Auto Format enabled
+2022-05-12 09:30:03.6850 Info Loading assembly: NLog.Web.AspNetCore
+2022-05-12 09:30:03.7383 Info Adding target DatabaseTarget(Name=db)
+2022-05-12 09:30:03.8330 Info Validating config: TargetNames=db, ConfigItems=33, FilePath=C:\Users\Administrator\Desktop\MOCI APP Project\MOCI APP\MOCI.Web\bin\Debug\net5.0\nlog.config
+2022-05-12 09:30:04.3648 Error DatabaseTarget(Name=db): Error when writing to database. Exception: System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at NLog.Targets.DatabaseTarget.OpenConnection(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.EnsureConnectionOpen(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.WriteLogEventToDatabase(LogEventInfo logEvent, String connectionString)
+2022-05-12 09:35:08.3079 Info Message Template Auto Format enabled
+2022-05-12 09:35:08.3366 Info Loading assembly: NLog.Web.AspNetCore
+2022-05-12 09:35:08.3897 Info Adding target DatabaseTarget(Name=db)
+2022-05-12 09:35:08.4780 Info Validating config: TargetNames=db, ConfigItems=33, FilePath=C:\Users\Administrator\Desktop\MOCI APP Project\MOCI APP\MOCI.Web\bin\Debug\net5.0\nlog.config
+2022-05-12 09:35:09.0173 Error DatabaseTarget(Name=db): Error when writing to database. Exception: System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at NLog.Targets.DatabaseTarget.OpenConnection(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.EnsureConnectionOpen(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.WriteLogEventToDatabase(LogEventInfo logEvent, String connectionString)
+2022-05-12 09:44:08.1801 Info Message Template Auto Format enabled
+2022-05-12 09:44:08.2128 Info Loading assembly: NLog.Web.AspNetCore
+2022-05-12 09:44:08.2812 Info Adding target DatabaseTarget(Name=db)
+2022-05-12 09:44:08.3781 Info Validating config: TargetNames=db, ConfigItems=33, FilePath=C:\Users\Administrator\Desktop\MOCI APP Project\MOCI APP\MOCI.Web\bin\Debug\net5.0\nlog.config
+2022-05-12 09:44:09.0295 Error DatabaseTarget(Name=db): Error when writing to database. Exception: System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at NLog.Targets.DatabaseTarget.OpenConnection(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.EnsureConnectionOpen(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.WriteLogEventToDatabase(LogEventInfo logEvent, String connectionString)
+2022-05-12 09:53:41.6475 Info Message Template Auto Format enabled
+2022-05-12 09:53:41.6735 Info Loading assembly: NLog.Web.AspNetCore
+2022-05-12 09:53:41.7248 Info Adding target DatabaseTarget(Name=db)
+2022-05-12 09:53:41.8322 Info Validating config: TargetNames=db, ConfigItems=33, FilePath=C:\Users\Administrator\Desktop\MOCI APP Project\MOCI APP\MOCI.Web\bin\Debug\net5.0\nlog.config
+2022-05-12 09:53:42.4015 Error DatabaseTarget(Name=db): Error when writing to database. Exception: System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at NLog.Targets.DatabaseTarget.OpenConnection(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.EnsureConnectionOpen(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.WriteLogEventToDatabase(LogEventInfo logEvent, String connectionString)
+2022-05-12 09:57:52.3807 Info Message Template Auto Format enabled
+2022-05-12 09:57:52.4097 Info Loading assembly: NLog.Web.AspNetCore
+2022-05-12 09:57:52.4680 Info Adding target DatabaseTarget(Name=db)
+2022-05-12 09:57:52.5566 Info Validating config: TargetNames=db, ConfigItems=33, FilePath=C:\Users\Administrator\Desktop\MOCI APP Project\MOCI APP\MOCI.Web\bin\Debug\net5.0\nlog.config
+2022-05-12 09:57:53.1837 Error DatabaseTarget(Name=db): Error when writing to database. Exception: System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at NLog.Targets.DatabaseTarget.OpenConnection(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.EnsureConnectionOpen(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.WriteLogEventToDatabase(LogEventInfo logEvent, String connectionString)
+2022-05-12 10:56:50.0491 Info Message Template Auto Format enabled
+2022-05-12 10:56:50.0717 Info Loading assembly: NLog.Web.AspNetCore
+2022-05-12 10:56:50.1137 Info Adding target DatabaseTarget(Name=db)
+2022-05-12 10:56:50.1695 Info Validating config: TargetNames=db, ConfigItems=33, FilePath=C:\Users\Administrator\Desktop\MOCI APP Project\MOCI APP\MOCI.Web\bin\Debug\net5.0\nlog.config
+2022-05-12 10:56:50.6079 Error DatabaseTarget(Name=db): Error when writing to database. Exception: System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at NLog.Targets.DatabaseTarget.OpenConnection(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.EnsureConnectionOpen(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.WriteLogEventToDatabase(LogEventInfo logEvent, String connectionString)
+2022-05-12 10:57:48.3732 Info Message Template Auto Format enabled
+2022-05-12 10:57:48.3992 Info Loading assembly: NLog.Web.AspNetCore
+2022-05-12 10:57:48.4398 Info Adding target DatabaseTarget(Name=db)
+2022-05-12 10:57:48.5167 Info Validating config: TargetNames=db, ConfigItems=33, FilePath=C:\Users\Administrator\Desktop\MOCI APP Project\MOCI APP\MOCI.Web\bin\Debug\net5.0\nlog.config
+2022-05-12 10:57:48.9638 Error DatabaseTarget(Name=db): Error when writing to database. Exception: System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at NLog.Targets.DatabaseTarget.OpenConnection(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.EnsureConnectionOpen(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.WriteLogEventToDatabase(LogEventInfo logEvent, String connectionString)
+2022-05-12 11:09:25.6975 Info Message Template Auto Format enabled
+2022-05-12 11:09:25.7190 Info Loading assembly: NLog.Web.AspNetCore
+2022-05-12 11:09:25.7625 Info Adding target DatabaseTarget(Name=db)
+2022-05-12 11:09:25.8198 Info Validating config: TargetNames=db, ConfigItems=33, FilePath=C:\Users\Administrator\Desktop\MOCI APP Project\MOCI APP\MOCI.Web\bin\Debug\net5.0\nlog.config
+2022-05-12 11:09:26.2181 Error DatabaseTarget(Name=db): Error when writing to database. Exception: System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at NLog.Targets.DatabaseTarget.OpenConnection(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.EnsureConnectionOpen(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.WriteLogEventToDatabase(LogEventInfo logEvent, String connectionString)
+2022-05-12 11:32:45.7263 Info Message Template Auto Format enabled
+2022-05-12 11:32:45.7512 Info Loading assembly: NLog.Web.AspNetCore
+2022-05-12 11:32:45.7954 Info Adding target DatabaseTarget(Name=db)
+2022-05-12 11:32:45.8542 Info Validating config: TargetNames=db, ConfigItems=33, FilePath=C:\Users\Administrator\Desktop\MOCI APP Project\MOCI APP\MOCI.Web\bin\Debug\net5.0\nlog.config
+2022-05-12 11:32:46.3157 Error DatabaseTarget(Name=db): Error when writing to database. Exception: System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at NLog.Targets.DatabaseTarget.OpenConnection(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.EnsureConnectionOpen(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.WriteLogEventToDatabase(LogEventInfo logEvent, String connectionString)
+2022-05-12 11:39:31.3506 Info Message Template Auto Format enabled
+2022-05-12 11:39:31.3705 Info Loading assembly: NLog.Web.AspNetCore
+2022-05-12 11:39:31.4129 Info Adding target DatabaseTarget(Name=db)
+2022-05-12 11:39:31.4795 Info Validating config: TargetNames=db, ConfigItems=33, FilePath=C:\Users\Administrator\Desktop\MOCI APP Project\MOCI APP\MOCI.Web\bin\Debug\net5.0\nlog.config
+2022-05-12 11:39:31.8714 Error DatabaseTarget(Name=db): Error when writing to database. Exception: System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at NLog.Targets.DatabaseTarget.OpenConnection(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.EnsureConnectionOpen(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.WriteLogEventToDatabase(LogEventInfo logEvent, String connectionString)
+2022-05-12 11:41:39.8289 Info Message Template Auto Format enabled
+2022-05-12 11:41:39.8440 Info Loading assembly: NLog.Web.AspNetCore
+2022-05-12 11:41:39.8887 Info Adding target DatabaseTarget(Name=db)
+2022-05-12 11:41:39.9421 Info Validating config: TargetNames=db, ConfigItems=33, FilePath=C:\Users\Administrator\Desktop\MOCI APP Project\MOCI APP\MOCI.Web\bin\Debug\net5.0\nlog.config
+2022-05-12 11:41:40.3167 Error DatabaseTarget(Name=db): Error when writing to database. Exception: System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at NLog.Targets.DatabaseTarget.OpenConnection(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.EnsureConnectionOpen(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.WriteLogEventToDatabase(LogEventInfo logEvent, String connectionString)
+2022-05-12 11:42:17.6849 Info Message Template Auto Format enabled
+2022-05-12 11:42:17.7266 Info Loading assembly: NLog.Web.AspNetCore
+2022-05-12 11:42:17.7704 Info Adding target DatabaseTarget(Name=db)
+2022-05-12 11:42:17.8272 Info Validating config: TargetNames=db, ConfigItems=33, FilePath=C:\Users\Administrator\Desktop\MOCI APP Project\MOCI APP\MOCI.Web\bin\Debug\net5.0\nlog.config
+2022-05-12 11:42:18.2287 Error DatabaseTarget(Name=db): Error when writing to database. Exception: System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at NLog.Targets.DatabaseTarget.OpenConnection(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.EnsureConnectionOpen(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.WriteLogEventToDatabase(LogEventInfo logEvent, String connectionString)
+2022-05-12 13:46:37.0915 Info Message Template Auto Format enabled
+2022-05-12 13:46:37.1151 Info Loading assembly: NLog.Web.AspNetCore
+2022-05-12 13:46:37.1618 Info Adding target DatabaseTarget(Name=db)
+2022-05-12 13:46:37.2278 Info Validating config: TargetNames=db, ConfigItems=33, FilePath=C:\Users\Administrator\Desktop\MOCI APP Project\MOCI APP\MOCI.Web\bin\Debug\net5.0\nlog.config
+2022-05-12 13:46:37.7746 Error DatabaseTarget(Name=db): Error when writing to database. Exception: System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at NLog.Targets.DatabaseTarget.OpenConnection(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.EnsureConnectionOpen(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.WriteLogEventToDatabase(LogEventInfo logEvent, String connectionString)
+2022-05-12 14:05:21.7864 Info Message Template Auto Format enabled
+2022-05-12 14:05:21.8035 Info Loading assembly: NLog.Web.AspNetCore
+2022-05-12 14:05:21.8444 Info Adding target DatabaseTarget(Name=db)
+2022-05-12 14:05:21.8965 Info Validating config: TargetNames=db, ConfigItems=33, FilePath=C:\Users\Administrator\Desktop\MOCI APP Project\MOCI APP\MOCI.Web\bin\Debug\net5.0\nlog.config
+2022-05-12 14:05:22.4012 Error DatabaseTarget(Name=db): Error when writing to database. Exception: System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at NLog.Targets.DatabaseTarget.OpenConnection(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.EnsureConnectionOpen(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.WriteLogEventToDatabase(LogEventInfo logEvent, String connectionString)
+2022-05-12 14:10:46.6857 Info Message Template Auto Format enabled
+2022-05-12 14:10:46.7059 Info Loading assembly: NLog.Web.AspNetCore
+2022-05-12 14:10:46.7641 Info Adding target DatabaseTarget(Name=db)
+2022-05-12 14:10:46.8201 Info Validating config: TargetNames=db, ConfigItems=33, FilePath=C:\Users\Administrator\Desktop\MOCI APP Project\MOCI APP\MOCI.Web\bin\Debug\net5.0\nlog.config
+2022-05-12 14:10:47.2218 Error DatabaseTarget(Name=db): Error when writing to database. Exception: System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at NLog.Targets.DatabaseTarget.OpenConnection(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.EnsureConnectionOpen(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.WriteLogEventToDatabase(LogEventInfo logEvent, String connectionString)
+2022-05-12 18:15:33.5457 Info Message Template Auto Format enabled
+2022-05-12 18:15:33.5688 Info Loading assembly: NLog.Web.AspNetCore
+2022-05-12 18:15:33.6099 Info Adding target DatabaseTarget(Name=db)
+2022-05-12 18:15:33.6673 Info Validating config: TargetNames=db, ConfigItems=33, FilePath=C:\Users\Administrator\Desktop\MOCI APP Project\MOCI APP\MOCI.Web\bin\Debug\net5.0\nlog.config
+2022-05-12 18:15:34.1295 Error DatabaseTarget(Name=db): Error when writing to database. Exception: System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at NLog.Targets.DatabaseTarget.OpenConnection(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.EnsureConnectionOpen(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.WriteLogEventToDatabase(LogEventInfo logEvent, String connectionString)
+2022-05-12 18:21:01.2158 Info Message Template Auto Format enabled
+2022-05-12 18:21:01.2320 Info Loading assembly: NLog.Web.AspNetCore
+2022-05-12 18:21:01.2770 Info Adding target DatabaseTarget(Name=db)
+2022-05-12 18:21:01.3316 Info Validating config: TargetNames=db, ConfigItems=33, FilePath=C:\Users\Administrator\Desktop\MOCI APP Project\MOCI APP\MOCI.Web\bin\Debug\net5.0\nlog.config
+2022-05-12 18:21:01.7071 Error DatabaseTarget(Name=db): Error when writing to database. Exception: System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at NLog.Targets.DatabaseTarget.OpenConnection(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.EnsureConnectionOpen(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.WriteLogEventToDatabase(LogEventInfo logEvent, String connectionString)
+2022-05-12 18:28:22.0141 Info Message Template Auto Format enabled
+2022-05-12 18:28:22.0298 Info Loading assembly: NLog.Web.AspNetCore
+2022-05-12 18:28:22.0726 Info Adding target DatabaseTarget(Name=db)
+2022-05-12 18:28:22.1395 Info Validating config: TargetNames=db, ConfigItems=33, FilePath=C:\Users\Administrator\Desktop\MOCI APP Project\MOCI APP\MOCI.Web\bin\Debug\net5.0\nlog.config
+2022-05-12 18:28:22.5307 Error DatabaseTarget(Name=db): Error when writing to database. Exception: System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at NLog.Targets.DatabaseTarget.OpenConnection(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.EnsureConnectionOpen(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.WriteLogEventToDatabase(LogEventInfo logEvent, String connectionString)
+2022-05-12 18:30:59.9477 Info Message Template Auto Format enabled
+2022-05-12 18:30:59.9477 Info Loading assembly: NLog.Web.AspNetCore
+2022-05-12 18:31:00.0067 Info Adding target DatabaseTarget(Name=db)
+2022-05-12 18:31:00.0657 Info Validating config: TargetNames=db, ConfigItems=33, FilePath=C:\Users\Administrator\Desktop\MOCI APP Project\MOCI APP\MOCI.Web\bin\Debug\net5.0\nlog.config
+2022-05-12 18:31:00.5208 Error DatabaseTarget(Name=db): Error when writing to database. Exception: System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at NLog.Targets.DatabaseTarget.OpenConnection(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.EnsureConnectionOpen(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.WriteLogEventToDatabase(LogEventInfo logEvent, String connectionString)
+2022-05-12 18:33:22.6277 Info Message Template Auto Format enabled
+2022-05-12 18:33:22.6421 Info Loading assembly: NLog.Web.AspNetCore
+2022-05-12 18:33:22.6816 Info Adding target DatabaseTarget(Name=db)
+2022-05-12 18:33:22.7319 Info Validating config: TargetNames=db, ConfigItems=33, FilePath=C:\Users\Administrator\Desktop\MOCI APP Project\MOCI APP\MOCI.Web\bin\Debug\net5.0\nlog.config
+2022-05-12 18:33:23.1054 Error DatabaseTarget(Name=db): Error when writing to database. Exception: System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at NLog.Targets.DatabaseTarget.OpenConnection(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.EnsureConnectionOpen(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.WriteLogEventToDatabase(LogEventInfo logEvent, String connectionString)
+2022-05-12 19:00:27.4649 Info Message Template Auto Format enabled
+2022-05-12 19:00:27.4914 Info Loading assembly: NLog.Web.AspNetCore
+2022-05-12 19:00:27.5456 Info Adding target DatabaseTarget(Name=db)
+2022-05-12 19:00:27.6166 Info Validating config: TargetNames=db, ConfigItems=33, FilePath=C:\Users\Administrator\Desktop\MOCI APP Project\MOCI APP\MOCI.Web\bin\Debug\net5.0\nlog.config
+2022-05-12 19:00:28.2117 Error DatabaseTarget(Name=db): Error when writing to database. Exception: System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at NLog.Targets.DatabaseTarget.OpenConnection(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.EnsureConnectionOpen(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.WriteLogEventToDatabase(LogEventInfo logEvent, String connectionString)
+2022-05-12 19:02:50.5328 Info Message Template Auto Format enabled
+2022-05-12 19:02:50.5662 Info Loading assembly: NLog.Web.AspNetCore
+2022-05-12 19:02:50.6169 Info Adding target DatabaseTarget(Name=db)
+2022-05-12 19:02:50.6806 Info Validating config: TargetNames=db, ConfigItems=33, FilePath=C:\Users\Administrator\Desktop\MOCI APP Project\MOCI APP\MOCI.Web\bin\Debug\net5.0\nlog.config
+2022-05-12 19:02:51.1147 Error DatabaseTarget(Name=db): Error when writing to database. Exception: System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at NLog.Targets.DatabaseTarget.OpenConnection(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.EnsureConnectionOpen(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.WriteLogEventToDatabase(LogEventInfo logEvent, String connectionString)
+2022-05-12 19:42:57.6750 Info Message Template Auto Format enabled
+2022-05-12 19:42:57.6989 Info Loading assembly: NLog.Web.AspNetCore
+2022-05-12 19:42:57.7387 Info Adding target DatabaseTarget(Name=db)
+2022-05-12 19:42:57.8024 Info Validating config: TargetNames=db, ConfigItems=33, FilePath=C:\Users\Administrator\Desktop\MOCI APP Project\MOCI APP\MOCI.Web\bin\Debug\net5.0\nlog.config
+2022-05-12 19:42:58.3941 Error DatabaseTarget(Name=db): Error when writing to database. Exception: System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at NLog.Targets.DatabaseTarget.OpenConnection(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.EnsureConnectionOpen(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.WriteLogEventToDatabase(LogEventInfo logEvent, String connectionString)
+2022-05-12 19:58:56.9500 Info Message Template Auto Format enabled
+2022-05-12 19:58:56.9676 Info Loading assembly: NLog.Web.AspNetCore
+2022-05-12 19:58:57.0126 Info Adding target DatabaseTarget(Name=db)
+2022-05-12 19:58:57.0761 Info Validating config: TargetNames=db, ConfigItems=33, FilePath=C:\Users\Administrator\Desktop\MOCI APP Project\MOCI APP\MOCI.Web\bin\Debug\net5.0\nlog.config
+2022-05-12 19:58:57.5475 Error DatabaseTarget(Name=db): Error when writing to database. Exception: System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at NLog.Targets.DatabaseTarget.OpenConnection(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.EnsureConnectionOpen(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.WriteLogEventToDatabase(LogEventInfo logEvent, String connectionString)
+2022-05-12 20:43:33.5264 Info Message Template Auto Format enabled
+2022-05-12 20:43:33.5438 Info Loading assembly: NLog.Web.AspNetCore
+2022-05-12 20:43:33.5835 Info Adding target DatabaseTarget(Name=db)
+2022-05-12 20:43:33.6373 Info Validating config: TargetNames=db, ConfigItems=33, FilePath=C:\Users\Administrator\Desktop\MOCI APP Project\MOCI APP\MOCI.Web\bin\Debug\net5.0\nlog.config
+2022-05-12 20:43:34.0464 Error DatabaseTarget(Name=db): Error when writing to database. Exception: System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at NLog.Targets.DatabaseTarget.OpenConnection(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.EnsureConnectionOpen(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.WriteLogEventToDatabase(LogEventInfo logEvent, String connectionString)
+2022-05-12 22:45:45.0759 Info Message Template Auto Format enabled
+2022-05-12 22:45:45.1018 Info Loading assembly: NLog.Web.AspNetCore
+2022-05-12 22:45:45.1528 Info Adding target DatabaseTarget(Name=db)
+2022-05-12 22:45:45.2308 Info Validating config: TargetNames=db, ConfigItems=33, FilePath=C:\Users\Administrator\Desktop\MOCI APP Project\MOCI APP\MOCI.Web\bin\Debug\net5.0\nlog.config
+2022-05-12 22:45:45.8699 Error DatabaseTarget(Name=db): Error when writing to database. Exception: System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at NLog.Targets.DatabaseTarget.OpenConnection(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.EnsureConnectionOpen(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.WriteLogEventToDatabase(LogEventInfo logEvent, String connectionString)
+2022-05-12 22:53:38.5952 Info Message Template Auto Format enabled
+2022-05-12 22:53:38.6203 Info Loading assembly: NLog.Web.AspNetCore
+2022-05-12 22:53:38.6715 Info Adding target DatabaseTarget(Name=db)
+2022-05-12 22:53:38.7831 Info Validating config: TargetNames=db, ConfigItems=33, FilePath=C:\Users\Administrator\Desktop\MOCI APP Project\MOCI APP\MOCI.Web\bin\Debug\net5.0\nlog.config
+2022-05-12 22:53:39.0619 Error DatabaseTarget(Name=db): Error when writing to database. Exception: System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at NLog.Targets.DatabaseTarget.OpenConnection(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.EnsureConnectionOpen(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.WriteLogEventToDatabase(LogEventInfo logEvent, String connectionString)
+2022-05-12 22:57:07.2995 Info Message Template Auto Format enabled
+2022-05-12 22:57:07.3526 Info Loading assembly: NLog.Web.AspNetCore
+2022-05-12 22:57:07.4050 Info Adding target DatabaseTarget(Name=db)
+2022-05-12 22:57:07.4847 Info Validating config: TargetNames=db, ConfigItems=33, FilePath=C:\Users\Administrator\Desktop\MOCI APP Project\MOCI APP\MOCI.Web\bin\Debug\net5.0\nlog.config
+2022-05-12 22:57:07.7573 Error DatabaseTarget(Name=db): Error when writing to database. Exception: System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at NLog.Targets.DatabaseTarget.OpenConnection(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.EnsureConnectionOpen(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.WriteLogEventToDatabase(LogEventInfo logEvent, String connectionString)
+2022-05-12 23:04:32.8513 Info Message Template Auto Format enabled
+2022-05-12 23:04:32.9085 Info Loading assembly: NLog.Web.AspNetCore
+2022-05-12 23:04:32.9868 Info Adding target DatabaseTarget(Name=db)
+2022-05-12 23:04:33.0932 Info Validating config: TargetNames=db, ConfigItems=33, FilePath=C:\Users\Administrator\Desktop\MOCI APP Project\MOCI APP\MOCI.Web\bin\Debug\net5.0\nlog.config
+2022-05-12 23:04:33.4744 Error DatabaseTarget(Name=db): Error when writing to database. Exception: System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at NLog.Targets.DatabaseTarget.OpenConnection(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.EnsureConnectionOpen(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.WriteLogEventToDatabase(LogEventInfo logEvent, String connectionString)
+2022-05-12 23:14:37.5498 Info Message Template Auto Format enabled
+2022-05-12 23:14:37.5697 Info Loading assembly: NLog.Web.AspNetCore
+2022-05-12 23:14:37.6188 Info Adding target DatabaseTarget(Name=db)
+2022-05-12 23:14:37.7530 Info Validating config: TargetNames=db, ConfigItems=33, FilePath=C:\Users\Administrator\Desktop\MOCI APP Project\MOCI APP\MOCI.Web\bin\Debug\net5.0\nlog.config
+2022-05-12 23:14:38.0533 Error DatabaseTarget(Name=db): Error when writing to database. Exception: System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at NLog.Targets.DatabaseTarget.OpenConnection(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.EnsureConnectionOpen(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.WriteLogEventToDatabase(LogEventInfo logEvent, String connectionString)
+2022-05-12 23:44:10.8601 Info Message Template Auto Format enabled
+2022-05-12 23:44:10.8934 Info Loading assembly: NLog.Web.AspNetCore
+2022-05-12 23:44:10.9492 Info Adding target DatabaseTarget(Name=db)
+2022-05-12 23:44:11.0174 Info Validating config: TargetNames=db, ConfigItems=33, FilePath=C:\Users\Administrator\Desktop\MOCI APP Project\MOCI APP\MOCI.Web\bin\Debug\net5.0\nlog.config
+2022-05-12 23:44:11.2735 Error DatabaseTarget(Name=db): Error when writing to database. Exception: System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at NLog.Targets.DatabaseTarget.OpenConnection(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.EnsureConnectionOpen(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.WriteLogEventToDatabase(LogEventInfo logEvent, String connectionString)
+2022-05-12 23:52:08.9947 Info Message Template Auto Format enabled
+2022-05-12 23:52:09.0253 Info Loading assembly: NLog.Web.AspNetCore
+2022-05-12 23:52:09.0884 Info Adding target DatabaseTarget(Name=db)
+2022-05-12 23:52:09.1719 Info Validating config: TargetNames=db, ConfigItems=33, FilePath=C:\Users\Administrator\Desktop\MOCI APP Project\MOCI APP\MOCI.Web\bin\Debug\net5.0\nlog.config
+2022-05-12 23:52:09.4778 Error DatabaseTarget(Name=db): Error when writing to database. Exception: System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at NLog.Targets.DatabaseTarget.OpenConnection(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.EnsureConnectionOpen(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.WriteLogEventToDatabase(LogEventInfo logEvent, String connectionString)
+2022-05-13 15:17:58.5021 Info Message Template Auto Format enabled
+2022-05-13 15:17:58.5474 Info Loading assembly: NLog.Web.AspNetCore
+2022-05-13 15:17:58.6056 Info Adding target DatabaseTarget(Name=db)
+2022-05-13 15:17:58.7653 Info Validating config: TargetNames=db, ConfigItems=33, FilePath=C:\Users\Administrator\Desktop\MOCI APP Project\MOCI APP\MOCI.Web\bin\Debug\net5.0\nlog.config
+2022-05-13 15:17:59.4311 Error DatabaseTarget(Name=db): Error when writing to database. Exception: System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at NLog.Targets.DatabaseTarget.OpenConnection(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.EnsureConnectionOpen(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.WriteLogEventToDatabase(LogEventInfo logEvent, String connectionString)
+2022-05-13 15:29:38.5791 Info Message Template Auto Format enabled
+2022-05-13 15:29:38.6146 Info Loading assembly: NLog.Web.AspNetCore
+2022-05-13 15:29:38.6759 Info Adding target DatabaseTarget(Name=db)
+2022-05-13 15:29:38.7496 Info Validating config: TargetNames=db, ConfigItems=33, FilePath=C:\Users\Administrator\Desktop\MOCI APP Project\MOCI APP\MOCI.Web\bin\Debug\net5.0\nlog.config
+2022-05-13 15:29:39.0440 Error DatabaseTarget(Name=db): Error when writing to database. Exception: System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at NLog.Targets.DatabaseTarget.OpenConnection(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.EnsureConnectionOpen(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.WriteLogEventToDatabase(LogEventInfo logEvent, String connectionString)
+2022-05-13 16:18:18.5580 Info Message Template Auto Format enabled
+2022-05-13 16:18:18.5923 Info Loading assembly: NLog.Web.AspNetCore
+2022-05-13 16:18:18.6478 Info Adding target DatabaseTarget(Name=db)
+2022-05-13 16:18:18.7454 Info Validating config: TargetNames=db, ConfigItems=33, FilePath=C:\Users\Administrator\Desktop\MOCI APP Project\MOCI APP\MOCI.Web\bin\Debug\net5.0\nlog.config
+2022-05-13 16:18:19.1627 Error DatabaseTarget(Name=db): Error when writing to database. Exception: System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at NLog.Targets.DatabaseTarget.OpenConnection(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.EnsureConnectionOpen(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.WriteLogEventToDatabase(LogEventInfo logEvent, String connectionString)
+2022-05-15 10:50:58.1955 Info Message Template Auto Format enabled
+2022-05-15 10:50:58.2941 Info Loading assembly: NLog.Web.AspNetCore
+2022-05-15 10:50:58.3659 Info Adding target DatabaseTarget(Name=db)
+2022-05-15 10:50:58.5351 Info Validating config: TargetNames=db, ConfigItems=33, FilePath=C:\Users\Administrator\Desktop\MOCI APP Project\MOCI APP\MOCI.Web\bin\Debug\net5.0\nlog.config
+2022-05-15 10:50:59.2814 Error DatabaseTarget(Name=db): Error when writing to database. Exception: System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at NLog.Targets.DatabaseTarget.OpenConnection(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.EnsureConnectionOpen(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.WriteLogEventToDatabase(LogEventInfo logEvent, String connectionString)
+2022-05-15 13:47:19.2403 Info Message Template Auto Format enabled
+2022-05-15 13:47:19.2848 Info Loading assembly: NLog.Web.AspNetCore
+2022-05-15 13:47:19.3398 Info Adding target DatabaseTarget(Name=db)
+2022-05-15 13:47:19.4740 Info Validating config: TargetNames=db, ConfigItems=33, FilePath=C:\Users\Administrator\Desktop\MOCI APP Project\MOCI APP\MOCI.Web\bin\Debug\net5.0\nlog.config
+2022-05-15 13:47:20.1168 Error DatabaseTarget(Name=db): Error when writing to database. Exception: System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at NLog.Targets.DatabaseTarget.OpenConnection(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.EnsureConnectionOpen(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.WriteLogEventToDatabase(LogEventInfo logEvent, String connectionString)
+2022-05-15 14:03:52.9847 Info Message Template Auto Format enabled
+2022-05-15 14:03:53.0806 Info Loading assembly: NLog.Web.AspNetCore
+2022-05-15 14:03:53.1436 Info Adding target DatabaseTarget(Name=db)
+2022-05-15 14:03:53.2344 Info Validating config: TargetNames=db, ConfigItems=33, FilePath=C:\Users\Administrator\Desktop\MOCI APP Project\MOCI APP\MOCI.Web\bin\Debug\net5.0\nlog.config
+2022-05-15 14:03:53.6757 Error DatabaseTarget(Name=db): Error when writing to database. Exception: System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at NLog.Targets.DatabaseTarget.OpenConnection(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.EnsureConnectionOpen(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.WriteLogEventToDatabase(LogEventInfo logEvent, String connectionString)
+2022-05-15 15:00:44.5053 Info Message Template Auto Format enabled
+2022-05-15 15:00:44.5350 Info Loading assembly: NLog.Web.AspNetCore
+2022-05-15 15:00:44.5893 Info Adding target DatabaseTarget(Name=db)
+2022-05-15 15:00:44.6715 Info Validating config: TargetNames=db, ConfigItems=33, FilePath=C:\Users\Administrator\Desktop\MOCI APP Project\MOCI APP\MOCI.Web\bin\Debug\net5.0\nlog.config
+2022-05-15 15:00:45.0301 Error DatabaseTarget(Name=db): Error when writing to database. Exception: System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at NLog.Targets.DatabaseTarget.OpenConnection(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.EnsureConnectionOpen(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.WriteLogEventToDatabase(LogEventInfo logEvent, String connectionString)
+2022-05-15 15:42:45.2343 Info Message Template Auto Format enabled
+2022-05-15 15:42:45.2916 Info Loading assembly: NLog.Web.AspNetCore
+2022-05-15 15:42:45.3801 Info Adding target DatabaseTarget(Name=db)
+2022-05-15 15:42:45.5589 Info Validating config: TargetNames=db, ConfigItems=33, FilePath=C:\Users\Administrator\Desktop\MOCI APP Project\MOCI APP\MOCI.Web\bin\Debug\net5.0\nlog.config
+2022-05-15 15:42:45.8873 Error DatabaseTarget(Name=db): Error when writing to database. Exception: System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at NLog.Targets.DatabaseTarget.OpenConnection(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.EnsureConnectionOpen(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.WriteLogEventToDatabase(LogEventInfo logEvent, String connectionString)
+2022-05-15 16:31:07.3969 Info Message Template Auto Format enabled
+2022-05-15 16:31:07.4271 Info Loading assembly: NLog.Web.AspNetCore
+2022-05-15 16:31:07.4879 Info Adding target DatabaseTarget(Name=db)
+2022-05-15 16:31:07.5712 Info Validating config: TargetNames=db, ConfigItems=33, FilePath=C:\Users\Administrator\Desktop\MOCI APP Project\MOCI APP\MOCI.Web\bin\Debug\net5.0\nlog.config
+2022-05-15 16:31:07.9194 Error DatabaseTarget(Name=db): Error when writing to database. Exception: System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at NLog.Targets.DatabaseTarget.OpenConnection(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.EnsureConnectionOpen(String connectionString, LogEventInfo logEventInfo)
+   at NLog.Targets.DatabaseTarget.WriteLogEventToDatabase(LogEventInfo logEvent, String connectionString)

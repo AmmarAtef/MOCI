@@ -183,6 +183,50 @@ namespace MOCI.DAL.Repositories
         }
 
 
+        public List<FINHUB_REVENUE_HEADER>GetFinHub(DateTime from, DateTime to)
+        {
+            string query = "select * from  FINHUB_REVENUE_HEADER where TRANSACTION_DATE>='" + from.ToString("yyyy-MM-dd") + "' and TRANSACTION_DATE<='" + to.ToString("yyyy-MM-dd") + "' ";
+
+
+
+
+            SqlConnection conn = new SqlConnection(_connection);
+            SqlCommand cmd = new SqlCommand(query, conn);
+            conn.Open();
+            DataTable dataTable = new DataTable();
+            // create data adapter
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            // this will query your database and return the result to your datatable
+            da.Fill(dataTable);
+            conn.Close();
+            da.Dispose();
+            string JSONresult;
+            JSONresult = JsonConvert.SerializeObject(dataTable);
+            List<FINHUB_REVENUE_HEADER> o = JsonConvert.DeserializeObject<List<FINHUB_REVENUE_HEADER>>(JSONresult);
+            return o;
+        }
+
+        public List<FINHUB_REVENUE_DETAIL> GetFinHubDetails(DateTime from, DateTime to)
+        {
+
+            string query = "select d.* FROM  FINHUB_REVENUE_DETAIL d inner JOIN FINHUB_REVENUE_HEADER h on h.SERIAL_NUMBER=d.SERIAL_NUMBER where TRANSACTION_DATE>='" + from.ToString("yyyy-MM-dd") + "' and TRANSACTION_DATE<='" + to.ToString("yyyy-MM-dd") + "'";
+
+            SqlConnection conn = new SqlConnection(_connection);
+            SqlCommand cmd = new SqlCommand(query, conn);
+            conn.Open();
+            DataTable dataTable = new DataTable();
+            // create data adapter
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            // this will query your database and return the result to your datatable
+            da.Fill(dataTable);
+            conn.Close();
+            da.Dispose();
+            string JSONresult;
+            JSONresult = JsonConvert.SerializeObject(dataTable);
+            List<FINHUB_REVENUE_DETAIL> o = JsonConvert.DeserializeObject<List<FINHUB_REVENUE_DETAIL>>(JSONresult);
+            return o;
+        }
+
         public List<string> GetAllAcounts()
         {
             string query = "SELECT distinct [ACCOUNT_NUMBER] FROM [FINHUB_REVENUE_HEADER] where[ACCOUNT_NUMBER] is not null";

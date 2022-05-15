@@ -40,47 +40,15 @@
     
 </div>
 
-
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
-
-
-<link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/flick/jquery-ui.css">
-
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
-
-
-
-
-
-
 <script type="text/javascript" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/select/1.3.3/js/dataTables.select.min.js"></script>
-
-<link rel="stylesheet" href="https://cdn.datatables.net/select/1.3.3/css/select.dataTables.min.css">
-
-<!-- Select2 -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.4.1/flatly/bootstrap.min.css">
-<link rel="stylesheet" href="~/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
-<link rel="stylesheet" href="~/plugins/select2/css/select2.min.css">
-<script src="~/plugins/select2/js/select2.full.min.js"></script>
-
+<link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/flick/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/xxjapp/xdialog@3/xdialog.min.css">
 <script src="https://cdn.jsdelivr.net/gh/xxjapp/xdialog@3/xdialog.min.js"></script>
 
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.2/parsley.min.js" integrity="sha512-eyHL1atYNycXNXZMDndxrDhNAegH2BDWt1TmkXJPoGf1WLlNYt08CSjkqF5lnCRmdm3IrkHid8s2jOUY4NIZVQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.1.0/css/buttons.dataTables.min.css">
-
-<script src="https://cdn.datatables.net/buttons/2.1.0/js/dataTables.buttons.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-<script src="https://cdn.datatables.net/buttons/2.1.0/js/buttons.html5.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/2.1.0/js/buttons.print.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/2.1.0/js/buttons.colVis.min.js"></script>
 <script>
 
     $(document).ready(function () {
@@ -130,8 +98,19 @@
                 //$('#divCardBody').html(request.responseText);
                 @*@Html.RenderPartial("../Home/_ViewSummary")*@
                 $('#divCardBody').html(request.responseText);
+                 $('#matchedTable').DataTable( {
+              
+              rowGroup: {
+                  dataSrc: 2
+              }
+          } );//unmatchedTable
 
-
+          $('#unmatchedTable').DataTable( {
+              
+              rowGroup: {
+                  dataSrc: 2
+              }
+          } );
             }
             else {
                 xdialog.open({
