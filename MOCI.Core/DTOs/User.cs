@@ -21,7 +21,7 @@ namespace MOCI.Core.DTOs
         public string Email { get; set; }
         [Required]
         public bool IsAdmin { get; set; }
-        [Required]
+        
         public bool Enabled { get; set; }
     }
 }

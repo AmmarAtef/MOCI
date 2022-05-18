@@ -1,4 +1,5 @@
-﻿using MOCI.Core.Entities;
+﻿using MOCI.Core.DTOs;
+using MOCI.Core.Entities;
 using MOCI.DAL.DbContexts;
 using MOCI.DAL.Interfaces;
 using Newtonsoft.Json;
@@ -7,6 +8,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 
 namespace MOCI.DAL.Repositories
@@ -183,7 +185,7 @@ namespace MOCI.DAL.Repositories
         }
 
 
-        public List<FINHUB_REVENUE_HEADER>GetFinHub(DateTime from, DateTime to)
+        public List<FINHUB_REVENUE_HEADER> GetFinHub(DateTime from, DateTime to)
         {
             string query = "select * from  FINHUB_REVENUE_HEADER where TRANSACTION_DATE>='" + from.ToString("yyyy-MM-dd") + "' and TRANSACTION_DATE<='" + to.ToString("yyyy-MM-dd") + "' ";
 
@@ -268,8 +270,46 @@ namespace MOCI.DAL.Repositories
         }
 
 
+        public List<FINHUB_REVENUE_HEADER> GetFinHubBySearchParams(Search searchParams)
+        {
+            string query = "SELECT * FROM[FINHUB].[dbo].[FINHUB_REVENUE_HEADER] where ";
+            foreach (PropertyInfo prop in searchParams.GetType().GetProperties())
+            {
+                var type = Nullable.GetUnderlyingType(prop.PropertyType) ?? prop.PropertyType;
+                int i = 0;
+                if (prop.GetValue(searchParams) != null)
+                {
+                    if (i > 0)
+                        query += " and ";
+                    if (type == typeof(DateTime))
+                    {
+                        query += prop.Name + "='" + Convert.ToDateTime(prop.GetValue(searchParams, null)).ToString("yyyy-MM-dd") + "'";
+                    }
+                    else
+                        query += prop.Name + "='" + prop.GetValue(searchParams, null).ToString() + "'";
 
+                    i++;
+                }
+            }
 
+            SqlConnection conn = new SqlConnection(_connection);
+            SqlCommand cmd = new SqlCommand(query, conn);
+            conn.Open();
+            DataTable dataTable = new DataTable();
+            // create data adapter
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            // this will query your database and return the result to your datatable
+            da.Fill(dataTable);
+            conn.Close();
+            da.Dispose();
+            string JSONresult;
+            JSONresult = JsonConvert.SerializeObject(dataTable);
+
+            List<FINHUB_REVENUE_HEADER> o = JsonConvert.DeserializeObject<List<FINHUB_REVENUE_HEADER>>(JSONresult);
+            return o;
+        }
+
+      
     }
 
     public enum Cols

@@ -95,6 +95,8 @@ namespace MOCI.Core.DTOs
 		public ExcleRowDtp ExcleRow { get; set; }
 	 
 		public FINHUB_REVENUE_HEADER MOCI { get; set; }
+
+        public CustomerData CustomerData { get; set; }
     }
 
 	//public class ReportRespons

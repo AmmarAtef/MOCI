@@ -41,7 +41,7 @@ namespace MOCI.Services
             return _importsRepository.GetbyGuid(guid);
         }
 
-        public List<ImportedData> GetImportedBySearch(SearchParams searchParams)
+        public List<ImportedData> GetImportedBySearch(Search searchParams)
         {
             return _importsRepository.GetImportedBySearch(searchParams);
         }

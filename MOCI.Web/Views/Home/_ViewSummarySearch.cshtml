@@ -1,7 +1,4 @@
-﻿@using MOCI.Core.DTOs;
-
-
-<div class="row" style="width:100%;">
+﻿<div class="row" style="width:100%;">
     <div id="tabs" class="card card-primary card-tabs" style="width:100%;margin-left:20px;">
         <div class="card-header p-0 pt-1">
             <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
@@ -59,57 +56,119 @@
                 </div>
                 <div class="tab-pane fade" id="custom-tabs-one-profile" role="tabpanel" aria-labelledby="custom-tabs-one-profile-tab">
 
-                    <table id="matchedTable" class="display" style="width:100%">
+
+
+                    <table id="tableMatched" class="display nowrap" style="width:100%">
                         <thead>
                             <tr>
-                                <th>TRANSACTION_DATE</th>
-                                <th>LOAD_DATE</th>
-                                <th>SOURCE</th>
-                                <th>SERIAL_NUMBER</th>
-                                <th>TRANSACTION_AMOUNT</th>
-                                <th>APPROVED_CODE</th>
-                                <th>INVOICE_NO</th>
-                                <th>TERMINAL_ID</th>
-                                <th>CARD_NUMBER</th>
-                                <th>ACCOUNT_NUMBER</th>
-                                <th>IsManual</th>
+                                <th class="fromExcle">Merchant_Id</th>
+                                <th class="fromExcle">Location</th>
+                                <th class="fromExcle">Terminal_Id</th>
+
+                                <th class="fromExcle">Trxn_Type</th>
+                                <th class="fromExcle">Posting_Date</th>
+                                <th class="fromExcle">Trxn_Date</th>
+                                <th class="fromExcle">Trxn_Time</th>
+                                <th class="fromExcle">Amount</th>
+                                <th class="fromExcle">Commission</th>
+                                <th class="fromExcle">Net_Amount</th>
+                                <th class="fromExcle">Card_Number</th>
+                                <th class="fromExcle">Card_Type</th>
+                                <th class="fromExcle">Approved_Code</th>
+                                <th class="fromExcle">Invoice_No</th>
+
+                                <th class="fromDB">TRANSACTION_DATE</th>
+                                <th class="fromDB">LOAD_DATE</th>
+                                <th class="fromDB">SOURCE</th>
+                                <th class="fromDB">SERIAL_NUMBER</th>
+                                <th class="fromDB">TRANSACTION_AMOUNT</th>
+                                <th class="fromDB">APPROVED_CODE</th>
+                                <th class="fromDB">INVOICE_NO</th>
+                                <th class="fromDB">RESPONSE_CODE</th>
+                                <th class="fromDB">TERMINAL_ID</th>
+                                <th class="fromDB">CARD_NUMBER</th>
+                                <th class="fromDB">ACCOUNT_NUMBER</th>
+
+                                <th class="fromDB"></th>
+
                             </tr>
                         </thead>
                         <tbody>
+
                             @foreach (var item in ViewBag.MatchedData)
 
                             {
-                                var isManual = "";
-                                if (((MOCI.Core.Entities.FINHUB_REVENUE_HEADER)item).IsManual == 1)
-                                    isManual = "Added manual";
-                                else if (((MOCI.Core.Entities.FINHUB_REVENUE_HEADER)item).IsManual ==2)
-                                    isManual = "reversed";
-                                <tr onclick="GetImportedData(@item.ImportedRowId, '@item.SERIAL_NUMBER')">
-                                    <td>@item.TRANSACTION_DATE.ToString("dd/MM/yyyy")</td>
-                                    <td>@item.LOAD_DATE</td>
-                                    <td>@item.SOURCE</td>
-                                    <td>@item.SERIAL_NUMBER</td>
-                                    <td>@item.TRANSACTION_AMOUNT</td>
-                                    <td>@item.APPROVED_CODE</td>
-                                    <td>@item.INVOICE_NO</td>
-                                    <td>@item.TERMINAL_ID</td>
-                                    <td>@item.CARD_NUMBER</td>
-                                    <td>@item.ACCOUNT_NUMBER</td>
-                                    <td>@isManual</td>
+
+
+                                <tr>
+                                    <td>@item.ExcleRow.Merchant_Id</td>
+                                    <td>@item.ExcleRow.Location</td>
+                                    <td>@item.ExcleRow.Terminal_Id</td>
+                                    <td>@item.ExcleRow.Trxn_Type</td>
+                                    <td>@item.ExcleRow.Posting_DateValue.ToString("dd/MM/yyyy")</td>
+                                    <td>@item.ExcleRow.Trxn_DateValue.ToString("dd/MM/yyyy")</td>
+                                    <td>@item.ExcleRow.Trxn_Time</td>
+                                    <td>@item.ExcleRow.Amount</td>
+                                    <td>@item.ExcleRow.Commission</td>
+                                    <td>@item.ExcleRow.Net_Amount</td>
+                                    <td>@item.ExcleRow.Card_Number</td>
+                                    <td>@item.ExcleRow.Card_Type</td>
+                                    <td>@item.ExcleRow.Approved_Code</td>
+                                    <td>@item.ExcleRow.Invoice_No</td>
+
+
+                                    <td class="fromDB">@item.MOCI.TRANSACTION_DATE</td>
+                                    <td class="fromDB">@item.MOCI.LOAD_DATE</td>
+                                    <td class="fromDB">@item.MOCI.SOURCE</td>
+                                    <td class="fromDB">@item.MOCI.SERIAL_NUMBER</td>
+                                    <td class="fromDB">@item.MOCI.TRANSACTION_AMOUNT</td>
+                                    <td class="fromDB">@item.MOCI.APPROVED_CODE</td>
+                                    <td class="fromDB">@item.MOCI.INVOICE_NO</td>
+                                    <td class="fromDB">@item.MOCI.RESPONSE_CODE</td>
+                                    <td class="fromDB">@item.MOCI.TERMINAL_ID</td>
+                                    <td class="fromDB">@item.MOCI.CARD_NUMBER</td>
+                                    <td class="fromDB">@item.MOCI.ACCOUNT_NUMBER</td>
+
+                                    <td>
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th>DEPARTMENT</th>
+                                                    <th>ENTITY</th>
+                                                    <th>FEES_AMOUNT</th>
+                                                    <th>LEDGER_ACCOUNT</th>
+                                                    <th>LOAD_DATE</th>
+                                                    <th>SERIAL_NUMBER</th>
+                                                    <th>SERVICE_NAME</th>
+                                                    <th>SOURCE</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var item2 in @item.MOCI.Details)
+
+                                                {
+                                                    <tr>
+                                                        <td>@item2.DEPARTMENT</td>
+                                                        <td>@item2.ENTITY</td>
+                                                        <td>@item2.FEES_AMOUNT</td>
+                                                        <td>@item2.LEDGER_ACCOUNT</td>
+                                                        <td>@item2.LOAD_DATE</td>
+                                                        <td>@item2.SERIAL_NUMBER</td>
+                                                        <td>@item2.SERVICE_NAME</td>
+                                                        <td>@item2.SOURCE</td>
+                                                    </tr>
+                                                }
+
+                                            </tbody>
+                                        </table>
+
+                                    </td>
+
                                 </tr>
                             }
                         </tbody>
-                        <tfoot>
-                            <tr>
-                                <th>TRANSACTION_DATE</th>
-                            </tr>
-                        </tfoot>
                     </table>
-
                     <div class="modal fade bd-example-modal-xl" id="modalMatched" tabindex="-1" role="dialog" aria-labelledby="modalMatchedTitle" aria-hidden="true">
-
-
-
                         <div class="modal-dialog modal-xl" role="document">
                             <div class="modal-content">
                                 <div class="modal-header modal-header-success ">
@@ -129,54 +188,185 @@
                     </div>
                 </div>
                 <div class="tab-pane fade" id="custom-tabs-one-messages" role="tabpanel" aria-labelledby="custom-tabs-one-messages-tab">
-
-
-                    <table id="unmatchedTable" class="display" style="width:100%">
+                    <table id="tableUnmatched" class="display nowrap" style="width:100%">
                         <thead>
                             <tr>
-                                <th>SERIAL_NUMBER</th>
-                                <th>TRANSACTION_DATE</th>
-                                <th>LOAD_DATE</th>
-                                <th>SOURCE</th>
-                                <th>TRANSACTION_AMOUNT</th>
-                                <th>APPROVED_CODE</th>
-                                <th>INVOICE_NO</th>
-                                <th>TERMINAL_ID</th>
-                                <th>CARD_NUMBER</th>
-                                <th>ACCOUNT_NUMBER</th>
-                                <th>IsManual</th>
+                                <th></th>
+                                <th class="fromExcle">TRANSACTION_DATE</th>
+                                <th class="fromExcle">LOAD_DATE</th>
+                                <th class="fromExcle">SOURCE</th>
+                                <th class="fromExcle">SERIAL_NUMBER</th>
+                                <th class="fromExcle">TRANSACTION_AMOUNT</th>
+                                <th class="fromExcle">APPROVED_CODE</th>
+                                <th class="fromExcle">INVOICE_NO</th>
+                                <th class="fromExcle">RESPONSE_CODE</th>
+                                <th class="fromExcle">TERMINAL_ID</th>
+                                <th class="fromExcle">CARD_NUMBER</th>
+                                <th class="fromExcle">ACCOUNT_NUMBER</th>
+                                <th class="fromExcle">Card_Type</th>
+                                <th class="fromExcle">Approved_Code</th>
+                                <th class="fromExcle">Invoice_No</th>
+
+                                <th class="fromDB">TRANSACTION_DATE</th>
+                                <th class="fromDB">LOAD_DATE</th>
+                                <th class="fromDB">SOURCE</th>
+                                <th class="fromDB">SERIAL_NUMBER</th>
+                                <th class="fromDB">TRANSACTION_AMOUNT</th>
+                                <th class="fromDB">APPROVED_CODE</th>
+                                <th class="fromDB">INVOICE_NO</th>
+                                <th class="fromDB">RESPONSE_CODE</th>
+                                <th class="fromDB">TERMINAL_ID</th>
+                                <th class="fromDB">CARD_NUMBER</th>
+                                <th class="fromDB">ACCOUNT_NUMBER</th>
+                                <th class="tr"></th>
+                                <th class="tr">Matched Done</th>
                             </tr>
                         </thead>
                         <tbody>
+
                             @foreach (var item in ViewBag.UnmatchedData)
 
                             {
-                                var isManual = "";
-                                if (((MOCI.Core.Entities.FINHUB_REVENUE_HEADER)item).IsManual != null)
-                                    isManual = item.IsManual == 1 ? "Added manual" : "reversed";
 
 
-                                <tr onclick="GetCustomer('@item.SERIAL_NUMBER')">
-                                    <td>@item.SERIAL_NUMBER</td>
-                                    <td>@item.TRANSACTION_DATE.ToString("dd/MM/yyyy")</td>
-                                    <td>@item.LOAD_DATE</td>
-                                    <td>@item.SOURCE</td>
-                                    <td>@item.TRANSACTION_AMOUNT</td>
-                                    <td>@item.APPROVED_CODE</td>
-                                    <td>@item.INVOICE_NO</td>
-                                    <td>@item.TERMINAL_ID</td>
-                                    <td>@item.CARD_NUMBER</td>
-                                    <td>@item.ACCOUNT_NUMBER</td>
-                                    <td>@isManual</td>
+                                string serial = @Guid.NewGuid().ToString();
+
+
+
+                                <tr>
+                                    <td></td>
+                                    <td class="tr">@item.MOCI.TRANSACTION_DATE</td>
+                                    <td class="tr">@item.MOCI.LOAD_DATE</td>
+                                    <td class="tr">@item.MOCI.SOURCE</td>
+                                    <td class="tr">@item.MOCI.SERIAL_NUMBER</td>
+                                    <td class="tr">@item.MOCI.TRANSACTION_AMOUNT</td>
+                                    <td class="tr">@item.MOCI.APPROVED_CODE</td>
+                                    <td class="tr">@item.MOCI.INVOICE_NO</td>
+                                    <td class="tr">@item.MOCI.RESPONSE_CODE</td>
+                                    <td class="tr">@item.MOCI.TERMINAL_ID</td>
+                                    <td class="tr">@item.MOCI.CARD_NUMBER</td>
+                                    <td class="tr">@item.MOCI.ACCOUNT_NUMBER</td>
+                                    <td class="tr"></td>
+                                    <td class="tr"></td>
+                                    <td class="tr"></td>
+
+
+                                    <td class="fromDB">@item.MOCI.TRANSACTION_DATE</td>
+                                    <td class="fromDB">@item.MOCI.LOAD_DATE</td>
+                                    <td class="fromDB">@item.MOCI.SOURCE</td>
+                                    <td class="fromDB">@item.MOCI.SERIAL_NUMBER</td>
+                                    <td class="fromDB">@item.MOCI.TRANSACTION_AMOUNT</td>
+                                    <td class="fromDB">@item.MOCI.APPROVED_CODE</td>
+                                    <td class="fromDB">@item.MOCI.INVOICE_NO</td>
+                                    <td class="fromDB">@item.MOCI.RESPONSE_CODE</td>
+                                    <td class="fromDB">@item.MOCI.TERMINAL_ID</td>
+                                    <td class="fromDB">@item.MOCI.CARD_NUMBER</td>
+                                    <td class="fromDB">@item.MOCI.ACCOUNT_NUMBER</td>
+                                    <td class="tr">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th>DEPARTMENT</th>
+                                                    <th>ENTITY</th>
+                                                    <th>FEES_AMOUNT</th>
+                                                    <th>LEDGER_ACCOUNT</th>
+                                                    <th>LOAD_DATE</th>
+                                                    <th>SERIAL_NUMBER</th>
+                                                    <th>SERVICE_NAME</th>
+                                                    <th>SOURCE</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+
+                                                <tr>
+                                                    <td>
+                                                        <select data-parsley-required class="form-control drb-details">
+                                                            <option value="">Select</option>
+                                                            @foreach (var service in ViewBag.Departments)
+
+                                                            {
+                                                                <option>@service</option>
+                                                            }
+
+                                                        </select>
+                                                    </td>
+                                                    <td>MOCI</td>
+                                                    <td>@item.MOCI.TRANSACTION_AMOUNT</td>
+                                                    <td>
+                                                        <select data-parsley-required class="form-control drb-details">
+                                                            <option value="">Select</option>
+                                                            @foreach (var ledger in ViewBag.Ledgers)
+
+                                                            {
+                                                                <option>@ledger</option>
+                                                            }
+
+                                                        </select>
+                                                    </td>
+                                                    <td>@DateTime.Now.ToString()</td>
+                                                    <td>@serial</td>
+                                                    <td>
+                                                        <select class="form-control drb-details">
+                                                            <option value="">Select</option>
+                                                            @foreach (var service in ViewBag.Services)
+
+                                                            {
+                                                                <option>@service</option>
+                                                            }
+
+                                                        </select>
+                                                    </td>
+                                                    <td></td>
+                                                </tr>
+
+
+                                            </tbody>
+                                        </table>
+
+                                    </td>
+                                    <td class="tr">No</td>
+
                                 </tr>
+
                             }
                         </tbody>
+
                         <tfoot>
                             <tr>
-                                <th>TRANSACTION_DATE</th>
+                                <th></th>
+                                <th class="fromExcle">Merchant_Id</th>
+                                <th class="fromExcle">Location</th>
+                                <th class="fromExcle">Terminal_Id</th>
+                                <th class="fromExcle">Trxn_Type</th>
+                                <th class="fromExcle">Posting_Date</th>
+                                <th class="fromExcle">Trxn_Date</th>
+                                <th class="fromExcle">Trxn_Time</th>
+                                <th class="fromExcle">Amount</th>
+                                <th class="fromExcle">Commission</th>
+                                <th class="fromExcle">Net_Amount</th>
+                                <th class="fromExcle">Card_Number</th>
+                                <th class="fromExcle">Card_Type</th>
+                                <th class="fromExcle">Approved_Code</th>
+                                <th class="fromExcle">Invoice_No</th>
+
+                                <th class="fromDB">TRANSACTION_DATE</th>
+                                <th class="fromDB">LOAD_DATE</th>
+                                <th class="fromDB">SOURCE</th>
+                                <th class="fromDB">SERIAL_NUMBER</th>
+                                <th class="fromDB">TRANSACTION_AMOUNT</th>
+                                <th class="fromDB">APPROVED_CODE</th>
+                                <th class="fromDB">INVOICE_NO</th>
+                                <th class="fromDB">RESPONSE_CODE</th>
+                                <th class="fromDB">TERMINAL_ID</th>
+                                <th class="fromDB">CARD_NUMBER</th>
+                                <th class="fromDB">ACCOUNT_NUMBER</th>
+                                <th class="tr"></th>
+                                <th class="tr">Matched Done</th>
                             </tr>
                         </tfoot>
+
                     </table>
+
 
                     <div class="modal fade bd-example-modal-xl" id="modalUnmatched" tabindex="-1" role="dialog" aria-labelledby="modalUnmatchedTitle" aria-hidden="true">
                         <div class="modal-dialog modal-xl" role="document">
@@ -217,11 +407,10 @@
                     </div>
 
                 </div>
-
                 <div class="tab-pane fade" id="custom-tabs-one-Report" role="tabpanel" aria-labelledby="custom-tabs-one-Report-tab">
 
                     <div class="justify-content-center mb-4 row">
-                        <input id="btnSaveReport" onclick="printW('tableTotal')" type="button" value="Print" class="btn btn-primary w-25" style="
+                        <input id="btnSaveReport" type="button" value="Print" class="btn btn-primary w-25" style="
     font-size: 18px;
     font-weight: bold;
 ">
@@ -246,266 +435,628 @@
                             <div class="col-3 hidden-element"> <span style="font-weight: bold;">إلي تاريخ </span>:<span> @ViewBag.Posting_Date </span>   </div>
                             <div class="col-3"> </div>
                         </div>
-                        <table id="tableTotal" style="direction:rtl;text-align:right" class="table">
+                        <div class="col-12">
+                            <table style="direction:rtl;text-align:right" class="table">
 
-                            <tbody>
-                                @foreach (var item in ViewBag.report)
-                                {
+                                <tbody>
+                                    @foreach (var item in ViewBag.report)
+                                    {
+                                        <tr>
+
+
+
+                                            <th scope="row">@item.Key</th>
+                                            <td style="direction: initial;">@String.Format("{0:n}", item.Value)   </td>
+                                            <td></td>
+
+                                        </tr>
+                                    }
                                     <tr>
-                                        <th scope="row">@item.Key</th>
-                                        <td style="direction: initial;">@String.Format("{0:n}", item.Value)   </td>
-                                        <td></td>
 
+
+
+                                        <th scope="row">عمولة البنك</th>
+                                        <td style="direction: initial;"> -@String.Format("{0:n}", ViewBag.TotalCommision)</td>
                                     </tr>
-                                }
-                                <tr>
+                                    <tr class="hide-print">
 
 
 
-                                    <th scope="row">عمولة البنك</th>
-                                    <td style="direction: initial;"> @String.Format("{0:n}", ViewBag.TotalCommision)</td>
-                                </tr>
-                                <tr class="hide-print">
+                                        <th scope="row"> فروقات رسوم خدمات </th>
+                                        <td style="direction: initial;"> @String.Format("{0:n}", ViewBag.Diff)</td>
+                                    </tr>
+                                    <tr>
 
 
 
-                                    <th scope="row"> فروقات رسوم خدمات </th>
-                                    <td style="direction: initial;"> @String.Format("{0:n}", ViewBag.Diff)</td>
-                                </tr>
-                                <tr>
+                                        <th scope="row">المجموع</th>
+                                        <td>@String.Format("{0:n}", ViewBag.Total) </td>
+                                    </tr>
 
-
-
-                                    <th scope="row">المجموع</th>
-                                    <td>@String.Format("{0:n}", ViewBag.Total) </td>
-                                </tr>
-
-                            </tbody>
-                        </table>
-                        <input type="button" class="btn btn-primary" onclick="printAll()" value="print All" />
-
-                        <div class="col-12" id="allTable">
-                            @{
-                                int i = 0;
-                            }
-                            @foreach (var item in (Dictionary
-                            <string, List<ReportRespons>>)ViewData["Reports"])
-                            {
-                                var id = item.Key + "table";
-                                <button type="button" class="btn btn-info btnToggle" data-toggle="collapse" data-target="#@item.Key">@item.Key</button>
-
-                                <div id="@item.Key" class="collapse">
-                                    <input type="button" class="btn btn-primary" onclick="printW('@id')" value="print" />
-                                    <table id="@id" style="direction:rtl;text-align:right" class="table">
-                                        <span>@item.Key</span>
-                                        <tbody>
-
-                                            @foreach (var itemReport in item.Value)
-                                            {
-
-                                                <tr>
-                                                    <th scope="row">@itemReport.Key</th>
-                                                    <td style="direction: initial;">@String.Format("{0:n}", itemReport.Value)   </td>
-                                                    <td></td>
-                                                </tr>
-                                            }
-                                            <tr>
-                                                @{
-                                                    var itemDiff = (List<decimal>)@ViewData["Diffs"];
-
-                                                }
-                                                <th scope="row"> فروقات رسوم خدمات </th>
-                                                <td style="direction: initial;">@String.Format("{0:n}", itemDiff[i])   </td>
-                                                <td></td>
-                                            </tr>
-
-                                            <tr>
-                                                @{
-                                                    var itemComm = (List<decimal>)@ViewData["Commisions"];
-
-                                                }
-                                                <th scope="row">عمولة البنك</th>
-                                                <td style="direction: initial;">@String.Format("{0:n}", itemComm[i])   </td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                @{
-                                                    var itemTotal = (List<decimal>)@ViewData["Total_f"];
-
-                                                }
-                                                <th scope="row">المجموع</th>
-                                                <td style="direction: initial;">@String.Format("{0:n}", itemTotal[i])   </td>
-                                                <td></td>
-                                            </tr>
-                                            @{
-                                                i++;
-                                            }
-                                        </tbody>
-                                    </table>
-                                </div>
-                            }
-
-
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <!-- /.card -->
-
     </div>
 </div>
 
-<div class="modal fade" id="ImportedData" tabindex="-1" role="dialog" aria-labelledby="ImportedDataTitle"
-     aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <table id="tableImported">
 
-                    <tbody>
-                    </tbody>
-                </table>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/xxjapp/xdialog@3/xdialog.min.css">
-<script src="https://cdn.jsdelivr.net/gh/xxjapp/xdialog@3/xdialog.min.js"></script>
 
 <script>
 
-      function printW(val) {
-          var htmlToPrint = '' +
-              '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.4.1/flatly/bootstrap.min.css">';
-          var printContents = document.getElementById(val).outerHTML;
-          htmlToPrint += printContents;
-          var winPrint = window.open('', '', 'left=0,top=0,width=800,height=600,toolbar=0,scrollbars=0,status=0');
-          winPrint.document.write(htmlToPrint);
-            winPrint.document.close();
-            winPrint.focus();
-            winPrint.print();
-              console.log(val);
-
-                       //var originalContents = document.body.innerHTML;
-
-                       //document.body.innerHTML = printContents;
-
-                       //window.print();
-          }
-
-
-          function printAll(){
-              debugger;
-              $(".btnToggle").click();
-              $("[value=print]").hide();
-              $('.btnToggle').hide();
-              var htmlToPrint = '' +
-              '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.4.1/flatly/bootstrap.min.css">';
-          var printContents = document.getElementById("allTable").outerHTML;
-          htmlToPrint += printContents;
-
-          var winPrint = window.open('', '', 'left=0,top=0,width=800,height=600,toolbar=0,scrollbars=0,status=0');
-          winPrint.document.write(htmlToPrint);
-            winPrint.document.close();
-            winPrint.focus();
-            winPrint.print();
-           $('.btnToggle').show();
-           $("[value=print]").show();
+    $(document).ready(function () {
 
 
 
-          }
+
+        function printData() {
+            table.rows().every(function (rowIdx, tableLoop, rowLoop) {
+                var data = this.data();
+
+            });
 
 
-    $(document).ready(function() {
-        $('#tableImported').DataTable( {
-                         order: [[2, 'asc']],
-                         rowGroup: {
-                             dataSrc: 2
-                         }
-                     } );
-      } );
+            $.when($.get("/css/bootstrap.min.css"))
+                .done(function (response) {
+                    console.log('here;')
+                    var style = '<style />' + response + "</style>";
+                    style += '<style />' + 'body {direction: rtl;}.table {margin: 41px;} .hide-print{display:none}' + "</style>";
+                    var mywindow = window.open('');
+                    mywindow.document.write('<html><head><title>' + 'MOCI' + '</title>');
+                    mywindow.document.write(style + '</head><body >');
+                    // mywindow.document.write('<h1>' + document.title + '</h1>');
+                    mywindow.document.write(document.getElementById('tableReport').innerHTML);
 
-
-      function GetImportedData(id, serial_Number){
-        xdialog.startSpin();
-         $.ajax({
-                url: '/Search/GetImportedData?id='+id,
-                type: 'GET',
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                success: function (result) {
-                   if(result !=undefined){
-                            var props = Object.getOwnPropertyNames(result);
-
-                            $("#tableImported tbody").empty();
-                            $("#tableImported tbody").append('<tr><td colspan="2" class="table-header">' + 'Details' + '</td></tr>');
-                            for(var i=5; i< props.length;i++){
-
-                                $("#tableImported tbody").append('<tr><th>'+props[i]+'</th>'+'<th>'+result[props[i]]+'</th></tr>');
-                            }
-                            $("#ImportedData").modal('show');
-                            GetCustomerData(serial_Number);
-
-
-                          // $("#tableImported").html(result);
-                            console.log(result);
+                    try {
+                        var val = $(mywindow.document).find("th:contains('2402039_رسوم خدمات')").next('td').text();
+                        var newVal = parseFloat(val.replace(/[,]/g, "")) + parseFloat('@ViewBag.Diff')
+                        $(mywindow.document).find("th:contains('2402039_رسوم خدمات')").next('td').text(newVal.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','));
                     }
-                    xdialog.stopSpin();
+                    catch
+                    {
 
+                    }
+                    mywindow.document.write('</body></html>');
+
+                    mywindow.document.close(); // necessary for IE >= 10
+                    mywindow.focus(); // necessary for IE >= 10*/
+
+                    mywindow.print();
+                    mywindow.close();
+
+                    return true;
+
+
+                });
+
+
+
+
+        }
+
+        $('#btnSaveReport').on('click', function () {
+
+            if ($('#btnSave').length > 0) {
+                if (unmatchedData.length <@ViewBag.UnmtachedCount) {
+                    xdialog.open({
+                        title: 'Please note',
+                        body: 'You have to match all unmatched rows manually first',
+                        buttons: ['ok'],
+                        style: 'min-width:38em;',
+                        onok: function (param) {
+
+                        }
+                    });
+                }
+                else {
+                    xdialog.open({
+                        title: 'Please note',
+                        body: 'if you need to update this report system will save this uploded file details in system DB',
+                        buttons: ['ok', 'cancel'],
+                        style: 'min-width:38em;',
+                        oncancel: function (param) {
+                            console.info('oncancel', param);
+                        },
+                        onok: function (param) {
+
+
+
+
+                            $('#btnSave').trigger('click', [unmatchedData]);
+
+                            $('#btnSave').remove();
+
+
+                        }
+                    });
+                }
+
+            }
+            else {
+                printData();
+            }
+
+
+        });
+
+        $(document).ajaxComplete(function (event, request, settings) {
+            if (settings.url == "/home/Save") {
+                if (request.responseText.toLowerCase() == "true") {
+                    printData();
+                }
+
+                xdialog.stopSpin();
+            }
+            $("#tableUnmatched_wrapper dt-buttons").hide();
+            $("#custom-tabs-one-Report-tab").hide();
+        });
+
+        var table = $('#tableMatched').DataTable({
+            "iDisplayLength": 50,
+             dom: 'Blfrtip',
+            buttons: [
+                {
+                    extend: 'colvis',
+                    columns: ':not(.noVis)'
                 },
-                error: function (error) {
-                    console.log(error);
-                    xdialog.stopSpin();
+                {
+                    extend: 'print',
+                      filename: "Matched-" + $('#drbAccounts').val() + "-@ViewBag.Posting_Date",
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                },
+                {
+                    extend: 'excel',
+                    filename: "Matched-" + $('#drbAccounts').val() + "-@ViewBag.Posting_Date",
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                }],
+            "columnDefs": [
+                {
+                    "targets": [3, 6, 8, 9, 11, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 25],
+                    "visible": false
+                }
+            ]
+        });
+
+        $('#tableMatched tbody').on('click', 'tr', function () {
+            console.log('hi');
+            var date = table.row(this).data();
+            var columns = table.columns().header().toArray().map(x => x.innerText)
+            var html = '<table class="table dtr-details dtr-cust" width="100%">'
+            var count = 0;
+            html += '<tr  > <td colspan="2"  class="table-header">' + 'From Exclesheet details' + '</td></tr>';
+            for (var i = 0; i < date.length - 1; i++) {
+                var className = $(table.columns().header().toArray()[i]).attr('class');
+                if (className.indexOf('fromDB') >= 0) {
+                    if (count == 0) {
+                        html += '<tr> <td colspan="2"  class="table-header">' + 'From DB details' + '</td></tr>';
+                        count++;
+                    }
+                }
+                html += '<tr><th>' + columns[i] + '</th> <td>' + date[i] + '</td></tr>';
+
+            }
+            html += "</table>";
+            html += date[date.length - 1].replace('<table>', '<table class="table dtr-details" id="' + date[17] + '">');
+            $('#modalMatched .modal-body').html(html);
+            GetCustomerData(date[17]);
+            $('#modalMatched').modal('show')
+        });
+
+        var terminals;
+
+        $.ajax({
+            type: "GET",
+            url: "/Terminal/GetAll",
+
+
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (data) {
+                terminals = data;
+                console.log(data);
+                if (window.location.href.indexOf('Search') > -1) {
+                    //$('#custom-tabs-one-Report-tab').hide();
+                    //$('.sorting_1').hide();
+                    //$("span:contains('Auto match')").closest('button').hide();
+                    //$("span:contains('Edit')").closest('button').hide();
+                }
+
+            },
+            failure: function (response) {
+
+            }
+        });
+
+
+
+        var tableUnmatched = $('#tableUnmatched').DataTable({
+            "iDisplayLength": 50,
+            dom: 'Blfrtip',
+            initComplete: function () {
+                this.api().columns().every(function () {
+                    var column = this;
+                    var select = $('<select><option value=""></option></select>')
+                        .appendTo($(column.footer()).empty())
+                        .on('change', function () {
+                            var val = $.fn.dataTable.util.escapeRegex(
+                                $(this).val()
+                            );
+
+                            column
+                                .search(val ? '^' + val + '$' : '', true, false)
+                                .draw();
+
+                            tableUnmatched.rows().deselect();
+                        });
+
+                    if ($(this.header()).text() == "Matched Done") {
+                        select.append('<option value="Yes">Yes</option>')
+                    }
+                    column.data().unique().sort().each(function (d, j) {
+
+                        select.append('<option value="' + d + '">' + d + '</option>')
+                    });
+                });
+            },
+            buttons: [
+                {
+                    extend: 'colvis',
+                    columns: ':not(.noVis)'
+                },
+                {
+                    extend: 'print',
+                      filename: "Unmatched-" + $('#drbAccounts').val() + "-@ViewBag.Posting_Date",
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                },
+                {
+                    extend: 'excel',
+                    filename: "Unmatched-" + $('#drbAccounts').val() + "-@ViewBag.Posting_Date",
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                }
+            ],
+            'columnDefs': [
+                {
+                    'targets': 0,
+                    'checkboxes': {
+                        'selectRow': true
+                    }
+                }
+            //"columnDefs": [
+            //    {
+            //        orderable: false,
+            //        className: 'select-checkbox',
+            //        targets: 0
+                //    }
+                ,
+                {
+                    // "targets": [0,2,3,4,12,13,14,15,16,17,18,19,20],
+                   // "targets": [   3,   6, 8, 9, 11,   14, 15, 16, 17, 18, 19, 20, 21, 22, 23,24 ,25],
+                    "targets": [4, 7,   10, 12, 15, 16, 17, 18, 19, 20, 21, 22, 23, 23, 24, 25,26],
+                    "visible": false
+                }
+            ],
+            select: {
+                style: 'multi',
+                selector: 'td:first-child'
+            }
+
+        });
+        $('#btnSaveUnmatched').click(function () {
+
+
+            debugger;
+            //get selected row data and prepare item
+            var data = $.map(tableUnmatched.rows('.selected').data(), function (item) {
+                return item
+            });
+
+
+
+            var valid = MatchUnmatche(data, data[18], false);
+            if (valid) {
+                $('#modalUnmatched').modal('toggle')
+
+                // $("#tableReport td:contains('0.000')").parent().remove();
+
+                tableUnmatched.rows('.selected').every(function () {
+                    $(this.node()).addClass('isMatchedDone');
+                    $(this.node()).css('color', 'red');
+                    var current = this.data();
+                    current[current.length - 1] = "Yes";
+                    this.data(current).draw();
+                })
+
+                //  $('.selected').css('color', 'red')
+                //  $('.selected').addClass('isMatchedDone');
+                $('.selected').removeClass('selected')
+                $('#tableUnmatched tbody tr').removeClass('selected')
+
+
+
+            }
+        });
+
+        $('#btnSaveUnmatchedMulti').click(function () {
+
+
+
+            xdialog.startSpin();
+
+
+
+
+            var firstRowData;
+            var count = 0;
+            tableUnmatched.rows('.selected').every(function () {
+                var valid = true;
+                if (count == 0) {
+                    firstRowData = this.data();
+                    count++;
+                }
+
+                valid = MatchUnmatche(this.data(), firstRowData[18], false);
+                if (valid) {
+                    var current = this.data();
+                    current[current.length - 1] = "Yes";
+                    this.data(current).draw();
+                    $(this.node()).removeClass('selected')
+                    $(this.node()).css('color', 'red');
+
+                    $(this.node()).removeClass('selected')
                 }
             });
-    }
+
+            xdialog.stopSpin();
+
+            $('#modalUnmatchedMulti').modal('toggle')
 
 
-    function GetCustomer(serialNumber){
-        $("#tableImported tbody").empty();
-        GetCustomerData(serialNumber);
-    }
+        });
 
-     function GetCustomerData(serialNumber){
-         
-        $.ajax({
-               url: '/Search/GetCustomerData?serialNumber='+serialNumber,
-               type: 'GET',
-               contentType: "application/json; charset=utf-8",
-               dataType: "json",
-               success: function (result) {
-                    xdialog.stopSpin();
-                    if(result !=undefined){
-                         var props = Object.getOwnPropertyNames(result);
-                         $("#tableImported tbody").append('<tr><th colspan="2" class="table-header">' + 'Customer Data' + '</th></tr>');
+        var autoMatchErrors = [];
+        function MatchUnmatche(data,serial,auto) {
 
-                         for(var i=0; i< props.length;i++){
+            var columns = tableUnmatched.columns().header().toArray().map(x => x.innerText)
+            var combine = {
+                ExcleRow: [], MOCI: []
+            };
+            var ExcleRow = "{"
+            var MOCI = "{"
+            for (var i = 0; i < data.length - 1; i++) {
+                var className = $(tableUnmatched.columns().header().toArray()[i]).attr('class');
+                if (className.indexOf('fromDB') >= 0) {
 
-                             $("#tableImported tbody").append('<tr><th>'+props[i]+'</th>'+'<th>'+result[props[i]]+'</th></tr>');
-                         }
+                    MOCI += '"' + columns[i] + '" : "' + data[i] + '",';
 
-                         $("#ImportedData").modal('show');
+                }
+                else if (className.indexOf('fromExcle') >= 0) {
+                    ExcleRow += '"' + columns[i] + '" : "' + data[i] + '",';
+                }
+
+
+            }
+            ExcleRow += "}";
+            MOCI += "}";
+            combine.ExcleRow = JSON.parse(ExcleRow.replace(",}", "}"));
+            combine.MOCI = JSON.parse(MOCI.replace(",}", "}"));
+
+            //get detais table
+
+            var temp;
+            var tempData;
+            var rowData;
+            if (auto == false) {
+            var temp = $('#' + data[18]).DataTable();
+            var tempData = temp.rows().data();
+            var rowData = tempData[0];
+
+                var validate = true;
+                var allFields = $(temp.rows()[0]).find('.first-table select.drb-details')
+                allFields.each(function (index, obj) {
+                    !$(this).parsley().validate()
+                    if (!$(this).parsley().isValid())
+                        validate = false;
+                });
+                if (validate == false) return false;
+
+                rowData[0] = $($(temp.rows()[0]).find('select.drb-details')[0]).val()
+                rowData[3] = $($(temp.rows()[0]).find('select.drb-details')[1]).val()
+                rowData[6] = $($(temp.rows()[0]).find('select.drb-details')[2]).val()
+            }
+            else {
+                var html = data[26];
+                var temp = $(html).DataTable();
+                var tempData = temp.rows().data();
+                var rowData = tempData[0];
+                var terminalDetails = terminals.filter(e => e.merchantId == combine.ExcleRow.Merchant_Id && e.terminalId == combine.ExcleRow.Terminal_Id);
+                if (terminalDetails.length <= 0) {
+                    autoMatchErrors.push("Terminalid " + combine.ExcleRow.Terminal_Id + " and merchantId " + combine.ExcleRow.Merchant_Id + " not found");
+                    return false;
+                }
+                else {
+                    rowData[0] = terminalDetails[0].department;
+                    var found = false;
+                    $($(html).find('select.drb-details')[1]).find("option").each(function () {
+
+                        if ($(this).val().indexOf(terminalDetails[0].account)>=0) {
+                            rowData[3] = $(this).val();
+                            found = true;
+                        }
+                    })
+                    if (!found) {
+                        autoMatchErrors.push("Ledger account not found in ou system please edit the terminal details " + terminalDetails[0].account+" Terminalid " + combine.ExcleRow.Terminal_Id + " and merchantId " + combine.ExcleRow.Merchant_Id + " not found");
+
+
+                        return false;
                     }
+                    rowData[6] = "";
+                }
+            }
+            var cols = temp.columns().header().toArray().map(x => x.innerText)
+            var newMatched = "{"
+
+            for (var i = 0; i < cols.length; i++) {
+
+                newMatched += '"' + cols[i] + '" : "' + rowData[i] + '",';
+
+            }
+            newMatched += "}"
+            combine.MOCI.Details = [];
+            combine.MOCI.Details.push(JSON.parse(newMatched.replace(",}", "}")));
 
 
-               },
-               error: function (error) {
-                   console.log(error);
-                   xdialog.stopSpin();
-               }
-           });
-      }
+
+            if (unmatchedData.length > 0) {
+                var currentData = unmatchedData.filter(e => e.MOCI.SERIAL_NUMBER == combine.MOCI.SERIAL_NUMBER);
+                if (currentData != null && currentData.length > 0) {
+
+                    var val = $("#tableReport th:contains('" + currentData[0].MOCI.Details[0].LEDGER_ACCOUNT + "')").next('td').text();
+                    val = parseFloat(val.replace(/[,]/g, "")) - parseFloat(currentData[0].MOCI.Details[0].FEES_AMOUNT);
+                    $("#tableReport th:contains('" + currentData[0].MOCI.Details[0].LEDGER_ACCOUNT + "')").next('td').text(val.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','));
+
+                    var valCommission = $("#tableReport th:contains('عمولة البنك')").next('td').text();
+                    valCommission = parseFloat(valCommission.replace(/[,]/g, "")) + parseFloat(currentData[0].ExcleRow.Commission);
+                    $("#tableReport th:contains('عمولة البنك')").next('td').text(valCommission.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','));
+
+                    var valTotal = $("#tableReport th:contains('المجموع')").next('td').text();
+                    valTotal = parseFloat(valTotal.replace(/[,]/g, "")) - parseFloat(currentData[0].MOCI.Details[0].FEES_AMOUNT) + parseFloat(currentData[0].ExcleRow.Commission);
+                    $("#tableReport th:contains('المجموع')").next('td').text(valTotal.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','));
+
+                    unmatchedData = unmatchedData.filter(e => !(e.MOCI.SERIAL_NUMBER == combine.MOCI.SERIAL_NUMBER));
+                }
+            }
+
+            unmatchedData.push(combine);
+
+            if ($("#tableReport th:contains('" + combine.MOCI.Details[0].LEDGER_ACCOUNT + "')").length <= 0) {
+                $("#tableReport table tbody").prepend("<tr><th>" + combine.MOCI.Details[0].LEDGER_ACCOUNT + "</th><td style='direction: initial;'>" + 0.000 + "</td></tr>");
+            }
+
+            var val = $("#tableReport th:contains('" + combine.MOCI.Details[0].LEDGER_ACCOUNT + "')").next('td').text();
+            val = parseFloat(val.replace(/[,]/g, "")) + parseFloat(combine.MOCI.Details[0].FEES_AMOUNT);
+            $("#tableReport th:contains('" + combine.MOCI.Details[0].LEDGER_ACCOUNT + "')").next('td').text(val.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','));
+
+            var valCommission = $("#tableReport th:contains('عمولة البنك')").next('td').text();
+            valCommission = parseFloat(valCommission.replace(/[,]/g, "")) - parseFloat(combine.ExcleRow.Commission);
+            $("#tableReport th:contains('عمولة البنك')").next('td').text(valCommission.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','));
+
+            var valTotal = $("#tableReport th:contains('المجموع')").next('td').text();
+            valTotal = parseFloat(valTotal.replace(/[,]/g, "")) + parseFloat(combine.MOCI.Details[0].FEES_AMOUNT) - parseFloat(combine.ExcleRow.Commission);
+            $("#tableReport th:contains('المجموع')").next('td').text(valTotal.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','));
 
 
+
+
+            return true;
+        }
+
+
+        var unmatchedData = [];
+        $('#tableUnmatched tbody').on('click', '.tr', function () {
+
+
+            tableUnmatched.rows().deselect();
+            tableUnmatched.row(this).select();
+            $('#modalUnmatchedMulti .modal-body').html('');
+            var date = tableUnmatched.row(this).data();
+
+            $('#tableUnmatched tbody tr').removeClass('selected')
+            $(this).parents('tr').toggleClass('selected');
+            var columns = tableUnmatched.columns().header().toArray().map(x => x.innerText)
+            var html = '<table class="table dtr-details dtr-cust" width="100%">'
+            var count = 0;
+            html += '<tr  > <td colspan="2" class="table-header">' + 'From Exclesheet details' + '</td></tr>';
+            for (var i = 0; i < date.length-2; i++) {
+                var className = $(tableUnmatched.columns().header().toArray()[i]).attr('class');
+                if (className.indexOf('fromDB') >= 0) {
+                    if (count == 0) {
+                        html += '<tr> <td colspan="2" class="table-header">' + 'From DB details' + '</td></tr>';
+                        count++;
+                    }
+                }
+
+                html += '<tr><th>' + columns[i] + '</th> <td>' + date[i] + '</td></tr>';
+
+            }
+            html += "</table>";
+            html += date[date.length - 2].replace('<table>', '<table class="table first-table dtr-details" id="' + date[18] + '">');
+            $('#modalUnmatched .modal-body').html(html);
+            if (unmatchedData.length > 0) {
+                var currentData = unmatchedData.filter(e => e.MOCI.SERIAL_NUMBER == date[18]);
+                if (currentData != null && currentData.length>0) {
+                    $($('#' + date[18] + " select.drb-details")[0]).val(currentData[0].MOCI.Details[0].DEPARTMENT);
+                    $($('#' + date[18] + " select.drb-details")[1]).val(currentData[0].MOCI.Details[0].LEDGER_ACCOUNT);
+                    $($('#' + date[18] + " select.drb-details")[2]).val(currentData[0].MOCI.Details[0].SERVICE_NAME);
+                }
+
+            }
+            if (window.location.href.indexOf('Search') > -1) {
+               // $('#' + date[18]).hide();
+                $("#btnSaveUnmatched").hide();
+            }
+             $("#"+date[18]).hide();
+              GetCustomerData(date[18])
+            $('#modalUnmatched').modal('show')
+        });
+
+    });
+
+    function GetCustomerData(serialNumber){
+       var unmatchedDataObj = @Html.Raw(Json.Serialize(@ViewBag.CustomerData));
+       result = unmatchedDataObj.filter(e => e.seriaL_NUMBER == serialNumber);
+       result = result[0];
+       if(result !=undefined){
+           var props = Object.getOwnPropertyNames(result);
+                    $(".dtr-cust tbody").append('<tr> <th colspan="2" class="table-header">' + 'Customer Data' + '</th></tr>')
+                   // $(".table dtr-details tbody").empty();
+                    for(var i=0; i< props.length;i++){
+
+                        $(".dtr-cust tbody").append('<tr><th>'+props[i]+'</th>'+'<th>'+result[props[i]]+'</th></tr>');
+                    }
+       }
+         
+    }
+
+
+    //      function GetCustomerData(serialNumber){
+    //    xdialog.startSpin();
+    //     $.ajax({
+    //            url: '/Search/GetCustomerData?serialNumber='+serialNumber,
+    //            type: 'GET',
+    //            contentType: "application/json; charset=utf-8",
+    //            dataType: "json",
+    //            success: function (result) {
+    //                 xdialog.stopSpin();
+    //                var props = Object.getOwnPropertyNames(result);
+    //                $(".dtr-details tbody").first().append('<tr> <th colspan="2" class="table-header">' + 'Customer Data' + '</th></tr>')
+    //               // $(".table dtr-details tbody").empty();
+    //                for(var i=0; i< props.length;i++){
+
+    //                    $(".dtr-details tbody").first().append('<tr><th>'+props[i]+'</td>'+'<td>'+result[props[i]]+'</th></tr>');
+    //                }
+    //               // $("#ImportedData").modal('show');
+    //              // $("#tableImported").html(result);
+    //                console.log(result);
+
+
+    //            },
+    //            error: function (error) {
+    //                console.log(error);
+    //                xdialog.stopSpin();
+    //            }
+    //        });
+    //}
 </script>

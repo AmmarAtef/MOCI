@@ -12,6 +12,8 @@ using MOCI.Core.Entities;
 using System;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Authorization;
+using MOCI.DAL.Interfaces;
+using AutoMapper;
 
 namespace MOCI.Web.Controllers
 {
@@ -26,11 +28,15 @@ namespace MOCI.Web.Controllers
         private readonly IFINHUB_REVENUE_HEADERService _IFINHUB_REVENUE_DETAILService;
         private readonly IConfiguration _configuration;
         private readonly IImportsService _importsService;
-
+        private readonly ICustomerDataService _customerDataService;
+        private readonly IMapper _imapper;
         public SearchController(ILogger<HomeController> logger,
               INotyfService notyf,
+              IMapper mapper,
+              ICustomerDataService customerDataService,
             IUserService userService, IImportsService importsService, IWebHostEnvironment environment, IFINHUB_REVENUE_HEADERService ifINHUB_REVENUE_DETAILService, IConfiguration configuration)
         {
+            _imapper = mapper;
             _configuration = configuration;
             _hostingEnvironment = environment;
             _userService = userService;
@@ -38,6 +44,7 @@ namespace MOCI.Web.Controllers
             _IFINHUB_REVENUE_DETAILService = ifINHUB_REVENUE_DETAILService;
             _logger = logger;
             _importsService = importsService;
+            _customerDataService = customerDataService;
         }
 
         public IActionResult Index()
@@ -52,28 +59,29 @@ namespace MOCI.Web.Controllers
         {
             try
             {
+                Search search = _imapper.Map<SearchParams, Search>(searchParams);
 
-                var result = _importsService.GetImportedBySearch(searchParams);
-                var maxRow = result.Max(e => e.Trxn_DateValue);
-                var Posting_Date = result.Max(e => e.Posting_DateValue);
-                ViewBag.Posting_Date = Posting_Date.Value.ToString("dd-MM-yyyy");
-                var minRow = result.Min(e => e.Trxn_DateValue);
-                ViewBag.MaxDate = maxRow.Value.ToString("dd-MM-yyyy");
-                ViewBag.MinDate = minRow.Value.ToString("dd-MM-yyyy");
+                var result = _importsService.GetImportedBySearch(search);
+
                 var connection = _configuration.GetConnectionString("MOCIDataConnection");
                 _IFINHUB_REVENUE_DETAILService.Connection = connection;
-                var mociData = _IFINHUB_REVENUE_DETAILService.GetAllbyDate(minRow.Value, maxRow.Value);
+                //var mociData = _IFINHUB_REVENUE_DETAILService.GetAllbyDate(minRow.Value, maxRow.Value);
+                var mociData = _IFINHUB_REVENUE_DETAILService.GetFinHubBySearchParams(search);
 
 
-
-
+                var maxRow = mociData.Max(e => e.TRANSACTION_DATE);
+                var Posting_Date = mociData.Max(e => e.TRANSACTION_DATE);
+                ViewBag.Posting_Date = Posting_Date.ToString("dd-MM-yyyy");
+                var minRow = mociData.Min(e => e.TRANSACTION_DATE);
+                ViewBag.MaxDate = maxRow.ToString("dd-MM-yyyy");
+                ViewBag.MinDate = minRow.ToString("dd-MM-yyyy");
 
                 ViewBag.Services = _IFINHUB_REVENUE_DETAILService.GetAllUnique(DAL.Repositories.Cols.SERVICE_NAME);
                 ViewBag.Ledgers = _IFINHUB_REVENUE_DETAILService.GetAllUnique(DAL.Repositories.Cols.LEDGER_ACCOUNT);
                 ViewBag.Departments = _IFINHUB_REVENUE_DETAILService.GetAllUnique(DAL.Repositories.Cols.DEPARTMENT);
 
 
-                var mociDataDetails = _IFINHUB_REVENUE_DETAILService.GetAllDetails(minRow.Value, maxRow.Value);
+                var mociDataDetails = _IFINHUB_REVENUE_DETAILService.GetAllDetails(minRow, maxRow);
                 List<CombineItem> results = new List<CombineItem>();
 
                 ViewBag.MatchedCount = 0;
@@ -83,10 +91,22 @@ namespace MOCI.Web.Controllers
                 ViewBag.TotalCommision = 0;
                 decimal commision = 0;
                 decimal dif = 0;
-                foreach (var excleSheetRow in result)
+
+
+                _customerDataService.Connection = connection;
+
+
+                foreach (var mociItem in mociData)
                 {
-                    var mociItem = mociData.Where(e => e.ImportedRowId == excleSheetRow.Id).FirstOrDefault();
-                    if (mociItem != null && mociItem != default(FINHUB_REVENUE_HEADER))
+                    var excleSheetRow = result.Where(e => e.Id == mociItem.ImportedRowId).FirstOrDefault();
+
+                    if (excleSheetRow == null)
+                    {
+                        ViewBag.UnmtachedCount++;
+                        if (mociItem.TRANSACTION_AMOUNT != null)
+                            ViewBag.UnmtachedAmount += mociItem.TRANSACTION_AMOUNT;
+                    }
+                    else
                     {
                         mociItem.Details = mociDataDetails.Where(e => e.SERIAL_NUMBER == mociItem.SERIAL_NUMBER).ToList();
                         ViewBag.MatchedCount++;
@@ -95,28 +115,42 @@ namespace MOCI.Web.Controllers
                         decimal val = mociItem.TRANSACTION_AMOUNT - mociItem.Details.Sum(e => e.FEES_AMOUNT);
                         dif = val + dif;
                     }
-                    else
-                    {
-                        ViewBag.UnmtachedCount++;
-                        if (excleSheetRow.Amount != null)
-                            ViewBag.UnmtachedAmount += excleSheetRow.Amount;
-                    }
                     CombineItem c = new CombineItem()
                     {
                         ExcleRow = excleSheetRow,
-                        MOCI = mociItem
+                        MOCI = mociItem,
+                        CustomerData = _customerDataService.GetBySerialNumber(mociItem.SERIAL_NUMBER)
                         //excleSheetRow =, mociItem
                     };
 
                     results.Add(c);
                 }
+
+                if (!String.IsNullOrEmpty(searchParams.COMPANY_NAME))
+                    results = results.Where(c => c.CustomerData != null).Where(c => c.CustomerData.COMPANY_NAME == searchParams.COMPANY_NAME).ToList();
+                if (!String.IsNullOrEmpty(searchParams.APPLICANT_NAME))
+                    results = results.Where(c => c.CustomerData != null).Where(c => c.CustomerData.APPLICANT_NAME == searchParams.APPLICANT_NAME).ToList();
+                if (!String.IsNullOrEmpty(searchParams.COMMERCIAL_NO))
+                    results = results.Where(c => c.CustomerData != null).Where(c => c.CustomerData.COMMERCIAL_NO == searchParams.COMMERCIAL_NO).ToList();
+
+
+                var custData = results.Where(c => c.CustomerData != null);
+                ViewBag.CustomerData = custData.Select(c => c.CustomerData).ToList();
                 ViewBag.TotalCommision = commision;
                 ViewBag.Data = results;
                 ViewBag.TotalRecords = ViewBag.MatchedCount + ViewBag.UnmtachedCount;
 
-                var matchedData = results.Where(d => d.MOCI != null).ToList();
+                if (results.Count() < ViewBag.TotalRecords)
+                {
+                    ViewBag.MatchedCount = results.Where(d => d.ExcleRow != null).Count();
+                    ViewBag.UnmtachedCount = results.Where(d => d.ExcleRow == null).Count();
+                    ViewBag.TotalRecords = ViewBag.MatchedCount + ViewBag.UnmtachedCount;
+                }
+
+
+                var matchedData = results.Where(d => d.ExcleRow != null).ToList();
                 ViewBag.MatchedData = matchedData;
-                ViewBag.UnmatchedData = results.Where(d => d.MOCI == null).ToList();
+                ViewBag.UnmatchedData = results.Where(d => d.ExcleRow == null).ToList();
                 ViewBag.Diff = dif;
                 var matchedDetails = matchedData.SelectMany(e => e.MOCI.Details).ToList();
 
@@ -137,7 +171,7 @@ namespace MOCI.Web.Controllers
                 ViewBag.Total = total - commision + dif;
                 ViewBag.DiffTotal = total - commision + dif;
                 _notyf.Success("Succeeded");
-                return PartialView("../Home/_ViewSummary");
+                return PartialView("../Home/_ViewSummarySearch");
             }
             catch (Exception ex)
             {
@@ -162,8 +196,7 @@ namespace MOCI.Web.Controllers
                 reportParams.TransactionDateFrom = reportParams.TransactionDateFrom.Value.AddDays(-1 * (reportParams.TransactionDateFrom.Value.Day - 1));
                 int days = System.DateTime.DaysInMonth(reportParams.TransactionDateTo.Value.Year,
                     reportParams.TransactionDateTo.Value.Month);
-                reportParams.TransactionDateTo = reportParams.TransactionDateTo.Value.AddDays(days - 1)
-                                                   .AddDays(-26);
+                reportParams.TransactionDateTo = reportParams.TransactionDateTo.Value.AddDays(days - 1);
 
                 ViewBag.MaxDate = reportParams.TransactionDateTo;
                 ViewBag.MinDate = reportParams.TransactionDateFrom;
@@ -316,6 +349,14 @@ namespace MOCI.Web.Controllers
         {
             return _importsService.GetbyId(id);
         }
-            
+
+        [HttpGet]
+        public CustomerData GetCustomerData(string serialNumber)
+        {
+            var connection = _configuration.GetConnectionString("MOCIDataConnection");
+            _customerDataService.Connection = connection;
+            return _customerDataService.GetBySerialNumber(serialNumber);
+        }
+
     }
 }

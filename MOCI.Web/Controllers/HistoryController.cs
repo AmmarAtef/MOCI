@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Hosting;
 using System.Data;
 using Microsoft.Extensions.Configuration;
 using AspNetCoreHero.ToastNotification.Abstractions;
+using MOCI.DAL.Interfaces;
 
 namespace MOCI.Web.Controllers
 {
@@ -25,11 +26,14 @@ namespace MOCI.Web.Controllers
         private readonly IFINHUB_REVENUE_HEADERService _IFINHUB_REVENUE_DETAILService;
          private readonly IConfiguration _configuration;
         private readonly IImportsService _importsService;
+        private readonly ICustomerDataService _customerDataService;
 
         public HistoryController(ILogger<HomeController> logger,
               INotyfService notyf,
+               ICustomerDataService customerDataService,
             IUserService userService, IImportsService importsService, IWebHostEnvironment environment, IFINHUB_REVENUE_HEADERService ifINHUB_REVENUE_DETAILService, IConfiguration configuration)
         {
+            _customerDataService=customerDataService;
              _configuration = configuration;
             _hostingEnvironment = environment;
             _userService = userService;
@@ -170,6 +174,7 @@ namespace MOCI.Web.Controllers
                 ViewBag.TotalCommision = 0;
                 decimal commision = 0;
                 decimal dif = 0;
+                _customerDataService.Connection = connection;
                 foreach (var excleSheetRow in excleSheetData)
                 {
                     var mociItem = mociData.Where(e => e.ImportedRowId == excleSheetRow.Id).FirstOrDefault();
@@ -191,7 +196,8 @@ namespace MOCI.Web.Controllers
                     CombineItem c = new CombineItem()
                     {
                         ExcleRow = excleSheetRow,
-                        MOCI = mociItem
+                        MOCI = mociItem,
+                        CustomerData = _customerDataService.GetBySerialNumber(mociItem.SERIAL_NUMBER)
                         //excleSheetRow =, mociItem
                     };
 
@@ -200,7 +206,7 @@ namespace MOCI.Web.Controllers
                 ViewBag.TotalCommision = commision;
                 ViewBag.Data = results;
                 ViewBag.TotalRecords = ViewBag.MatchedCount + ViewBag.UnmtachedCount;
-
+                ViewBag.CustomerData = results.Where(c => c.CustomerData != null).Select(c => c.CustomerData).ToList();
                 var matchedData = results.Where(d => d.MOCI != null).ToList();
                 ViewBag.MatchedData = matchedData;
                 ViewBag.UnmatchedData = results.Where(d => d.MOCI == null).ToList();

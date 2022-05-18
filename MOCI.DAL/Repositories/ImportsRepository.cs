@@ -47,26 +47,26 @@ namespace MOCI.DAL.Repositories
         }
 
 
-        public List<ImportedData> GetImportedBySearch(SearchParams searchParams)
+        public List<ImportedData> GetImportedBySearch(Search searchParams)
         {
             var query = _context.ImportedData.AsQueryable();
 
 
-            query = searchParams.TransactionDate == null ? query : query.Where(c =>
-                 searchParams.TransactionDate != null &&
-                 c.Trxn_DateValue == searchParams.TransactionDate
+            query = searchParams.TRANSACTION_DATE == null ? query : query.Where(c =>
+                 searchParams.TRANSACTION_DATE != null &&
+                 c.Trxn_DateValue == searchParams.TRANSACTION_DATE
                    );
 
-            query = searchParams.ApprovedCode == null ? query :
-                query.Where(c => searchParams.ApprovedCode != null &&
-                c.Approved_Code == searchParams.ApprovedCode.Trim());
+            query = searchParams.APPROVED_CODE == null ? query :
+                query.Where(c => searchParams.APPROVED_CODE != null &&
+                c.Approved_Code == searchParams.APPROVED_CODE.Trim());
 
-            query = searchParams.CardNumber == null ? query :
-                query.Where(c => c.Card_Number == searchParams.CardNumber.Trim());
+            query = searchParams.CARD_NUMBER == null ? query :
+                query.Where(c => c.Card_Number == searchParams.CARD_NUMBER.Trim());
 
 
-            query = searchParams.InvoiceNo == null ? query :
-                query.Where(c => c.Invoice_No == searchParams.InvoiceNo.Trim());
+            query = searchParams.INVOICE_NO == null ? query :
+                query.Where(c => c.Invoice_No == searchParams.INVOICE_NO.Trim());
 
 
 

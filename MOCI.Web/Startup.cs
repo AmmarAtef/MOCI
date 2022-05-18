@@ -79,6 +79,8 @@ namespace MOCI.Web
             
            
             services.AddScoped<IImportsRepository, ImportsRepository>();
+            //services.AddScoped<ICustomerDataRepository, CustomerDataRepository>();
+
 
             services.AddScoped<ILogRepository, LogRepository>();
 
@@ -92,6 +94,8 @@ namespace MOCI.Web
             services.AddScoped<IImportsService, ImportsService>();
             services.AddScoped<IFINHUB_REVENUE_HEADERService, FINHUB_REVENUE_HEADERDService>();
             services.AddScoped<IMappedColumnsService, MappedColumnsService>();
+            services.AddScoped<ICustomerDataService, CustomerDataService>();
+
 
             #endregion
 

@@ -66,10 +66,7 @@
                     obj[id] = $("#" + id).val();
                 });
 
-                @*$.get('@Url.Action("ReportResult", "Search", new { reportParams = obj })',
-                    function (data) {
-    $('#detailsDiv').html(data);
-});*@
+              
 
                 $.ajax({
                 url: '@Url.Action("ReportResult", "Search")',
@@ -78,7 +75,7 @@
                 dataType: "json",
                 data: obj,
                 success: function (result) {
-                   // $("#divCardBody").html(result);
+                  
                 },
                 error: function (error) {
                     console.log(error);
@@ -95,8 +92,6 @@
             xdialog.stopSpin();
             if (request.responseText != "") {
                 $('#divUpload').addClass('hidden-element');
-                //$('#divCardBody').html(request.responseText);
-                @*@Html.RenderPartial("../Home/_ViewSummary")*@
                 $('#divCardBody').html(request.responseText);
                  $('#matchedTable').DataTable( {
               

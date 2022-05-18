@@ -11,7 +11,7 @@ namespace MOCI.DAL.Interfaces
         public List<ImportedData> GetByFileName(string fileName);
         public List<CustomeList> GetFilesHistory();
         public List<ImportedData> GetbyGuid(string guid);
-        public List<ImportedData> GetImportedBySearch(SearchParams searchParams);
+        public List<ImportedData> GetImportedBySearch(Search searchParams);
         List<ImportedData> GetReport(Report report);
         
     }

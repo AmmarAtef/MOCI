@@ -18,6 +18,7 @@ namespace MOCI.Core.Mapping
             CreateMap<NLog, NLogDto>().ReverseMap();
             CreateMap<MappedColumns, MappedColumnsDto>().ReverseMap();
             CreateMap<FINHUB_REVENUE_HEADERPostModel, FINHUB_REVENUE_HEADER>().ReverseMap();
+            CreateMap<Search, SearchParams>().ReverseMap();
         }
     }
 }

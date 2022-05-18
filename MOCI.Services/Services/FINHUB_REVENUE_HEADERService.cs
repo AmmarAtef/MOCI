@@ -10,7 +10,7 @@ using System.Text;
 
 namespace MOCI.Services
 {
-  public  class FINHUB_REVENUE_HEADERDService : IFINHUB_REVENUE_HEADERService
+    public class FINHUB_REVENUE_HEADERDService : IFINHUB_REVENUE_HEADERService
     {
         private IFINHUB_REVENUE_HEADERRepository _fINHUB_REVENUE_HEADERRepository;
         private readonly IMapper _mapper;
@@ -18,7 +18,7 @@ namespace MOCI.Services
         public FINHUB_REVENUE_HEADERDService(IMapper mapper)
         {
             _mapper = mapper;
-          
+
         }
         public string Connection { get; set; }
 
@@ -46,12 +46,12 @@ namespace MOCI.Services
         public List<FINHUB_REVENUE_HEADER> GetAllbyDate(DateTime from, DateTime to)
         {
             _fINHUB_REVENUE_HEADERRepository = new FINHUB_REVENUE_HEADERRepository(this.Connection);
-            return _fINHUB_REVENUE_HEADERRepository.GetAllbyDate(from,to);
+            return _fINHUB_REVENUE_HEADERRepository.GetAllbyDate(from, to);
         }
         public List<FINHUB_REVENUE_DETAIL> GetAllDetails(DateTime from, DateTime to)
         {
             _fINHUB_REVENUE_HEADERRepository = new FINHUB_REVENUE_HEADERRepository(this.Connection);
-            return _fINHUB_REVENUE_HEADERRepository.GetAllDetails(from,to);
+            return _fINHUB_REVENUE_HEADERRepository.GetAllDetails(from, to);
         }
 
         public List<FINHUB_REVENUE_HEADER> GetFinHub(DateTime from, DateTime to)
@@ -76,5 +76,13 @@ namespace MOCI.Services
             _fINHUB_REVENUE_HEADERRepository = new FINHUB_REVENUE_HEADERRepository(this.Connection);
             return _fINHUB_REVENUE_HEADERRepository.GetAllUnique(col);
         }
+
+        public List<FINHUB_REVENUE_HEADER> GetFinHubBySearchParams(Search searchParams)
+        {
+            _fINHUB_REVENUE_HEADERRepository = new FINHUB_REVENUE_HEADERRepository(this.Connection);
+            return _fINHUB_REVENUE_HEADERRepository.GetFinHubBySearchParams(searchParams);
+        }
+       
+
     }
 }

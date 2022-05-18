@@ -5,44 +5,32 @@
 
 @model SearchParams;
 
+<form id="searchForm" style="margin:5px">
 
-
-<div class="row mt-3">
-    <div class="col-md-1">
-        @Html.LabelFor(c => c.TransactionDate)
+    @foreach (var item in ViewData.ModelMetadata.Properties)
+    {
+        <div class="row mt-3 group">
+            <div class="col-md-2">
+                @Html.Label(item.PropertyName)
+            </div>
+            <div class="col-md-2">
+                @Html.Editor( item.PropertyName, new
+            {
+            htmlAttributes = new
+            {
+            @class = "form-control"
+            }
+            })
+            </div>
+        </div>
+    }
+    <div class="row mt-3 group">
+        <div class="col-md-2"></div>
+        <div class="col-md-2">
+            <input type="submit" style="width:100%" value="Submit" class="btn btn-primary" id="btnSubmit" />
+        </div>
     </div>
-    <div class="col-md-2">
-        @Html.EditorFor(c => c.TransactionDate, new { htmlAttributes = new { @class = "form-control" } })
-    </div>
-    <div class="col-md-1">
-        @Html.LabelFor(c => c.CardNumber)
-    </div>
-    <div class="col-md-2">
-        @Html.EditorFor(c => c.CardNumber, new { htmlAttributes = new { @class = "form-control" } })
-    </div>
-
-</div>
-<div class="row mt-3">
-    <div class="col-md-1">
-        @Html.LabelFor(c => c.ApprovedCode)
-    </div>
-    <div class="col-md-2">
-        @Html.EditorFor(c => c.ApprovedCode, new { htmlAttributes = new { @class = "form-control" } })
-    </div>
-    <div class="col-md-1">
-        @Html.LabelFor(c => c.InvoiceNo)
-    </div>
-    <div class="col-md-2">
-        @Html.EditorFor(c => c.InvoiceNo, new { htmlAttributes = new { @class = "form-control" } })
-    </div>
-</div>
-
-<div class="row mt-3">
-    <div class="col-md-2"></div>
-    <div class="col-md-2">
-        <input type="submit" style="width:100%" value="Submit" class="btn btn-primary" id="btGet" />
-    </div>
-</div>
+</form>
 
 
 
@@ -90,30 +78,38 @@
 <script src="https://cdn.datatables.net/buttons/2.1.0/js/buttons.print.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.1.0/js/buttons.colVis.min.js"></script>
 <script>
+      $(document).ready(function () {
 
-        $(document).ready(function () {
-            $('#btGet').click(function () {
+
+        $('#btnSubmit').click(function (e) {
+            e.preventDefault();
+
+            var isValid = $("#searchForm").valid();
+            if (isValid) {
                 xdialog.startSpin();
-            var jsonData =
-            { TransactionDate: $("#TransactionDate").val(),
-              InvoiceNo: $("#InvoiceNo").val(),
-              CardNumber: $("#CardNumber").val(),
-              ApprovedCode:$("#ApprovedCode").val()
-            };
+                var obj = {};
+                $('#searchForm input')
+                  .not(':input[type=button], :input[type=submit], :input[type=reset]')
+                  .each(function () {
+                    var id = $(this).attr('id');
+                    obj[id] = $("#" + id).val();
+                  });
 
-            $.ajax({
-                url: '@Url.Action("Search","Search")',
+                $.ajax({
+                url: '@Url.Action("Search", "Search")',
                 type: 'GET',
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
-                data: jsonData,
+                data: obj,
                 success: function (result) {
-                   // $("#divCardBody").html(result);
+
                 },
                 error: function (error) {
                     console.log(error);
                 }
             });
+            }
+
         })
     });
 
