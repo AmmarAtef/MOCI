@@ -192,7 +192,7 @@ namespace MOCI.Web.Controllers
                         for (int len = 1; len < objects.Capacity - 1; len++)
                         {
                             string name = ((Newtonsoft.Json.Linq.JProperty)objects[len]).Name;
-                            string mappedFrom = mappedColumns.FirstOrDefault(c => c.MappedTo == name).MappedFrom;
+                            string mappedFrom = mappedColumns.FirstOrDefault(c => c.MappedTo.Replace(" ", "_") == name).MappedFrom;
                             PropertyInfo propertyInfo = excleRowDtp.GetType().GetProperty(mappedFrom);
                             propertyInfo.SetValue(excleRowDtp, Convert.ChangeType(dynamic[i][name], propertyInfo.PropertyType), null);
 

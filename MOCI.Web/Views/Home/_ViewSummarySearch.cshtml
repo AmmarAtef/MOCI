@@ -1023,6 +1023,15 @@
                     $(".dtr-cust tbody").append('<tr> <th colspan="2" class="table-header">' + 'Customer Data' + '</th></tr>')
                    // $(".table dtr-details tbody").empty();
                     for(var i=0; i< props.length;i++){
+                        if(props[i].toLowerCase().indexOf("time") > -1){
+                                    var d = new Date(result[props[i]]);
+                                    result[props[i]] = d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+                                }
+
+                                if(props[i].toLowerCase().indexOf("date") > -1){
+                                    var d = new Date(result[props[i]]);
+                                     result[props[i]] = d.getDate()+"/"+d.getMonth()+1+"/"+d.getFullYear();
+                                }
 
                         $(".dtr-cust tbody").append('<tr><th>'+props[i]+'</th>'+'<th>'+result[props[i]]+'</th></tr>');
                     }

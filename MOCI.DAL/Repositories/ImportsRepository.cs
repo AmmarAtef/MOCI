@@ -47,26 +47,26 @@ namespace MOCI.DAL.Repositories
         }
 
 
-        public List<ImportedData> GetImportedBySearch(Search searchParams)
+        public List<ImportedData> GetImportedBySearch(DateTime from , DateTime to)
         {
             var query = _context.ImportedData.AsQueryable();
 
 
-            query = searchParams.TRANSACTION_DATE == null ? query : query.Where(c =>
-                 searchParams.TRANSACTION_DATE != null &&
-                 c.Trxn_DateValue == searchParams.TRANSACTION_DATE
+            query = from == null ? query : query.Where(c =>
+                 to != null &&
+                 c.Trxn_DateValue >= from && c.Trxn_DateValue <=to
                    );
 
-            query = searchParams.APPROVED_CODE == null ? query :
-                query.Where(c => searchParams.APPROVED_CODE != null &&
-                c.Approved_Code == searchParams.APPROVED_CODE.Trim());
+            //query = searchParams.APPROVED_CODE == null ? query :
+            //    query.Where(c => searchParams.APPROVED_CODE != null &&
+            //    c.Approved_Code == searchParams.APPROVED_CODE.Trim());
 
-            query = searchParams.CARD_NUMBER == null ? query :
-                query.Where(c => c.Card_Number == searchParams.CARD_NUMBER.Trim());
+            //query = searchParams.CARD_NUMBER == null ? query :
+            //    query.Where(c => c.Card_Number == searchParams.CARD_NUMBER.Trim());
 
 
-            query = searchParams.INVOICE_NO == null ? query :
-                query.Where(c => c.Invoice_No == searchParams.INVOICE_NO.Trim());
+            //query = searchParams.INVOICE_NO == null ? query :
+            //    query.Where(c => c.Invoice_No == searchParams.INVOICE_NO.Trim());
 
 
 

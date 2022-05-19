@@ -41,7 +41,7 @@ namespace MOCI.Web.Controllers
         {
             bool added = await _mappedColumnsService.AddColumns(mappedColumns);
 
-            return View();
+            return View("/Home/Upload");
         }
 
         

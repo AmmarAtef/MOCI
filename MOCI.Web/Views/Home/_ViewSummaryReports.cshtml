@@ -82,7 +82,7 @@
                                 var isManual = "";
                                 if (((MOCI.Core.Entities.FINHUB_REVENUE_HEADER)item).IsManual == 1)
                                     isManual = "Added manual";
-                                else if (((MOCI.Core.Entities.FINHUB_REVENUE_HEADER)item).IsManual ==2)
+                                else if (((MOCI.Core.Entities.FINHUB_REVENUE_HEADER)item).IsManual == 2)
                                     isManual = "reversed";
                                 <tr onclick="GetImportedData(@item.ImportedRowId, '@item.SERIAL_NUMBER')">
                                     <td>@item.TRANSACTION_DATE.ToString("dd/MM/yyyy")</td>
@@ -102,6 +102,16 @@
                         <tfoot>
                             <tr>
                                 <th>TRANSACTION_DATE</th>
+                                <th>LOAD_DATE</th>
+                                <th>SOURCE</th>
+                                <th>SERIAL_NUMBER</th>
+                                <th>TRANSACTION_AMOUNT</th>
+                                <th>APPROVED_CODE</th>
+                                <th>INVOICE_NO</th>
+                                <th>TERMINAL_ID</th>
+                                <th>CARD_NUMBER</th>
+                                <th>ACCOUNT_NUMBER</th>
+                                <th>IsManual</th>
                             </tr>
                         </tfoot>
                     </table>
@@ -119,6 +129,27 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
+                                    <table id="tableImported" class="table dtr-details">
+
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                    <table class="table dtr-details" width="100%">
+                                        <thead>
+                                            <tr>
+                                                <th>DEPARTMENT</th>
+                                                <th>ENTITY</th>
+                                                <th>FEES_AMOUNT</th>
+                                                <th>LEDGER_ACCOUNT</th>
+                                                <th>LOAD_DATE</th>
+                                                <th>SERIAL_NUMBER</th>
+                                                <th>SERVICE_NAME</th>
+                                                <th>SOURCE</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="deptDb">
+                                        </tbody>
+                                    </table>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -173,7 +204,17 @@
                         </tbody>
                         <tfoot>
                             <tr>
+                                <th>SERIAL_NUMBER</th>
                                 <th>TRANSACTION_DATE</th>
+                                <th>LOAD_DATE</th>
+                                <th>SOURCE</th>
+                                <th>TRANSACTION_AMOUNT</th>
+                                <th>APPROVED_CODE</th>
+                                <th>INVOICE_NO</th>
+                                <th>TERMINAL_ID</th>
+                                <th>CARD_NUMBER</th>
+                                <th>ACCOUNT_NUMBER</th>
+                                <th>IsManual</th>
                             </tr>
                         </tfoot>
                     </table>
@@ -188,10 +229,30 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
+                                    <table id="tableImported" class="table dtr-details">
+
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                    <table class="table dtr-details" style="display:none; width:100%">
+                                        <thead>
+                                            <tr>
+                                                <th>DEPARTMENT</th>
+                                                <th>ENTITY</th>
+                                                <th>FEES_AMOUNT</th>
+                                                <th>LEDGER_ACCOUNT</th>
+                                                <th>LOAD_DATE</th>
+                                                <th>SERIAL_NUMBER</th>
+                                                <th>SERVICE_NAME</th>
+                                                <th>SOURCE</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="deptDb">
+                                        </tbody>
+                                    </table>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-info" id="btnSaveUnmatched">Save</button>
                                 </div>
                             </div>
                         </div>
@@ -210,7 +271,6 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-info" id="btnSaveUnmatchedMulti">Save</button>
                                 </div>
                             </div>
                         </div>
@@ -356,28 +416,10 @@
     </div>
 </div>
 
-<div class="modal fade" id="ImportedData" tabindex="-1" role="dialog" aria-labelledby="ImportedDataTitle"
-     aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <table id="tableImported">
 
-                    <tbody>
-                    </tbody>
-                </table>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
+
+
+
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/xxjapp/xdialog@3/xdialog.min.css">
 <script src="https://cdn.jsdelivr.net/gh/xxjapp/xdialog@3/xdialog.min.js"></script>
@@ -428,12 +470,12 @@
 
 
     $(document).ready(function() {
-        $('#tableImported').DataTable( {
-                         order: [[2, 'asc']],
-                         rowGroup: {
-                             dataSrc: 2
-                         }
-                     } );
+    @* $('#tableImported').DataTable( {
+        order: [[2, 'asc']],
+        rowGroup: {
+        dataSrc: 2
+        }
+        } );*@
       } );
 
 
@@ -449,13 +491,22 @@
                             var props = Object.getOwnPropertyNames(result);
 
                             $("#tableImported tbody").empty();
-                            $("#tableImported tbody").append('<tr><td colspan="2" class="table-header">' + 'Details' + '</td></tr>');
+                            $("#tableImported tbody").append('<tr><td colspan="2" class="table-header">' + 'From Exclesheet details' + '</td></tr>');
                             for(var i=5; i< props.length;i++){
 
-                                $("#tableImported tbody").append('<tr><th>'+props[i]+'</th>'+'<th>'+result[props[i]]+'</th></tr>');
+                               
+
+                                if(props[i].toLowerCase().indexOf("date") > -1){
+                                     var d = new Date(result[props[i]]);
+                                     result[props[i]] = d.getDate()+"/"+d.getMonth()+1+"/"+d.getFullYear();
+                                }
+
+                                var val =  result[props[i]] == null?"":result[props[i]];
+                                $("#tableImported tbody").append('<tr><th>'+props[i].toUpperCase()+'</th>'+'<th>'+val+'</th></tr>');
                             }
-                            $("#ImportedData").modal('show');
-                            GetCustomerData(serial_Number);
+                            $("#modalMatched").modal('show');
+
+                            GetCustomerData(serial_Number, true);
 
 
                           // $("#tableImported").html(result);
@@ -474,11 +525,12 @@
 
     function GetCustomer(serialNumber){
         $("#tableImported tbody").empty();
-        GetCustomerData(serialNumber);
+        $("#modalUnmatched").modal('show');
+        GetCustomerData(serialNumber, false);
     }
 
-     function GetCustomerData(serialNumber){
-         
+     function GetCustomerData(serialNumber, matched){
+         GetDB(serialNumber, matched);
         $.ajax({
                url: '/Search/GetCustomerData?serialNumber='+serialNumber,
                type: 'GET',
@@ -487,15 +539,26 @@
                success: function (result) {
                     xdialog.stopSpin();
                     if(result !=undefined){
+
                          var props = Object.getOwnPropertyNames(result);
                          $("#tableImported tbody").append('<tr><th colspan="2" class="table-header">' + 'Customer Data' + '</th></tr>');
 
                          for(var i=0; i< props.length;i++){
+                             if(props[i].toLowerCase().indexOf("time") > -1){
+                                    var d = new Date(result[props[i]]);
+                                    result[props[i]] = d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+                                }
 
-                             $("#tableImported tbody").append('<tr><th>'+props[i]+'</th>'+'<th>'+result[props[i]]+'</th></tr>');
+                                if(props[i].toLowerCase().indexOf("date") > -1){
+                                    var d = new Date(result[props[i]]);
+                                     result[props[i]] = d.getDate()+"/"+d.getMonth()+1+"/"+d.getFullYear();
+                                }
+
+                             var val =  result[props[i]] == null?"":result[props[i]];
+                             $("#tableImported tbody").append('<tr><th>'+props[i].toUpperCase()+'</th>'+'<th>'+val+'</th></tr>');
                          }
 
-                         $("#ImportedData").modal('show');
+
                     }
 
 
@@ -507,5 +570,57 @@
            });
       }
 
+
+
+       function GetDB(serial_Number, matched){
+          debugger;
+          var objDetails = {};
+          var objectDB ={};
+          if(matched){
+              objDetails =  @Html.Raw(Json.Serialize(@ViewBag.MatchedData));
+          }else{
+               objDetails =  @Html.Raw(Json.Serialize(@ViewBag.UnmatchedData));
+          }
+
+          objectDB = objDetails.filter(e => e.seriaL_NUMBER == serial_Number)[0];
+
+          var itemTr =''
+          for(var i=0;  i<objectDB.details.length; i++)
+          {
+              var item2 =  objectDB.details[i];
+              var dept = item2.department == null?"": item2.department;
+            itemTr += '<tr><td>'+dept+'</td><td>'+item2.entity+'</td><td>'+item2.feeS_AMOUNT+'</td><td>'
+                +item2.ledgeR_ACCOUNT+'</td> <td>'+item2.loaD_DATE+'</td><td>'+item2.seriaL_NUMBER+'</td><td>'+ item2.servicE_NAME+'</td><td>'+item2.source+'</td></tr>';
+
+          }
+
+          var props = Object.getOwnPropertyNames(objectDB);
+
+
+          $("#deptDb").empty();
+          $("#tableImported tbody").append('<tr><td colspan="2" class="table-header">' + 'From DB details' + '</td></tr>');
+
+          for(var i=0; i< props.length;i++){
+              if(props[i]!='details'){
+
+                  if(props[i].toLowerCase().indexOf("time") > -1){
+                       var d = new Date(objectDB[props[i]]);
+                       objectDB[props[i]] = d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+                   }
+
+                   if(props[i].toLowerCase().indexOf("date") > -1){
+                       var d = new Date(objectDB[props[i]]);
+                       objectDB[props[i]] = d.getDate()+"/"+d.getMonth()+1+"/"+d.getFullYear();
+                   }
+
+                   var val =  objectDB[props[i]] == null?"":objectDB[props[i]];
+                   $("#tableImported tbody").append('<tr><th>'+props[i].toUpperCase()+'</th>'+'<th>'+val+'</th></tr>');
+              }
+
+          }
+           $("#deptDb").append(itemTr);
+      }
+
+      
 
 </script>

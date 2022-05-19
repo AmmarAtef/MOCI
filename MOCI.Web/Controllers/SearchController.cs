@@ -61,7 +61,7 @@ namespace MOCI.Web.Controllers
             {
                 Search search = _imapper.Map<SearchParams, Search>(searchParams);
 
-                var result = _importsService.GetImportedBySearch(search);
+              
 
                 var connection = _configuration.GetConnectionString("MOCIDataConnection");
                 _IFINHUB_REVENUE_DETAILService.Connection = connection;
@@ -75,6 +75,8 @@ namespace MOCI.Web.Controllers
                 var minRow = mociData.Min(e => e.TRANSACTION_DATE);
                 ViewBag.MaxDate = maxRow.ToString("dd-MM-yyyy");
                 ViewBag.MinDate = minRow.ToString("dd-MM-yyyy");
+
+                var result = _importsService.GetImportedBySearch(minRow, maxRow);
 
                 ViewBag.Services = _IFINHUB_REVENUE_DETAILService.GetAllUnique(DAL.Repositories.Cols.SERVICE_NAME);
                 ViewBag.Ledgers = _IFINHUB_REVENUE_DETAILService.GetAllUnique(DAL.Repositories.Cols.LEDGER_ACCOUNT);

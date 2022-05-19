@@ -273,10 +273,11 @@ namespace MOCI.DAL.Repositories
         public List<FINHUB_REVENUE_HEADER> GetFinHubBySearchParams(Search searchParams)
         {
             string query = "SELECT * FROM[FINHUB].[dbo].[FINHUB_REVENUE_HEADER] where ";
+            int i = 0;
             foreach (PropertyInfo prop in searchParams.GetType().GetProperties())
             {
                 var type = Nullable.GetUnderlyingType(prop.PropertyType) ?? prop.PropertyType;
-                int i = 0;
+                
                 if (prop.GetValue(searchParams) != null)
                 {
                     if (i > 0)
