@@ -502,6 +502,7 @@ namespace MOCI.Web.Controllers
         [HttpGet]
         public IActionResult CreateFinHub()
         {
+            ViewData["PageTitle"] = "Create New Hub";
             var connection = _configuration.GetConnectionString("MOCIDataConnection");
             _IFINHUB_REVENUE_DETAILService.Connection = connection;
 

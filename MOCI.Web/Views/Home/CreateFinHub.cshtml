@@ -1,26 +1,29 @@
 ﻿@model FINHUB_REVENUE_HEADERModel
 @inject IJsonHelper Json;
-<form id="formCreateHub" style="margin:5px">
-    <h2>Please fill the text boxes</h2>
+
+
+
+
+<form id="formCreateHub" novalidate="novalidate">
     @foreach (var item in ViewData.ModelMetadata.Properties)
     {
-        <div class="row mt-3 group">
-            <div class="col-md-2">
+        <div class="row mt-2 group">
+            <div class="col-lg-2 col-md-3 col-sm-12 p-md-0 label-container">
                 @Html.Label(item.PropertyName)
             </div>
-            <div class="col-md-2">
+            <div class="col-lg-10 col-md-9 col-sm-12">
                 @Html.Editor(item.PropertyName,
-            null, new { htmlAttributes = new { @class = "form-control" } })
+            null, new { htmlAttributes = new { @class = "form-control", placeholder=item.PropertyName } })
             </div>
         </div>
     }
 
 
-    <div class="row mt-3">
-        <div class="col-md-2">
+    <div class="row mt-2">
+        <div class="col-lg-2 col-md-3 col-sm-12 p-md-0 label-container">
             @Html.Label("terminal Id")
         </div>
-        <div class="col-md-2">
+        <div class="col-lg-10 col-md-9 col-sm-12">
             <select class="form-control drb-details" id="TERMINAL_ID" onchange="terminalChange()">
                 <option value="">Select</option>
                 @foreach (var terminal in ViewBag.Terminals)
@@ -34,11 +37,11 @@
     </div>
 
 
-    <div class="row mt-3">
-        <div class="col-md-2">
+    <div class="row mt-2">
+        <div class="col-lg-2 col-md-3 col-sm-12 p-md-0 label-container">
             @Html.Label("Service Name")
         </div>
-        <div class="col-md-2">
+        <div class="col-lg-10 col-md-9 col-sm-12">
             <select class="form-control drb-details" id="SERVICE_NAME">
                 <option value="">Select</option>
                 @foreach (var service in ViewBag.Services)
@@ -52,11 +55,11 @@
     </div>
 
 
-    <div class="row mt-3">
-        <div class="col-md-2">
+    <div class="row mt-2">
+        <div class="col-lg-2 col-md-3 col-sm-12 p-md-0 label-container">
             @Html.Label("Ledger Account")
         </div>
-        <div class="col-md-2">
+        <div class="col-lg-10 col-md-9 col-sm-12">
             <select data-parsley-required class="form-control drb-details" id="LEDGER_ACCOUNT" required>
                 <option value="">Select</option>
                 @foreach (var ledger in ViewBag.Ledgers)
@@ -69,11 +72,11 @@
         </div>
     </div>
 
-    <div class="row mt-3">
-        <div class="col-md-2">
+    <div class="row mt-2">
+        <div class="col-lg-2 col-md-3 col-sm-12 p-md-0 label-container">
             @Html.Label("Department")
         </div>
-        <div class="col-md-2">
+        <div class="col-lg-10 col-md-9 col-sm-12">
             <select data-parsley-required class="form-control drb-details" id="DEPARTMENT" required>
                 <option value="">Select</option>
                 @foreach (var service in ViewBag.Departments)
@@ -84,11 +87,11 @@
         </div>
     </div>
 
-    <div class="row mt-3">
-        <div class="col-md-2">
+    <div class="row mt-2">
+        <div class="col-lg-2 col-md-3 col-sm-12 p-md-0 label-container">
             @Html.Label("account number")
         </div>
-        <div class="col-md-2">
+        <div class="col-lg-10 col-md-9 col-sm-12">
             <select data-parsley-required class="form-control drb-details" id="ACCOUNT_NUMBER" required>
                 <option value="">Select</option>
                 @foreach (var account in ViewBag.Accounts)
@@ -98,21 +101,24 @@
             </select>
         </div>
     </div>
-    
 
 
 
 
-    <div class="row mt-3">
-        <div class="col-md-2"></div>
-        <div class="col-md-2">
+
+    <div class="row mt-4">
+        <div class="col-lg-2 col-md-3 col-sm-12 p-md-0 label-container"></div>
+        <div class="col-lg-2 col-md-4 col-sm-12">
             <input type="submit" style="width:100%" value="Submit" class="btn btn-primary" id="btnSubmit" />
         </div>
     </div>
 </form>
 
 
+
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
+
+<link rel="stylesheet" type="text/css" href="~/css/generalStyle.css" />
 
 <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/flick/jquery-ui.css">

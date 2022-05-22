@@ -5,28 +5,29 @@
 
 @model SearchParams;
 
-<form id="searchForm" style="margin:5px">
+<form id="searchForm" novalidate="novalidate">
 
     @foreach (var item in ViewData.ModelMetadata.Properties)
     {
-        <div class="row mt-3 group">
-            <div class="col-md-2">
+        <div class="row mt-2 group">
+            <div class="col-lg-2 col-md-3 col-sm-12 p-md-0 label-container">
                 @Html.Label(item.PropertyName)
             </div>
-            <div class="col-md-2">
+            <div class="col-lg-10 col-md-9 col-sm-12">
                 @Html.Editor( item.PropertyName, new
             {
             htmlAttributes = new
             {
-            @class = "form-control"
+            @class = "form-control",
+            placeholder =item.PropertyName
             }
             })
             </div>
         </div>
     }
-    <div class="row mt-3 group">
-        <div class="col-md-2"></div>
-        <div class="col-md-2">
+    <div class="row mt-4 group">
+        <div class="col-lg-2 col-md-3 col-sm-12 p-md-0 label-container"></div>
+        <div class="col-lg-2 col-md-4 col-sm-12">
             <input type="submit" style="width:100%" value="Submit" class="btn btn-primary" id="btnSubmit" />
         </div>
     </div>
@@ -34,9 +35,10 @@
 
 
 
-<div class="card-body" id="divCardBody">
+<div class="card-body mt-5 p-0 tab-main-container" id="divCardBody">
 </div>
 
+<link rel="stylesheet" type="text/css" href="~/css/generalStyle.css" />
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
 

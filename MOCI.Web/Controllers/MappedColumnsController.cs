@@ -31,6 +31,7 @@ namespace MOCI.Web.Controllers
 
         public async Task<IActionResult> Index()
         {
+            ViewData["PageTitle"] = "Mapping";
             List<string> names = await _mappedColumnsService.GetColumnsNames();
             ViewBag.Columns = names;
             return View();

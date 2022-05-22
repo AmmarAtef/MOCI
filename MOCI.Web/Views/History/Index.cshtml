@@ -2,7 +2,16 @@
     ViewData["Title"] = "History";
 }
 
+<style>
 
+    .select-container-Fin .select2-container .select2-selection--single {
+        height: 43px !important;
+    }
+
+    .select-container-Fin .select2-container--default .select2-selection--single .select2-selection__arrow {
+        top: 7px !important;
+    }
+</style>
 
 <section class="content">
     <div class="container-fluid">
@@ -10,7 +19,7 @@
 
 
 
-        <div class="card-body d-flex">
+        <div class="card-body d-flex select-container-Fin">
 
             <select data-parsley-required id="drbHistoryFiles"
                     data-live-search="true"
