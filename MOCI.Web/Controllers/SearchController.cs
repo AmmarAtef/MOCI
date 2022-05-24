@@ -67,8 +67,7 @@ namespace MOCI.Web.Controllers
                 _IFINHUB_REVENUE_DETAILService.Connection = connection;
                 //var mociData = _IFINHUB_REVENUE_DETAILService.GetAllbyDate(minRow.Value, maxRow.Value);
                 var mociData = _IFINHUB_REVENUE_DETAILService.GetFinHubBySearchParams(search);
-
-
+               
                 var maxRow = mociData.Max(e => e.TRANSACTION_DATE);
                 var Posting_Date = mociData.Max(e => e.TRANSACTION_DATE);
                 ViewBag.Posting_Date = Posting_Date.ToString("dd-MM-yyyy");

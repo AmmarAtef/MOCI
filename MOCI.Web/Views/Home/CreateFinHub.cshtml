@@ -172,6 +172,7 @@
                 dataType: "json",
                 data: JSON.stringify(obj),
                 success: function (result) {
+                    window.location.href ="@Url.Action("Index", "Search")";
                 },
                 error: function (error) {
                     console.log(error);

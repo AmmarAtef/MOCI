@@ -27,6 +27,7 @@ using AspNetCoreHero.ToastNotification.Abstractions;
 using Newtonsoft.Json.Linq;
 using MOCI.DAL.DbContexts;
 using AutoMapper;
+using Microsoft.AspNetCore.Routing;
 
 namespace MOCI.Web.Controllers
 {
@@ -542,6 +543,7 @@ namespace MOCI.Web.Controllers
             };
 
             _IFINHUB_REVENUE_DETAILService.InsertWithUser(finHub);
+            _notyf.Success("Saved");
             return View("Index");
         }
 
