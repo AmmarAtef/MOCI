@@ -43,13 +43,16 @@ namespace MOCI.Web.Controllers
         private readonly IImportsService _importsService;
         private readonly IMappedColumnsService _mappedColumnsService;
         private readonly MTRSDBContext _context;
+        private readonly ICustomerDataService _customerDataService;
         private readonly IMapper _mapper;
         public HomeController(ILogger<HomeController> logger,
                INotyfService notyf,
                IMapper mapper,
+               ICustomerDataService customerDataService,
                IMappedColumnsService mappedColumnsService,
             IUserService userService, MTRSDBContext context, IImportsService importsService, IWebHostEnvironment environment, IFINHUB_REVENUE_HEADERService ifINHUB_REVENUE_DETAILService, IConfiguration configuration)
         {
+            _customerDataService = customerDataService;
             _configuration = configuration;
             _hostingEnvironment = environment;
             _userService = userService;
@@ -294,7 +297,8 @@ namespace MOCI.Web.Controllers
                     {
                         //   SumOfDetails = SumOfDetails,
                         ExcleRow = excleSheetRow,
-                        MOCI = mociItem
+                        MOCI = mociItem,
+                        CustomerData = mociItem != null ? _customerDataService.GetBySerialNumber(mociItem.SERIAL_NUMBER) : null
                         //excleSheetRow =, mociItem
                     };
 
