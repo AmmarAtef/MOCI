@@ -206,6 +206,8 @@ namespace MOCI.Web.Controllers
                 var mociData = _IFINHUB_REVENUE_DETAILService.GetFinHub(reportParams.TransactionDateFrom.Value,
                     reportParams.TransactionDateTo.Value);
 
+                ViewBag.From = reportParams.TransactionDateFrom;
+                ViewBag.To = reportParams.TransactionDateTo;
 
 
 
@@ -265,6 +267,8 @@ namespace MOCI.Web.Controllers
                 List<decimal> diffs = new List<decimal>();
                 List<decimal> transactionAmounts = new List<decimal>();
                 List<decimal> transactionFees = new List<decimal>();
+                List<DateTime> tranFrom = new List<DateTime>();
+                List<DateTime> tranTo = new List<DateTime>();
 
                 var groups = mociData.GroupBy(c => c.TRANSACTION_DATE.Month);
                 List<int> keys = new List<int>();
@@ -315,10 +319,16 @@ namespace MOCI.Web.Controllers
 
                     reports.Add(monthNames[group.Key - 1], reportByGroup);
 
-
+                    var fromDate = group.Select(c=>c.TRANSACTION_DATE).FirstOrDefault();
+                    var firstDayOfMonth = new DateTime(fromDate.Year, fromDate.Month, 1);
+                    var lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
+                    tranFrom.Add(firstDayOfMonth);
+                    tranTo.Add(lastDayOfMonth);
                 }
 
                 ViewData["Reports"] = reports;
+                ViewData["tranFrom"] = tranFrom;
+                ViewData["tranTo"] = tranTo;
 
                 ViewData["Diffs"] = diffs;
                 ViewData["Total_f"] = totals;
