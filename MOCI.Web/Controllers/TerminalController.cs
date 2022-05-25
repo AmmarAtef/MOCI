@@ -30,6 +30,8 @@ namespace MOCI.Web.Controllers
         // GET: Terminal
         public async Task<IActionResult> Index()
         {
+            ViewData["PageTitle"] = "Terminal";
+            
             return View(await _context.Terminals.ToListAsync());
         }
 
@@ -60,6 +62,7 @@ namespace MOCI.Web.Controllers
         // GET: Terminal/Create
         public IActionResult Create()
         {
+            ViewData["PageTitle"] = "Create new Terminal";
             // ViewBag.Services = _IFINHUB_REVENUE_DETAILService.GetAllUnique(DAL.Repositories.Cols.SERVICE_NAME);
             var connection = _configuration.GetConnectionString("MOCIDataConnection");
             _IFINHUB_REVENUE_DETAILService.Connection = connection;
@@ -97,6 +100,7 @@ namespace MOCI.Web.Controllers
         // GET: Terminal/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
+            ViewData["PageTitle"] = "Edit Terminal";
             var connection = _configuration.GetConnectionString("MOCIDataConnection");
             _IFINHUB_REVENUE_DETAILService.Connection = connection;
             ViewBag.Ledgers = _IFINHUB_REVENUE_DETAILService.GetAllUnique(DAL.Repositories.Cols.LEDGER_ACCOUNT);
@@ -158,6 +162,8 @@ namespace MOCI.Web.Controllers
         // GET: Terminal/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
+            ViewData["PageTitle"] = "Delete Terminal";
+
             if (id == null)
             {
                 return NotFound();

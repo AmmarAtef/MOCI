@@ -5,16 +5,17 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
+<link rel="stylesheet" type="text/css" href="~/css/generalStyle.css" />
+<div class="row mt-2 group">
+    <div class="col-lg-10 col-md-10 col-sm-10 p-md-0"></div>
+    <div class="col-lg-1 col-md-1 col-sm-1 p-md-0 ">
+        <a asp-action="Create"  class="btn btn-primary">Create New</a>
+    </div>
+</div>
 <section class="content">
     <div class="container-fluid">
-        <div class="row  p-4">
-            <a asp-action="Create">Create New</a>
-        </div>
-        <div class="row p-4" style="
-    background: white;
-    border: 1px solid;
-">
+       
+        <div class="row table-main-container" style="width:100% !important">
             <table class="table">
                 <thead>
                     <tr>
@@ -56,9 +57,9 @@
                                 @Html.DisplayFor(modelItem => item.Account)
                             </td>
                             <td>
-                                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                                <a asp-action="Edit" asp-route-id="@item.Id"  class="btn btn-info"><i class="fa fa-edit"></i></a> |
+                                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-success"><i class="fa fa-eye"></i></a> |
+                                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>
                     }

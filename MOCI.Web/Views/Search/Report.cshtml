@@ -1,7 +1,9 @@
 ﻿@using MOCI.Core.DTOs;
 @model Report;
 
-
+@{
+    ViewData["Title"] = "Report";
+}
 
 <form id="formReport" novalidate="novalidate">
     @foreach (var item in ViewData.ModelMetadata.Properties)

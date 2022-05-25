@@ -78,3 +78,125 @@
 .tab-main-container .tab-content-main-container .btnToggle.collapsed i:before{
     content: "\f078";
 }
+
+
+
+.main-screen-container {
+    min-height: 90vh !important;
+}
+
+.table-main-container table.table {
+    background-color: white;
+    border-bottom: none !important;
+    border: 1px solid #dee2e6 !important;
+    border-radius: 5px;
+}
+
+    .table-main-container table.table thead th {
+        font-size: 14px;
+        border-bottom: 2px solid #dee2e6 !important;
+        padding: 8px 10px !important;
+    }
+
+    .table-main-container table.table tbody td {
+        font-size: 14px;
+    }
+
+        .table-main-container table.table tbody td .btn {
+            padding: 0 5px;
+            margin: 0 3px;
+        }
+
+.table-main-container .dataTables_length, .table-main-container .dataTables_filter {
+    margin: 10px 0;
+}
+
+    .table-main-container .dataTables_length label {
+        font-size: 13px;
+        font-weight: 300;
+    }
+
+        .table-main-container .dataTables_length label select {
+            min-width: 100px;
+            border: 1px solid #ced4da;
+            background-color: white;
+            margin: 0 3px 0 10px;
+            padding: 0.375rem 0.75rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #7b8a8b;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid #ced4da;
+            border-radius: 0.25rem;
+            -webkit-transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+            transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+        }
+
+    .table-main-container .dataTables_filter label {
+        font-size: 13px;
+        font-weight: 300;
+    }
+
+        .table-main-container .dataTables_filter label input {
+            margin-left: 10px;
+            padding: 0.375rem 0.75rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #7b8a8b;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid #ced4da;
+            border-radius: 0.25rem;
+            -webkit-transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+            transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+        }
+
+            .table-main-container .dataTables_filter label input:focus {
+                color: #7b8a8b;
+                background-color: #fff;
+                border-color: #597ea2;
+                outline: 0;
+                -webkit-box-shadow: 0 0 0 0.2rem rgb(44 62 80 / 25%);
+                box-shadow: 0 0 0 0.2rem rgb(44 62 80 / 25%);
+            }
+
+.table-main-container .dataTables_info {
+    font-size: 13px;
+    padding: 0 !important;
+    margin: 10px 0;
+}
+
+.table-main-container .dataTables_paginate {
+    background-color: #dee2e6;
+    padding: 0 !important;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
+    .table-main-container .dataTables_paginate .paginate_button {
+        padding: 5px 10px !important;
+        margin: 0 !important;
+    }
+
+.table-main-container .dataTables_wrapper .dataTables_paginate .paginate_button.current {
+    background: #343a40 !important;
+    color: white !important;
+}
+
+.table-main-container .dataTables_wrapper .dataTables_paginate .paginate_button:not(.disabled):hover {
+    background: #343a4024 !important;
+    border: none;
+    color: #333 !important;
+    margin: 0 !important;
+    padding: 5px 10px !important;
+}
+
+.table-main-container .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+    background: #343a40 !important;
+    color: white !important;
+}

@@ -339,11 +339,7 @@ namespace MOCI.Web.Controllers
             return BadRequest();
         }
 
-        [HttpGet]
-        public IActionResult Data()
-        {
-            return View();
-        }
+       
 
         [HttpGet]
         public ImportedData GetImportedData(long id)

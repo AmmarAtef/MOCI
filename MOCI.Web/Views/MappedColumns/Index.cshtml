@@ -1,4 +1,7 @@
 ﻿@model MappedModel
+@{
+    ViewData["Title"] = "Mapping";
+}
 <form id="formMapped">
     @foreach (var item in ViewData.ModelMetadata.Properties)
     {
